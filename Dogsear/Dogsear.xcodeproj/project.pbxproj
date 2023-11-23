@@ -40,6 +40,7 @@
 		08D6302D2B0F2B5E00090F3C /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 08D6302C2B0F2B5E00090F3C /* FirebaseRemoteConfigSwift */; };
 		08D6302F2B0F2B5E00090F3C /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 08D6302E2B0F2B5E00090F3C /* FirebaseStorage */; };
 		08D630312B0F2B5E00090F3C /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 08D630302B0F2B5E00090F3C /* FirebaseStorageCombine-Community */; };
+		08D6303B2B0F300600090F3C /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D6303A2B0F300600090F3C /* Observable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		08D62FEB2B0F29D200090F3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		08D62FEE2B0F29D200090F3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		08D62FF02B0F29D200090F3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		08D6303A2B0F300600090F3C /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 		08D62FE12B0F29D100090F3C /* Dogsear */ = {
 			isa = PBXGroup;
 			children = (
+				08D630392B0F2FDB00090F3C /* Helper */,
 				08D630362B0F2F0400090F3C /* Resource */,
 				08D62FE62B0F29D100090F3C /* ViewController.swift */,
 				08D62FED2B0F29D200090F3C /* LaunchScreen.storyboard */,
@@ -126,6 +129,14 @@
 				08D62FF02B0F29D200090F3C /* Info.plist */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		08D630392B0F2FDB00090F3C /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				08D6303A2B0F300600090F3C /* Observable.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08D6303B2B0F300600090F3C /* Observable.swift in Sources */,
 				08D62FE72B0F29D100090F3C /* ViewController.swift in Sources */,
 				08D62FE32B0F29D100090F3C /* AppDelegate.swift in Sources */,
 				08D62FE52B0F29D100090F3C /* SceneDelegate.swift in Sources */,
