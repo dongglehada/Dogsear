@@ -110,14 +110,22 @@
 		08D62FE12B0F29D100090F3C /* Dogsear */ = {
 			isa = PBXGroup;
 			children = (
-				08D62FE22B0F29D100090F3C /* AppDelegate.swift */,
-				08D62FE42B0F29D100090F3C /* SceneDelegate.swift */,
+				08D630362B0F2F0400090F3C /* Resource */,
 				08D62FE62B0F29D100090F3C /* ViewController.swift */,
-				08D62FEB2B0F29D200090F3C /* Assets.xcassets */,
 				08D62FED2B0F29D200090F3C /* LaunchScreen.storyboard */,
-				08D62FF02B0F29D200090F3C /* Info.plist */,
 			);
 			path = Dogsear;
+			sourceTree = "<group>";
+		};
+		08D630362B0F2F0400090F3C /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				08D62FE22B0F29D100090F3C /* AppDelegate.swift */,
+				08D62FE42B0F29D100090F3C /* SceneDelegate.swift */,
+				08D62FEB2B0F29D200090F3C /* Assets.xcassets */,
+				08D62FF02B0F29D200090F3C /* Info.plist */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,7 +380,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W5QTRMS954;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Dogsear/Info.plist;
+				INFOPLIST_FILE = Dogsear/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -403,7 +411,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W5QTRMS954;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Dogsear/Info.plist;
+				INFOPLIST_FILE = Dogsear/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
