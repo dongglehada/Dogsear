@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+class SignInViewController: BasicController<SignViewModel, SignInView> {
+//    let viewMOdel = ViewModel()
+}
