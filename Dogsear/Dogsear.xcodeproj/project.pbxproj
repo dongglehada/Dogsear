@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08C69E392B10AB070025B59D /* DefaultTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C69E382B10AB070025B59D /* DefaultTextField.swift */; };
+		08C69E392B10AB070025B59D /* SharedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C69E382B10AB070025B59D /* SharedTextField.swift */; };
 		08C69E3F2B10AD6A0025B59D /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C69E3E2B10AD6A0025B59D /* Typography.swift */; };
 		08D62FE32B0F29D100090F3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D62FE22B0F29D100090F3C /* AppDelegate.swift */; };
 		08D62FE52B0F29D100090F3C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D62FE42B0F29D100090F3C /* SceneDelegate.swift */; };
@@ -52,7 +52,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		08C69E382B10AB070025B59D /* DefaultTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextField.swift; sourceTree = "<group>"; };
+		08C69E382B10AB070025B59D /* SharedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTextField.swift; sourceTree = "<group>"; };
 		08C69E3E2B10AD6A0025B59D /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
 		08D62FDF2B0F29D100090F3C /* Dogsear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dogsear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08D62FE22B0F29D100090F3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -190,7 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				08D62FED2B0F29D200090F3C /* LaunchScreen.storyboard */,
-				08C69E382B10AB070025B59D /* DefaultTextField.swift */,
+				08C69E382B10AB070025B59D /* SharedTextField.swift */,
 			);
 			path = SharedViews;
 			sourceTree = "<group>";
@@ -311,7 +311,7 @@
 				08D630482B0F7CE700090F3C /* SignInViewController.swift in Sources */,
 				08D630462B0F7CC500090F3C /* FirebaseManager.swift in Sources */,
 				08D6303B2B0F300600090F3C /* Observable.swift in Sources */,
-				08C69E392B10AB070025B59D /* DefaultTextField.swift in Sources */,
+				08C69E392B10AB070025B59D /* SharedTextField.swift in Sources */,
 				08D630402B0F7B1700090F3C /* UIColorExtension.swift in Sources */,
 				08D630502B0F873500090F3C /* SignInViewModel.swift in Sources */,
 				08D62FE32B0F29D100090F3C /* AppDelegate.swift in Sources */,

@@ -8,5 +8,5 @@
 import Foundation
 
 class SignInViewModel {
-    
+    var isShow: Observable<Bool> = Observable(false)
 }
