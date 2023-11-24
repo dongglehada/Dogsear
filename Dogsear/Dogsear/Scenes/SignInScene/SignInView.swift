@@ -10,15 +10,16 @@ import SnapKit
 
 final class SignInView: UIView {
     // MARK: - Property
-    let loginLabel: UILabel = {
-        let label = UILabel()
-        label.text = "로그인"
-        label.font = Typography.title1.font
-        return label
+    
+    let logoImageView: UIImageView = {
+        let view = UIImageView()
+        view.image = UIImage(named: "Logo")
+        view.contentMode = .scaleAspectFit
+        return view
     }()
     
     let emailTextField = SharedTextField(type: .normal, placeHolder: "이메일")
-    let passwordTextField = SharedTextField(type: .password, placeHolder: "비밀번호")
+    let passwordTextField = SharedTextField(type: .password, placeHolder: "패스워드")
     let signInButton = SharedButton(title: "로그인")
     
     // MARK: - 생성자
@@ -34,14 +35,16 @@ final class SignInView: UIView {
 
 private extension SignInView {
     func setUp() {
-        self.addSubview(loginLabel)
-        loginLabel.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(Constant.defaults.padding)
+        self.addSubview(logoImageView)
+        logoImageView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(Constant.screenHeight * 0.2)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(Constant.screenWidth / 2)
+            make.height.equalTo(Constant.screenHeight * 0.05)
         }
         self.addSubview(emailTextField)
         emailTextField.snp.makeConstraints { make in
-            make.top.equalTo(loginLabel.snp.bottom).offset(Constant.defaults.padding)
+            make.top.equalTo(logoImageView.snp.bottom).offset(Constant.defaults.padding)
             make.left.right.equalToSuperview().inset(Constant.defaults.padding)
         }
         self.addSubview(passwordTextField)
