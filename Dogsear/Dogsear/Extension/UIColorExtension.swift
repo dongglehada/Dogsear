@@ -9,5 +9,5 @@ import UIKit
 
 extension UIColor {
     static var myBackGroundColor = UIColor.systemBackground
-    static var myPointColor = UIColor.systemPink
+    static var myPointColor = UIColor.systemIndigo
 }

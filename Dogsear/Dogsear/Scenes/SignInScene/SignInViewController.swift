@@ -7,6 +7,12 @@
 
 import Foundation
 
-class SignInViewController: BasicController<SignViewModel, SignInView> {
-//    let viewMOdel = ViewModel()
+class SignInViewController: BasicController<SignInViewModel,SignInView> {
+    // MARK: - Property
+}
+extension SignInViewController {
+    // MARK: - LifeCycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 }

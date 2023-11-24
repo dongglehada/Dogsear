@@ -46,7 +46,7 @@
 		08D630482B0F7CE700090F3C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D630472B0F7CE700090F3C /* SignInViewController.swift */; };
 		08D6304A2B0F7DF300090F3C /* BasicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D630492B0F7DF300090F3C /* BasicController.swift */; };
 		08D6304E2B0F872D00090F3C /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D6304D2B0F872D00090F3C /* SignInView.swift */; };
-		08D630502B0F873500090F3C /* SignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D6304F2B0F873500090F3C /* SignViewModel.swift */; };
+		08D630502B0F873500090F3C /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D6304F2B0F873500090F3C /* SignInViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +63,7 @@
 		08D630472B0F7CE700090F3C /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		08D630492B0F7DF300090F3C /* BasicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicController.swift; sourceTree = "<group>"; };
 		08D6304D2B0F872D00090F3C /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
-		08D6304F2B0F873500090F3C /* SignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewModel.swift; sourceTree = "<group>"; };
+		08D6304F2B0F873500090F3C /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +168,7 @@
 			children = (
 				08D630472B0F7CE700090F3C /* SignInViewController.swift */,
 				08D6304D2B0F872D00090F3C /* SignInView.swift */,
-				08D6304F2B0F873500090F3C /* SignViewModel.swift */,
+				08D6304F2B0F873500090F3C /* SignInViewModel.swift */,
 			);
 			path = SignInScene;
 			sourceTree = "<group>";
@@ -306,7 +306,7 @@
 				08D630462B0F7CC500090F3C /* FirebaseManager.swift in Sources */,
 				08D6303B2B0F300600090F3C /* Observable.swift in Sources */,
 				08D630402B0F7B1700090F3C /* UIColorExtension.swift in Sources */,
-				08D630502B0F873500090F3C /* SignViewModel.swift in Sources */,
+				08D630502B0F873500090F3C /* SignInViewModel.swift in Sources */,
 				08D62FE32B0F29D100090F3C /* AppDelegate.swift in Sources */,
 				08D62FE52B0F29D100090F3C /* SceneDelegate.swift in Sources */,
 				08D6304A2B0F7DF300090F3C /* BasicController.swift in Sources */,

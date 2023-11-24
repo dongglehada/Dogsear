@@ -7,6 +7,6 @@
 
 import Foundation
 
-class SignViewModel {
+class SignInViewModel {
     
 }

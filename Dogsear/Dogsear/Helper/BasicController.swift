@@ -6,16 +6,18 @@
 //
 
 import UIKit
+import SnapKit
 
 class BasicController<ViewModel,SceneView>: UIViewController {
     // MARK: - Property
     
-    private var viewModel: ViewModel!
-    private var sceneView: SceneView!
+    var viewModel: ViewModel?
+    var sceneView: SceneView?
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         setUpColor()
+        setUpView()
     }
     
 }
@@ -35,4 +37,10 @@ extension BasicController {
         view.backgroundColor = .systemBackground
     }
 
+    private func setUpView() {
+        self.view.addSubview(sceneView as! UIView)
+        (sceneView as! UIView).snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
 }
