@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		08C69E392B10AB070025B59D /* SharedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C69E382B10AB070025B59D /* SharedTextField.swift */; };
 		08C69E3F2B10AD6A0025B59D /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C69E3E2B10AD6A0025B59D /* Typography.swift */; };
+		08C69E452B10E0020025B59D /* SharedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C69E442B10E0020025B59D /* SharedButton.swift */; };
 		08D62FE32B0F29D100090F3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D62FE22B0F29D100090F3C /* AppDelegate.swift */; };
 		08D62FE52B0F29D100090F3C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D62FE42B0F29D100090F3C /* SceneDelegate.swift */; };
 		08D62FEC2B0F29D200090F3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08D62FEB2B0F29D200090F3C /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 /* Begin PBXFileReference section */
 		08C69E382B10AB070025B59D /* SharedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTextField.swift; sourceTree = "<group>"; };
 		08C69E3E2B10AD6A0025B59D /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
+		08C69E442B10E0020025B59D /* SharedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedButton.swift; sourceTree = "<group>"; };
 		08D62FDF2B0F29D100090F3C /* Dogsear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dogsear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08D62FE22B0F29D100090F3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08D62FE42B0F29D100090F3C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			children = (
 				08D62FED2B0F29D200090F3C /* LaunchScreen.storyboard */,
 				08C69E382B10AB070025B59D /* SharedTextField.swift */,
+				08C69E442B10E0020025B59D /* SharedButton.swift */,
 			);
 			path = SharedViews;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				08D6304A2B0F7DF300090F3C /* BasicController.swift in Sources */,
 				08C69E3F2B10AD6A0025B59D /* Typography.swift in Sources */,
 				08D630422B0F7B7B00090F3C /* Constant.swift in Sources */,
+				08C69E452B10E0020025B59D /* SharedButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
