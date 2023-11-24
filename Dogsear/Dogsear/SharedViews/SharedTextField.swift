@@ -53,13 +53,13 @@ private extension SharedTextField {
     func setUpLayer() {
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.systemGray4.cgColor
-        self.layer.cornerRadius = Constant.defaultRadius
+        self.layer.cornerRadius = Constant.defaults.radius
     }
     
     func normalSetUp() {
         self.addSubview(textField)
         textField.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(Constant.defaultPadding)
+            make.edges.equalToSuperview().inset(Constant.defaults.padding)
         }
     }
     
@@ -67,16 +67,15 @@ private extension SharedTextField {
         textField.isSecureTextEntry = true
         self.addSubview(showButton)
         showButton.snp.makeConstraints { make in
-            make.right.equalToSuperview().inset(Constant.defaultPadding)
+            make.right.equalToSuperview().inset(Constant.defaults.padding)
             make.centerY.equalToSuperview()
             make.height.width.equalTo(Constant.screenHeight * 0.03)
         }
         self.addSubview(textField)
         textField.snp.makeConstraints { make in
-            make.top.left.bottom.equalToSuperview().inset(Constant.defaultPadding)
+            make.top.left.bottom.equalToSuperview().inset(Constant.defaults.padding)
             make.right.equalTo(showButton.snp.left)
         }
-
     }
 }
 
