@@ -11,7 +11,7 @@ import SnapKit
 final class SignInView: UIView {
     // MARK: - Property
     
-    let logoImageView: UIImageView = {
+    private let logoImageView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(named: "Logo")
         view.contentMode = .scaleAspectFit
@@ -20,9 +20,19 @@ final class SignInView: UIView {
     
     let emailTextField = SharedTextField(type: .normal, placeHolder: "이메일")
     let passwordTextField = SharedTextField(type: .password, placeHolder: "패스워드")
+    private let missMatchLabel: UILabel = {
+        let label = UILabel()
+        label.font = Typography.body3.font
+        label.textColor = .systemRed
+        label.numberOfLines = 0
+        label.alpha = 1
+        return label
+    }()
     let autoLoginButton: UIButton = {
         let button = UIButton()
-        button.setTitle("로그인 상태 유지", for: .normal)
+        button.setTitle("자동 로그인", for: .normal)
+        button.contentEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: Constant.defaults.padding)
+        button.titleEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: -Constant.defaults.padding / 2)
         button.setTitleColor(.label, for: .normal)
         button.titleLabel?.font = Typography.body3.font
         button.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
@@ -32,7 +42,7 @@ final class SignInView: UIView {
     
     let signInButton = SharedButton(title: "로그인")
     
-    let buttonsStackView: UIStackView = {
+    private let buttonsStackView: UIStackView = {
         let view = UIStackView()
         view.axis = .horizontal
         view.alignment = .trailing
@@ -57,6 +67,17 @@ final class SignInView: UIView {
         return button
     }()
     
+    let activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        activityIndicator.color = .myPointColor
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.style = .medium
+        // stopAnimating을 걸어주는 이유는, 최초에 해당 indicator가 선언되었을 때, 멈춘 상태로 있기 위해서
+        activityIndicator.stopAnimating()
+        return activityIndicator
+
+    }()
     
     // MARK: - 생성자
     init() {
@@ -74,9 +95,11 @@ private extension SignInView {
         setUpLogoImageView()
         setUpEmailTextField()
         setUpPasswordTextField()
+        setUpMissMatchLabel()
         setUpAutoLoginButton()
         setUpSignInButton()
         setUpButtonStackView()
+        self.addSubview(activityIndicator)
     }
     
     func setUpLogoImageView() {
@@ -105,6 +128,14 @@ private extension SignInView {
         }
     }
     
+    func setUpMissMatchLabel() {
+        self.addSubview(missMatchLabel)
+        missMatchLabel.snp.makeConstraints { make in
+            make.top.equalTo(passwordTextField.snp.bottom)
+            make.left.right.equalToSuperview().inset(Constant.defaults.padding)
+        }
+    }
+    
     func setUpAutoLoginButton() {
         self.addSubview(autoLoginButton)
         autoLoginButton.snp.makeConstraints { make in
@@ -128,6 +159,19 @@ private extension SignInView {
         signInButton.snp.makeConstraints { make in
             make.top.equalTo(autoLoginButton.snp.bottom).offset(Constant.defaults.padding)
             make.left.right.equalToSuperview().inset(Constant.defaults.padding)
+        }
+    }
+}
+
+extension SignInView {
+    // MARK: - Method
+    func missMatchLabelShow(isShow: Bool, content: String?) {
+        if isShow {
+            missMatchLabel.text = content
+            missMatchLabel.alpha = 1
+            missMatchLabel.shake()
+        } else {
+            missMatchLabel.alpha = 0
         }
     }
 }

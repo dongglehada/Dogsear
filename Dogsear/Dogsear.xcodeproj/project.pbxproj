@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		089E0F822B125A2A006FDC0E /* UIVIewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E0F812B125A2A006FDC0E /* UIVIewExtension.swift */; };
+		089E0F852B125B21006FDC0E /* BookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E0F842B125B21006FDC0E /* BookshelfViewController.swift */; };
+		089E0F872B125B35006FDC0E /* BookshelfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E0F862B125B35006FDC0E /* BookshelfView.swift */; };
+		089E0F892B125B45006FDC0E /* BookshelfViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E0F882B125B45006FDC0E /* BookshelfViewModel.swift */; };
 		08C69E392B10AB070025B59D /* SharedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C69E382B10AB070025B59D /* SharedTextField.swift */; };
 		08C69E3F2B10AD6A0025B59D /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C69E3E2B10AD6A0025B59D /* Typography.swift */; };
 		08C69E452B10E0020025B59D /* SharedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C69E442B10E0020025B59D /* SharedButton.swift */; };
@@ -53,6 +57,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		089E0F812B125A2A006FDC0E /* UIVIewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIewExtension.swift; sourceTree = "<group>"; };
+		089E0F842B125B21006FDC0E /* BookshelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookshelfViewController.swift; sourceTree = "<group>"; };
+		089E0F862B125B35006FDC0E /* BookshelfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookshelfView.swift; sourceTree = "<group>"; };
+		089E0F882B125B45006FDC0E /* BookshelfViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookshelfViewModel.swift; sourceTree = "<group>"; };
 		08C69E382B10AB070025B59D /* SharedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTextField.swift; sourceTree = "<group>"; };
 		08C69E3E2B10AD6A0025B59D /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
 		08C69E442B10E0020025B59D /* SharedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedButton.swift; sourceTree = "<group>"; };
@@ -111,6 +119,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		089E0F832B125A9F006FDC0E /* BookshelfScene */ = {
+			isa = PBXGroup;
+			children = (
+				089E0F842B125B21006FDC0E /* BookshelfViewController.swift */,
+				089E0F862B125B35006FDC0E /* BookshelfView.swift */,
+				089E0F882B125B45006FDC0E /* BookshelfViewModel.swift */,
+			);
+			path = BookshelfScene;
+			sourceTree = "<group>";
+		};
 		08D62FD62B0F29D100090F3C = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +183,7 @@
 		08D6303C2B0F7AA700090F3C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				089E0F832B125A9F006FDC0E /* BookshelfScene */,
 				08D6303D2B0F7AC700090F3C /* SignInScene */,
 			);
 			path = Scenes;
@@ -184,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				08D6303F2B0F7B1700090F3C /* UIColorExtension.swift */,
+				089E0F812B125A2A006FDC0E /* UIVIewExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -310,15 +330,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				089E0F822B125A2A006FDC0E /* UIVIewExtension.swift in Sources */,
 				08D6304E2B0F872D00090F3C /* SignInView.swift in Sources */,
 				08D630482B0F7CE700090F3C /* SignInViewController.swift in Sources */,
 				08D630462B0F7CC500090F3C /* FirebaseManager.swift in Sources */,
 				08D6303B2B0F300600090F3C /* Observable.swift in Sources */,
 				08C69E392B10AB070025B59D /* SharedTextField.swift in Sources */,
+				089E0F872B125B35006FDC0E /* BookshelfView.swift in Sources */,
+				089E0F852B125B21006FDC0E /* BookshelfViewController.swift in Sources */,
 				08D630402B0F7B1700090F3C /* UIColorExtension.swift in Sources */,
 				08D630502B0F873500090F3C /* SignInViewModel.swift in Sources */,
 				08D62FE32B0F29D100090F3C /* AppDelegate.swift in Sources */,
 				08D62FE52B0F29D100090F3C /* SceneDelegate.swift in Sources */,
+				089E0F892B125B45006FDC0E /* BookshelfViewModel.swift in Sources */,
 				08D6304A2B0F7DF300090F3C /* BasicController.swift in Sources */,
 				08C69E3F2B10AD6A0025B59D /* Typography.swift in Sources */,
 				08D630422B0F7B7B00090F3C /* Constant.swift in Sources */,
@@ -473,7 +497,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -504,7 +528,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
