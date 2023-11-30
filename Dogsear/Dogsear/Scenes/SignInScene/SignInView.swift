@@ -67,17 +67,7 @@ final class SignInView: UIView {
         return button
     }()
     
-    let activityIndicator: UIActivityIndicatorView = {
-        let activityIndicator = UIActivityIndicatorView()
-        activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-        activityIndicator.color = .myPointColor
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.style = .medium
-        // stopAnimating을 걸어주는 이유는, 최초에 해당 indicator가 선언되었을 때, 멈춘 상태로 있기 위해서
-        activityIndicator.stopAnimating()
-        return activityIndicator
-
-    }()
+    let activityIndicator = ActivityIndicator()
     
     // MARK: - 생성자
     init() {

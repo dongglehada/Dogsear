@@ -12,9 +12,6 @@ class BookshelfViewController: BasicController<BookshelfViewModel,BookshelfView>
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
-        viewModel?.searchManager.getTranslateData(searchKeyWord: "찰리와", completion: { data in
-            print("@@@",data.items)
-        })
     }
 }
 

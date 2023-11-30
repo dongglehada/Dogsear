@@ -8,5 +8,5 @@
 import Foundation
 
 class BookshelfViewModel {
-    let searchManager = BookSearchManager()
+
 }

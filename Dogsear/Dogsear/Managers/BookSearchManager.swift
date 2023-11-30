@@ -8,14 +8,15 @@
 import Foundation
 
 struct BookSearchManager {
-    func getTranslateData(searchKeyWord: String, completion: @escaping (SearchData) -> Void) {
+    func getSearchData(searchKeyWord: String, start: Int, completion: @escaping (SearchDatas) -> Void) {
         
         let baseURL = "https://openapi.naver.com/v1/search/book.json"
         var urlComponent = URLComponents(string: baseURL)
         let search = searchKeyWord.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)?.removingPercentEncoding
         // MARK: - Query
         let searchQuery = URLQueryItem(name: "query", value: search)
-        let items: [URLQueryItem] = [searchQuery]
+        let startQuery = URLQueryItem(name: "start", value: String(start))
+        let items: [URLQueryItem] = [searchQuery, startQuery]
         urlComponent?.queryItems = items
         
         guard let url = urlComponent?.url else { return }
@@ -31,12 +32,11 @@ struct BookSearchManager {
             }
             
             if let responseString = String(data: data, encoding: .utf8) {
-                print("API Response!: \(responseString)")
+//                print("API Response: \(responseString)")
             }
-            print("@",data.count)
             
             do {
-                let res = try JSONDecoder().decode(SearchData.self, from: data)
+                let res = try JSONDecoder().decode(SearchDatas.self, from: data)
                 completion(res)
                 
             } catch {
@@ -45,19 +45,4 @@ struct BookSearchManager {
         }
         task.resume()
     }
-}
-
-struct SearchData: Codable {
-    let lastBuildDate: String
-    let total, start, display: Int
-    let items: [Item]
-}
-
-// MARK: - Item
-struct Item: Codable {
-    let title: String
-    let link: String
-    let image: String
-    let author, discount, publisher, pubdate: String
-    let isbn, description: String
 }

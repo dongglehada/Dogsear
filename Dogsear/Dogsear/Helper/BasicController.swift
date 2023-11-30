@@ -8,11 +8,11 @@
 import UIKit
 import SnapKit
 
-class BasicController<ViewModel,SceneView>: UIViewController {
+class BasicController<ViewModel,SceneView: UIView>: UIViewController {
     // MARK: - Property
     
     var viewModel: ViewModel?
-    var sceneView: SceneView?
+    var sceneView: SceneView!
     
     lazy var customButton = SharedButton(title: "직접 입력하기")
     
@@ -42,14 +42,14 @@ extension BasicController {
     }
 
     private func setUpView() {
-        self.view.addSubview(sceneView as! UIView)
-        (sceneView as! UIView).snp.makeConstraints { make in
+        self.view.addSubview(sceneView)
+        sceneView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
     func makeBottomButton(title:String) {
-        (sceneView as! UIView).addSubview(customButton)
+        sceneView.addSubview(customButton)
         customButton.snp.makeConstraints { make in
             make.bottom.left.right.equalToSuperview().inset(Constant.defaults.padding)
         }

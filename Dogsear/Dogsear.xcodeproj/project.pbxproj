@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0848E2CD2B18D84500D0DF17 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0848E2CC2B18D84500D0DF17 /* UIImageViewExtension.swift */; };
 		0880ED422B1785B7006F137B /* AddBookSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED412B1785B7006F137B /* AddBookSearchViewController.swift */; };
 		0880ED442B178626006F137B /* AddBookSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED432B178626006F137B /* AddBookSearchView.swift */; };
 		0880ED462B17863B006F137B /* AddBookSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED452B17863B006F137B /* AddBookSearchViewModel.swift */; };
@@ -16,6 +17,9 @@
 		0880ED4F2B17B8A6006F137B /* AddBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED4E2B17B8A6006F137B /* AddBookViewModel.swift */; };
 		0880ED552B17F1D3006F137B /* BookStateSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED542B17F1D3006F137B /* BookStateSegmentControl.swift */; };
 		0880ED572B17F3C2006F137B /* BookSearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED562B17F3C2006F137B /* BookSearchManager.swift */; };
+		0880ED5C2B180F3A006F137B /* SearchDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED5B2B180F3A006F137B /* SearchDatas.swift */; };
+		0880ED5E2B181004006F137B /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED5D2B181004006F137B /* ActivityIndicator.swift */; };
+		0880ED602B18C08D006F137B /* BookListTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED5F2B18C08D006F137B /* BookListTypeCollectionViewCell.swift */; };
 		089E0F822B125A2A006FDC0E /* UIVIewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E0F812B125A2A006FDC0E /* UIVIewExtension.swift */; };
 		089E0F852B125B21006FDC0E /* BookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E0F842B125B21006FDC0E /* BookshelfViewController.swift */; };
 		089E0F872B125B35006FDC0E /* BookshelfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E0F862B125B35006FDC0E /* BookshelfView.swift */; };
@@ -68,6 +72,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0848E2CC2B18D84500D0DF17 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		0880ED412B1785B7006F137B /* AddBookSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookSearchViewController.swift; sourceTree = "<group>"; };
 		0880ED432B178626006F137B /* AddBookSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookSearchView.swift; sourceTree = "<group>"; };
 		0880ED452B17863B006F137B /* AddBookSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookSearchViewModel.swift; sourceTree = "<group>"; };
@@ -77,6 +82,9 @@
 		0880ED4E2B17B8A6006F137B /* AddBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewModel.swift; sourceTree = "<group>"; };
 		0880ED542B17F1D3006F137B /* BookStateSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStateSegmentControl.swift; sourceTree = "<group>"; };
 		0880ED562B17F3C2006F137B /* BookSearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearchManager.swift; sourceTree = "<group>"; };
+		0880ED5B2B180F3A006F137B /* SearchDatas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDatas.swift; sourceTree = "<group>"; };
+		0880ED5D2B181004006F137B /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		0880ED5F2B18C08D006F137B /* BookListTypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListTypeCollectionViewCell.swift; sourceTree = "<group>"; };
 		089E0F812B125A2A006FDC0E /* UIVIewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIewExtension.swift; sourceTree = "<group>"; };
 		089E0F842B125B21006FDC0E /* BookshelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookshelfViewController.swift; sourceTree = "<group>"; };
 		089E0F862B125B35006FDC0E /* BookshelfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookshelfView.swift; sourceTree = "<group>"; };
@@ -161,6 +169,14 @@
 			path = AddBookScene;
 			sourceTree = "<group>";
 		};
+		0880ED5A2B180F14006F137B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0880ED5B2B180F3A006F137B /* SearchDatas.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		089E0F832B125A9F006FDC0E /* BookshelfScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				089E0F8F2B1268E7006FDC0E /* BookCoverCollectionViewCell.swift */,
+				0880ED5F2B18C08D006F137B /* BookListTypeCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -199,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				08D630362B0F2F0400090F3C /* Resource */,
+				0880ED5A2B180F14006F137B /* Models */,
 				08D630442B0F7C8600090F3C /* Managers */,
 				08D6303E2B0F7AF800090F3C /* Extension */,
 				08D630392B0F2FDB00090F3C /* Helper */,
@@ -258,6 +276,7 @@
 				089E0F812B125A2A006FDC0E /* UIVIewExtension.swift */,
 				089E0F8C2B126829006FDC0E /* UICollectionViewCellExtension.swift */,
 				0880ED472B17922F006F137B /* UINavigationItemExtension.swift */,
+				0848E2CC2B18D84500D0DF17 /* UIImageViewExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -269,6 +288,7 @@
 				08C69E382B10AB070025B59D /* SharedTextField.swift */,
 				08C69E442B10E0020025B59D /* SharedButton.swift */,
 				0880ED542B17F1D3006F137B /* BookStateSegmentControl.swift */,
+				0880ED5D2B181004006F137B /* ActivityIndicator.swift */,
 				089E0F8E2B12689C006FDC0E /* Cells */,
 			);
 			path = SharedViews;
@@ -388,16 +408,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				089E0F822B125A2A006FDC0E /* UIVIewExtension.swift in Sources */,
+				0880ED602B18C08D006F137B /* BookListTypeCollectionViewCell.swift in Sources */,
 				0880ED4B2B17B888006F137B /* AddBookViewController.swift in Sources */,
+				0880ED5C2B180F3A006F137B /* SearchDatas.swift in Sources */,
 				0880ED462B17863B006F137B /* AddBookSearchViewModel.swift in Sources */,
 				08D6304E2B0F872D00090F3C /* SignInView.swift in Sources */,
 				08D630482B0F7CE700090F3C /* SignInViewController.swift in Sources */,
 				08D630462B0F7CC500090F3C /* FirebaseManager.swift in Sources */,
 				0880ED572B17F3C2006F137B /* BookSearchManager.swift in Sources */,
+				0880ED5E2B181004006F137B /* ActivityIndicator.swift in Sources */,
 				08D6303B2B0F300600090F3C /* Observable.swift in Sources */,
 				08C69E392B10AB070025B59D /* SharedTextField.swift in Sources */,
 				089E0F872B125B35006FDC0E /* BookshelfView.swift in Sources */,
 				089E0F852B125B21006FDC0E /* BookshelfViewController.swift in Sources */,
+				0848E2CD2B18D84500D0DF17 /* UIImageViewExtension.swift in Sources */,
 				089E0F902B1268E7006FDC0E /* BookCoverCollectionViewCell.swift in Sources */,
 				0880ED442B178626006F137B /* AddBookSearchView.swift in Sources */,
 				08D630402B0F7B1700090F3C /* UIColorExtension.swift in Sources */,

@@ -23,6 +23,17 @@ class AddBookSearchView: UIView {
         return view
     }()
     
+    let searchCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = .init(width: Constant.screenWidth, height: Constant.defaults.blockHeight * 4)
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        return view
+    }()
+    
+    let activityIndicator = ActivityIndicator()
+    
     init() {
         super.init(frame: .zero)
         setUp()
@@ -42,5 +53,15 @@ private extension AddBookSearchView {
             make.left.right.equalToSuperview().inset(Constant.defaults.padding - 8)
             make.height.equalTo(Constant.defaults.blockHeight)
         }
+        
+        self.addSubview(searchCollectionView)
+        searchCollectionView.register(BookListTypeCollectionViewCell.self, forCellWithReuseIdentifier: BookListTypeCollectionViewCell.identifier)
+        searchCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(searchBar.snp.bottom).offset(Constant.defaults.padding - 8)
+            make.left.right.equalToSuperview()
+            make.bottom.equalToSuperview().inset(Constant.defaults.blockHeight + (Constant.defaults.padding * 2))
+        }
+        
+        self.addSubview(activityIndicator)
     }
 }
