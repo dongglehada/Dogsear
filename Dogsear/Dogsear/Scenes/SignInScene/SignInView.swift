@@ -105,7 +105,7 @@ private extension SignInView {
     func setUpLogoImageView() {
         self.addSubview(logoImageView)
         logoImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(Constant.screenHeight * 0.2)
+            make.top.equalToSuperview().offset(Constant.screenHeight * 0.1)
             make.centerX.equalToSuperview()
             make.width.equalTo(Constant.screenWidth / 2)
             make.height.equalTo(Constant.screenHeight * 0.05)

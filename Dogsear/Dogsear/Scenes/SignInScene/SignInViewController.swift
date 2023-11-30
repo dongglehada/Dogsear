@@ -10,9 +10,6 @@ import UIKit
 import FirebaseAuth
 
 class SignInViewController: BasicController<SignInViewModel,SignInView> {
-    // MARK: - Property
-}
-extension SignInViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +23,6 @@ private extension SignInViewController {
     func setUp() {
         sceneView?.passwordTextField.showButton.addTarget(self, action: #selector(didTapShowButton), for: .touchUpInside)
         sceneView?.signInButton.button.addTarget(self, action: #selector(didTapSignInButton), for: .touchUpInside)
-        
         sceneView?.activityIndicator.center = view.center
     }
 
@@ -64,6 +60,10 @@ extension SignInViewController {
                 self.sceneView?.missMatchLabelShow(isShow: true, content: "이메일 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.")
             case .success:
                 self.sceneView?.missMatchLabelShow(isShow: false, content: nil)
+                let rootVC = BookshelfViewController()
+                rootVC.viewInjection(sceneView: BookshelfView())
+                rootVC.viewModelInjection(viewModel: BookshelfViewModel())
+                navigationController?.pushViewController(rootVC, animated: true)
             }
             self.sceneView?.activityIndicator.stopAnimating()
         })

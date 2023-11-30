@@ -17,10 +17,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         window?.backgroundColor = .systemBackground
-        let rootVC = SignInViewController()
-        rootVC.viewModelInjection(viewModel: SignInViewModel())
-        rootVC.viewInjection(sceneView: SignInView())
-        window?.rootViewController = rootVC
+//        let rootVC = SignInViewController()
+//        rootVC.viewModelInjection(viewModel: SignInViewModel())
+//        rootVC.viewInjection(sceneView: SignInView())
+//        window?.rootViewController = UINavigationController(rootViewController: rootVC)
+        
+        let rootVC = BookshelfViewController()
+        rootVC.viewInjection(sceneView: BookshelfView())
+        rootVC.viewModelInjection(viewModel: BookshelfViewModel())
+        window?.rootViewController = UINavigationController(rootViewController: rootVC)
+        
+//        let rootVC = AddBookSearchViewController()
+//        rootVC.viewInjection(sceneView: AddBookSearchView())
+//        rootVC.viewModelInjection(viewModel: AddBookSearchViewModel())
+//        window?.rootViewController = rootVC
+        
+//        let rootVC = AddBookViewController()
+//        rootVC.viewInjection(sceneView: AddBookView())
+//        rootVC.viewModelInjection(viewModel: AddBookViewModel())
+//        window?.rootViewController = UINavigationController(rootViewController: rootVC)
         
         window?.makeKeyAndVisible()
     }

@@ -16,6 +16,8 @@ struct Constant {
     static let defaults = Default()
     static let screenWidth = UIScreen.main.bounds.width
     static let screenHeight = UIScreen.main.bounds.height
+    static let width = (screenWidth - (defaults.padding * (3 + 1))) / 3
+    static let bookSize = CGSize(width: width, height: width * 1.4)
 }
 
 

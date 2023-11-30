@@ -14,12 +14,16 @@ class BasicController<ViewModel,SceneView>: UIViewController {
     var viewModel: ViewModel?
     var sceneView: SceneView?
     
+    lazy var customButton = SharedButton(title: "직접 입력하기")
+    
     // MARK: - LifeCycle
     override func viewDidLoad() {
         setUpColor()
         setUpView()
     }
     
+    func didTapBottomButton() {
+    }
 }
 
 extension BasicController {
@@ -40,7 +44,20 @@ extension BasicController {
     private func setUpView() {
         self.view.addSubview(sceneView as! UIView)
         (sceneView as! UIView).snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
+    
+    func makeBottomButton(title:String) {
+        (sceneView as! UIView).addSubview(customButton)
+        customButton.snp.makeConstraints { make in
+            make.bottom.left.right.equalToSuperview().inset(Constant.defaults.padding)
+        }
+        customButton.button.setTitle(title, for: .normal)
+        customButton.button.addAction(UIAction(handler: { state in
+            self.didTapBottomButton()
+        }), for: .touchUpInside)
+    }
+    
 }
+
