@@ -29,6 +29,11 @@
 		08C69E392B10AB070025B59D /* SharedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C69E382B10AB070025B59D /* SharedTextField.swift */; };
 		08C69E3F2B10AD6A0025B59D /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C69E3E2B10AD6A0025B59D /* Typography.swift */; };
 		08C69E452B10E0020025B59D /* SharedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C69E442B10E0020025B59D /* SharedButton.swift */; };
+		08CEC0972B1B3C36001341E4 /* PostBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CEC0962B1B3C36001341E4 /* PostBook.swift */; };
+		08CEC09A2B1B4370001341E4 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CEC0992B1B4370001341E4 /* SignUpViewController.swift */; };
+		08CEC09C2B1B4379001341E4 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CEC09B2B1B4379001341E4 /* SignUpView.swift */; };
+		08CEC09E2B1B4383001341E4 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CEC09D2B1B4383001341E4 /* SignUpViewModel.swift */; };
+		08CEC0A02B1D2186001341E4 /* PostBookComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CEC09F2B1D2186001341E4 /* PostBookComment.swift */; };
 		08D62FE32B0F29D100090F3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D62FE22B0F29D100090F3C /* AppDelegate.swift */; };
 		08D62FE52B0F29D100090F3C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D62FE42B0F29D100090F3C /* SceneDelegate.swift */; };
 		08D62FEC2B0F29D200090F3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08D62FEB2B0F29D200090F3C /* Assets.xcassets */; };
@@ -94,6 +99,11 @@
 		08C69E382B10AB070025B59D /* SharedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTextField.swift; sourceTree = "<group>"; };
 		08C69E3E2B10AD6A0025B59D /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
 		08C69E442B10E0020025B59D /* SharedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedButton.swift; sourceTree = "<group>"; };
+		08CEC0962B1B3C36001341E4 /* PostBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostBook.swift; sourceTree = "<group>"; };
+		08CEC0992B1B4370001341E4 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		08CEC09B2B1B4379001341E4 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		08CEC09D2B1B4383001341E4 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		08CEC09F2B1D2186001341E4 /* PostBookComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostBookComment.swift; sourceTree = "<group>"; };
 		08D62FDF2B0F29D100090F3C /* Dogsear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dogsear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08D62FE22B0F29D100090F3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08D62FE42B0F29D100090F3C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -173,6 +183,8 @@
 			isa = PBXGroup;
 			children = (
 				0880ED5B2B180F3A006F137B /* SearchDatas.swift */,
+				08CEC0962B1B3C36001341E4 /* PostBook.swift */,
+				08CEC09F2B1D2186001341E4 /* PostBookComment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -194,6 +206,16 @@
 				0880ED5F2B18C08D006F137B /* BookListTypeCollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		08CEC0982B1B4352001341E4 /* SignUpScene */ = {
+			isa = PBXGroup;
+			children = (
+				08CEC0992B1B4370001341E4 /* SignUpViewController.swift */,
+				08CEC09B2B1B4379001341E4 /* SignUpView.swift */,
+				08CEC09D2B1B4383001341E4 /* SignUpViewModel.swift */,
+			);
+			path = SignUpScene;
 			sourceTree = "<group>";
 		};
 		08D62FD62B0F29D100090F3C = {
@@ -255,6 +277,7 @@
 				0880ED402B17852F006F137B /* AddBookSearchScene */,
 				089E0F832B125A9F006FDC0E /* BookshelfScene */,
 				08D6303D2B0F7AC700090F3C /* SignInScene */,
+				08CEC0982B1B4352001341E4 /* SignUpScene */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -411,6 +434,7 @@
 				0880ED602B18C08D006F137B /* BookListTypeCollectionViewCell.swift in Sources */,
 				0880ED4B2B17B888006F137B /* AddBookViewController.swift in Sources */,
 				0880ED5C2B180F3A006F137B /* SearchDatas.swift in Sources */,
+				08CEC0972B1B3C36001341E4 /* PostBook.swift in Sources */,
 				0880ED462B17863B006F137B /* AddBookSearchViewModel.swift in Sources */,
 				08D6304E2B0F872D00090F3C /* SignInView.swift in Sources */,
 				08D630482B0F7CE700090F3C /* SignInViewController.swift in Sources */,
@@ -425,9 +449,12 @@
 				089E0F902B1268E7006FDC0E /* BookCoverCollectionViewCell.swift in Sources */,
 				0880ED442B178626006F137B /* AddBookSearchView.swift in Sources */,
 				08D630402B0F7B1700090F3C /* UIColorExtension.swift in Sources */,
+				08CEC0A02B1D2186001341E4 /* PostBookComment.swift in Sources */,
 				08D630502B0F873500090F3C /* SignInViewModel.swift in Sources */,
 				0880ED4D2B17B896006F137B /* AddBookView.swift in Sources */,
 				0880ED422B1785B7006F137B /* AddBookSearchViewController.swift in Sources */,
+				08CEC09E2B1B4383001341E4 /* SignUpViewModel.swift in Sources */,
+				08CEC09A2B1B4370001341E4 /* SignUpViewController.swift in Sources */,
 				08D62FE32B0F29D100090F3C /* AppDelegate.swift in Sources */,
 				08D62FE52B0F29D100090F3C /* SceneDelegate.swift in Sources */,
 				089E0F892B125B45006FDC0E /* BookshelfViewModel.swift in Sources */,
@@ -436,6 +463,7 @@
 				089E0F8D2B126829006FDC0E /* UICollectionViewCellExtension.swift in Sources */,
 				08C69E3F2B10AD6A0025B59D /* Typography.swift in Sources */,
 				0880ED4F2B17B8A6006F137B /* AddBookViewModel.swift in Sources */,
+				08CEC09C2B1B4379001341E4 /* SignUpView.swift in Sources */,
 				08D630422B0F7B7B00090F3C /* Constant.swift in Sources */,
 				0880ED552B17F1D3006F137B /* BookStateSegmentControl.swift in Sources */,
 				08C69E452B10E0020025B59D /* SharedButton.swift in Sources */,
