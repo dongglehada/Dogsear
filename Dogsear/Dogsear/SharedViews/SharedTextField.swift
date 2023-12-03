@@ -13,6 +13,7 @@ class SharedTextField: UIView {
         case normal
         case password
         case title
+        case titlePassword
     }
     
     var textField: UITextField = {
@@ -43,7 +44,13 @@ class SharedTextField: UIView {
         return view
     }()
     
-    let type: TextFieldType
+    lazy var stateLabel: UILabel = {
+        let label = UILabel()
+        label.font = Typography.body2.font
+        return label
+    }()
+    
+    private let type: TextFieldType
     
     init(type: TextFieldType, placeHolder: String) {
         self.type = type
@@ -68,30 +75,33 @@ private extension SharedTextField {
         setUpLayer(type: type)
         switch type {
         case .normal:
-            normalSetUp()
+            setUpNormal()
         case .password:
-            passwordSetUp()
+            setUpPassword()
         case .title:
-            titleSetUp()
+            setUpTitle()
+        case .titlePassword:
+            setUpTitlePassword()
         }
     }
     
     func setUpLayer(type: TextFieldType) {
-        if type != .title {
+        if type != .title && type != .titlePassword {
             self.layer.borderWidth = 1
             self.layer.borderColor = UIColor.systemGray4.cgColor
             self.layer.cornerRadius = Constant.defaults.radius
         }
     }
     
-    func normalSetUp() {
+    func setUpNormal() {
         self.addSubview(textField)
         textField.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(Constant.defaults.padding)
         }
     }
     
-    func passwordSetUp() {
+    func setUpPassword() {
+        showButton.addTarget(self, action: #selector(changeShowButtonColor), for: .touchUpInside)
         textField.isSecureTextEntry = true
         self.addSubview(showButton)
         showButton.snp.makeConstraints { make in
@@ -106,10 +116,15 @@ private extension SharedTextField {
         }
     }
     
-    func titleSetUp() {
+    func setUpTitle() {
         self.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
-            make.top.left.right.equalToSuperview()
+            make.top.left.equalToSuperview()
+        }
+        self.addSubview(stateLabel)
+        stateLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.left.equalTo(titleLabel.snp.right).offset(Constant.defaults.padding)
         }
         self.addSubview(trailingView)
         trailingView.snp.makeConstraints { make in
@@ -121,27 +136,76 @@ private extension SharedTextField {
             make.edges.equalToSuperview().inset(Constant.defaults.padding)
         }
     }
+    
+    func setUpTitlePassword() {
+        
+        textField.isSecureTextEntry = true
+        showButton.addTarget(self, action: #selector(changeShowButtonColor), for: .touchUpInside)
+        
+        self.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { make in
+            make.top.left.equalToSuperview()
+        }
+        self.addSubview(stateLabel)
+        stateLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.left.equalTo(titleLabel.snp.right).offset(Constant.defaults.padding)
+        }
+        self.addSubview(trailingView)
+        trailingView.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(Constant.defaults.padding)
+            make.left.right.bottom.equalToSuperview()
+        }
+
+        trailingView.addSubview(showButton)
+        showButton.snp.makeConstraints { make in
+            make.right.equalToSuperview().inset(Constant.defaults.padding)
+            make.centerY.equalToSuperview()
+            make.height.width.equalTo(Constant.screenHeight * 0.03)
+        }
+        trailingView.addSubview(textField)
+        textField.snp.makeConstraints { make in
+            make.top.left.bottom.equalToSuperview().inset(Constant.defaults.padding)
+            make.right.equalTo(showButton.snp.left)
+        }
+    }
 }
 
 extension SharedTextField {
     // MARK: - Method
-    func changeShowButtonColor(state: Bool) {
-        if state {
+    @objc private func changeShowButtonColor() {
+        self.textField.isSecureTextEntry.toggle()
+        if textField.isSecureTextEntry {
             UIView.animate(withDuration: 0.1) {
-                self.textField.isSecureTextEntry = false
-                self.showButton.tintColor = .myPointColor
+                self.showButton.tintColor = .systemGray4
             }
         } else {
             UIView.animate(withDuration: 0.1) {
-                self.textField.isSecureTextEntry = true
-                self.showButton.tintColor = .systemGray4
+                self.showButton.tintColor = .myPointColor
             }
         }
     }
-
-    func changeBorderColor(color: UIColor) {
-        UIView.animate(withDuration: 0.1) {
-            self.layer.borderColor = color.cgColor
+    
+    func changeBorderColor(color: UIColor, animated: Bool) {
+        
+        let action: () -> Void = {
+            switch self.type {
+            case .normal, .password:
+                self.layer.borderColor = color.cgColor
+            case .title, .titlePassword:
+                self.trailingView.layer.borderColor = color.cgColor
+            }
         }
+        
+        if animated {
+            UIView.animate(withDuration: 0.4) { action() }
+        } else {
+            action()
+        }
+    }
+    
+    func changeStatelabel(color: UIColor, text: String) {
+        stateLabel.text = text
+        stateLabel.textColor = color
     }
 }
