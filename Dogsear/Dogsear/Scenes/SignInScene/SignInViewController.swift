@@ -14,7 +14,6 @@ class SignInViewController: BasicController<SignInViewModel,SignInView> {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
-        bind()
     }
 }
 
@@ -23,16 +22,8 @@ private extension SignInViewController {
     func setUp() {
         sceneView?.passwordTextField.showButton.addTarget(self, action: #selector(didTapShowButton), for: .touchUpInside)
         sceneView?.signInButton.button.addTarget(self, action: #selector(didTapSignInButton), for: .touchUpInside)
+        sceneView.signUpButton.addTarget(self, action: #selector(didTapSignUpButton), for: .touchUpInside)
         sceneView?.activityIndicator.center = view.center
-    }
-
-    // MARK: - Bind
-    func bind() {
-        viewModel?.isShow.bind({ [weak self] state in
-            guard let self = self else { return }
-            guard let state = state else { return }
-            self.sceneView?.passwordTextField.changeShowButtonColor(state: state)
-        })
     }
 }
 
@@ -41,6 +32,14 @@ extension SignInViewController {
     @objc func didTapShowButton() {
         viewModel?.isShow.value?.toggle()
     }
+    
+    @objc func didTapSignUpButton() {
+        let vc = SignUpViewController()
+        vc.viewInjection(sceneView: SignUpView())
+        vc.viewModelInjection(viewModel: SignUpViewModel())
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
     @objc func didTapSignInButton() {
         

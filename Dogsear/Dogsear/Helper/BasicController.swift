@@ -21,9 +21,6 @@ class BasicController<ViewModel,SceneView: UIView>: UIViewController {
         setUpColor()
         setUpView()
     }
-    
-    func didTapBottomButton() {
-    }
 }
 
 extension BasicController {
@@ -48,14 +45,14 @@ extension BasicController {
         }
     }
     
-    func makeBottomButton(title:String) {
+    func makeBottomButton(title:String, action: @escaping () -> Void) {
         sceneView.addSubview(customButton)
         customButton.snp.makeConstraints { make in
             make.bottom.left.right.equalToSuperview().inset(Constant.defaults.padding)
         }
         customButton.button.setTitle(title, for: .normal)
         customButton.button.addAction(UIAction(handler: { state in
-            self.didTapBottomButton()
+            action()
         }), for: .touchUpInside)
     }
     

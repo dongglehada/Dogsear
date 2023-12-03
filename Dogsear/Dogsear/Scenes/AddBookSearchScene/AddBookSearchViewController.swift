@@ -14,12 +14,21 @@ class AddBookSearchViewController: BasicController<AddBookSearchViewModel,AddBoo
         setUp()
         bind()
     }
+}
 
-    override func didTapBottomButton() {
-        let rootVC = AddBookViewController()
-        rootVC.viewInjection(sceneView: AddBookView())
-        rootVC.viewModelInjection(viewModel: AddBookViewModel())
-        navigationController?.pushViewController(rootVC, animated: true)
+private extension AddBookSearchViewController {
+    func setUp() {
+        self.navigationItem.titleViewSetUpLogoImage()
+        makeBottomButton(title: "직접 입력하기") { [weak self] in
+            let rootVC = AddBookViewController()
+            rootVC.viewInjection(sceneView: AddBookView())
+            rootVC.viewModelInjection(viewModel: AddBookViewModel())
+            self?.navigationController?.pushViewController(rootVC, animated: true)
+        }
+        sceneView?.searchBar.delegate = self
+        sceneView?.searchCollectionView.delegate = self
+        sceneView?.searchCollectionView.dataSource = self 
+        sceneView.activityIndicator.center = view.center
     }
     
     func bind() {
@@ -28,21 +37,9 @@ class AddBookSearchViewController: BasicController<AddBookSearchViewModel,AddBoo
             
             DispatchQueue.main.async {
                 self.sceneView.activityIndicator.stopAnimating()
-                guard let row = self.viewModel?.searchIndex.value else { return }
                 self.sceneView.searchCollectionView.reloadData()
             }
         })
-    }
-}
-
-private extension AddBookSearchViewController {
-    func setUp() {
-        self.navigationItem.titleViewSetUpLogoImage()
-        makeBottomButton(title: "직접 입력하기")
-        sceneView?.searchBar.delegate = self
-        sceneView?.searchCollectionView.delegate = self
-        sceneView?.searchCollectionView.dataSource = self
-        sceneView.activityIndicator.center = view.center
     }
 }
 
