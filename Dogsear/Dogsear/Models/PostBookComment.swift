@@ -8,6 +8,7 @@
 import Foundation
 
 struct PostBookComment: Codable {
+    let id: String
     let comment: String
     let page: Int
     let date: Date

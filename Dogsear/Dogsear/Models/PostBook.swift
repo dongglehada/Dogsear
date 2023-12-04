@@ -8,6 +8,7 @@
 import Foundation
 
 struct PostBook: Codable {
+    var id: String
     var imageUrl: String
     var title: String
     var author: String
