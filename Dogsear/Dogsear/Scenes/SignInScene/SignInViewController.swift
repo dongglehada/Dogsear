@@ -23,7 +23,6 @@ private extension SignInViewController {
         sceneView?.passwordTextField.showButton.addTarget(self, action: #selector(didTapShowButton), for: .touchUpInside)
         sceneView?.signInButton.button.addTarget(self, action: #selector(didTapSignInButton), for: .touchUpInside)
         sceneView.signUpButton.addTarget(self, action: #selector(didTapSignUpButton), for: .touchUpInside)
-        sceneView?.activityIndicator.center = view.center
     }
 }
 
@@ -46,7 +45,7 @@ extension SignInViewController {
         guard let email = sceneView?.emailTextField.textField.text else { return }
         guard let password = sceneView?.passwordTextField.textField.text else { return }
         
-        sceneView?.activityIndicator.startAnimating()
+        self.startIndicatorAnimation()
         
         viewModel?.trySignIn(email: email, password: password, completion: { [weak self] result in
             guard let self = self else { return }
@@ -64,7 +63,7 @@ extension SignInViewController {
                 rootVC.viewModelInjection(viewModel: BookshelfViewModel())
                 navigationController?.pushViewController(rootVC, animated: true)
             }
-            self.sceneView?.activityIndicator.stopAnimating()
+            self.stopIndicatorAnimation()
         })
         
     }

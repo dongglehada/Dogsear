@@ -67,8 +67,6 @@ final class SignInView: UIView {
         return button
     }()
     
-    let activityIndicator = ActivityIndicator()
-    
     // MARK: - 생성자
     init() {
         super.init(frame: .zero)
@@ -89,7 +87,6 @@ private extension SignInView {
         setUpAutoLoginButton()
         setUpSignInButton()
         setUpButtonStackView()
-        self.addSubview(activityIndicator)
     }
     
     func setUpLogoImageView() {
