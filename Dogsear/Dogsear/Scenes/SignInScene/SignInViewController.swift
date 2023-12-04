@@ -20,7 +20,6 @@ class SignInViewController: BasicController<SignInViewModel,SignInView> {
 private extension SignInViewController {
     // MARK: - SetUp
     func setUp() {
-        sceneView?.passwordTextField.showButton.addTarget(self, action: #selector(didTapShowButton), for: .touchUpInside)
         sceneView?.signInButton.button.addTarget(self, action: #selector(didTapSignInButton), for: .touchUpInside)
         sceneView.signUpButton.addTarget(self, action: #selector(didTapSignUpButton), for: .touchUpInside)
     }
@@ -28,9 +27,6 @@ private extension SignInViewController {
 
 extension SignInViewController {
     // MARK: - Method
-    @objc func didTapShowButton() {
-        viewModel?.isShow.value?.toggle()
-    }
     
     @objc func didTapSignUpButton() {
         let vc = SignUpViewController()

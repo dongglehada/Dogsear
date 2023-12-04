@@ -16,8 +16,6 @@ enum SignInResult {
 }
 
 class SignInViewModel {
-    var isShow: Observable<Bool> = Observable(false)
-    
     
     func trySignIn(email: String, password: String, completion: @escaping (SignInResult) -> Void) {
         if email == "" {
