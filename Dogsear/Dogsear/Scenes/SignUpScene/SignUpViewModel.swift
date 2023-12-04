@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseAuth
+import FirebaseFirestore
 
 enum ValidationResult {
     case empty
@@ -33,16 +34,23 @@ class SignUpViewModel {
     
     let isPrivacyAgree: Observable<Bool> = Observable(false)
     let isSignUpAble: Observable<Bool> = Observable(false)
+    let firebaseManager = FirebaseManager()
 }
 
 extension SignUpViewModel {
     // MARK: - Method
-    func trySignUp(email: String, password: String, completion: @escaping (_ isSuccess: Bool) -> Void ) {
+    func trySignUp(email: String, password: String, nickName: String, completion: @escaping (_ isSuccess: Bool, _ errorMessage: String?) -> Void ) {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if error == nil {
-                completion(true)
+                self.firebaseManager.createUser(email: email, nickName: nickName) { isSuccess, errorMessage in
+                    if isSuccess {
+                        completion(true, nil)
+                    } else {
+                        completion(false, errorMessage)
+                    }
+                }
             } else {
-                completion(false)
+                completion(false, error?.localizedDescription)
             }
         }
     }
@@ -57,13 +65,18 @@ extension SignUpViewModel {
         let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
         if emailTest.evaluate(with: email) {
             emailState.value = .checking
-//            loginManager.isAvailableEmail(email: email) { [weak self] state in
-//                if state {
-//                    self?.emailState.value = .available
-//                } else{
-//                    self?.emailState.value = .alreadyInUse
-//                }
-//            }
+            Firestore.firestore().collection("users").getDocuments { data, error in
+                if error != nil {
+                    print("[FirebaseManager][\(#function)]: \(String(describing: error?.localizedDescription))")
+                } else {
+                    guard let safeData = data else { return }
+                    if safeData.documents.map({$0.documentID}).contains(email) {
+                        self.emailState.value = .alreadyInUse
+                    } else {
+                        self.emailState.value = .available
+                    }
+                }
+            }
         } else {
             emailState.value = .unavailableFormat
         }
@@ -116,6 +129,18 @@ extension SignUpViewModel {
             checkPasswordState.value = .available
         } else {
             checkPasswordState.value = .unconformity
+        }
+    }
+    
+    func isValidSignUp() -> Bool {
+        if emailState.value == .available
+            && nickNameState.value == .available
+            && passwordState.value == .available
+            && checkPasswordState.value == .available
+            && isPrivacyAgree.value == true {
+            return true
+        } else {
+            return false
         }
     }
 }

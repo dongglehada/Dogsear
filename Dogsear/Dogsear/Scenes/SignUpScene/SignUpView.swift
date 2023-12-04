@@ -20,6 +20,15 @@ class SignUpView: UIView {
     let nickNameTextField = SharedTextField(type: .title, placeHolder: "닉네임을 입력해주세요.", title: "닉네임")
     let passwordTextField = SharedTextField(type: .titlePassword, placeHolder: "비밀번호를 입력해주세요.", title: "비밀번호")
     let checkPasswordTextField = SharedTextField(type: .titlePassword, placeHolder: "동일한 비밀번호를 입력해주세요.", title: "비밀번호 확인")
+    let privacyAgreeButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("개인정보 처리 방침 동의", for: .normal)
+        button.titleLabel?.font = Typography.body2.font
+        button.setTitleColor(.black, for: .normal)
+        button.setImage(UIImage(systemName: "square"), for: .normal)
+        button.tintColor = .myPointColor
+        return button
+    }()
     
     init() {
         super.init(frame: .zero)
@@ -38,6 +47,7 @@ private extension SignUpView {
         setUpNickNameTextField()
         setUpPasswordTextField()
         setUpCheckPasswordTextField()
+        setUpPrivacyButton()
     }
     
     func setUpSignUpLabel() {
@@ -76,6 +86,14 @@ private extension SignUpView {
         checkPasswordTextField.snp.makeConstraints { make in
             make.top.equalTo(passwordTextField.snp.bottom).offset(Constant.defaults.padding)
             make.left.right.equalToSuperview().inset(Constant.defaults.padding)
+        }
+    }
+    
+    func setUpPrivacyButton() {
+        self.addSubview(privacyAgreeButton)
+        privacyAgreeButton.snp.makeConstraints { make in
+            make.top.equalTo(checkPasswordTextField.snp.bottom).offset(Constant.defaults.padding)
+            make.left.equalToSuperview().inset(Constant.defaults.padding)
         }
     }
 }

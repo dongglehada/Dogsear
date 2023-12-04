@@ -22,8 +22,9 @@ private extension SignUpViewController {
 
     func setUp() {
         setUpDelegate()
+        sceneView.privacyAgreeButton.addTarget(self, action: #selector(didTapPrivacyAgreeButton), for: .touchUpInside)
         makeBottomButton(title: "회원가입") { [weak self] in
-            print("singUpButton Tapped")
+            self?.didTapBottomButton()
         }
     }
     
@@ -95,9 +96,50 @@ private extension SignUpViewController {
                 print("등록되지 않은 상태")
             }
         })
+        
+        viewModel?.isPrivacyAgree.bind({ [weak self] state in
+            guard let state = state else { return }
+            if state {
+                self?.sceneView.privacyAgreeButton.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+            } else {
+                self?.sceneView.privacyAgreeButton.setImage(UIImage(systemName: "square"), for: .normal)
+            }
+        })
     }
 }
 
+private extension SignUpViewController {
+    // MARK: - Method
+    
+    @objc func didTapPrivacyAgreeButton() {
+        viewModel?.isPrivacyAgree.value?.toggle()
+    }
+    
+    func didTapBottomButton() {
+        guard let viewModel = self.viewModel else { return }
+        self.startIndicatorAnimation()
+        if viewModel.isValidSignUp() {
+            guard let email = self.sceneView.emailTextField.textField.text else { return }
+            guard let password = self.sceneView.passwordTextField.textField.text else { return }
+            guard let nickName = self.sceneView.nickNameTextField.textField.text else { return }
+            
+            viewModel.trySignUp(email: email, password: password, nickName: nickName) { isSuccess, errorMessage in
+                if isSuccess {
+                    self.makeAlert(title: "회원가입 성공", message: "확인 버튼을 누르면 로그인 화면으로 돌아갑니다.", action: {
+                        self.navigationController?.popViewController(animated: true)
+                    })
+                } else {
+                    self.makeAlert(title: "회원가입 실패", message: errorMessage)
+                }
+                self.stopIndicatorAnimation()
+            }
+        } else {
+            self.makeAlert(title: "회원가입 실패", message: "입력하신 내용을 확인해 주세요.")
+            self.stopIndicatorAnimation()
+        }
+    }
+
+}
 
 extension SignUpViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
