@@ -19,6 +19,7 @@ class SharedTextField: UIView {
     var textField: UITextField = {
         let view = UITextField()
         view.font = Typography.body1.font
+        view.autocapitalizationType = .none
         return view
     }()
     

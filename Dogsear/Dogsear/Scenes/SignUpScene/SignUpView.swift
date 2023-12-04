@@ -10,7 +10,7 @@ import UIKit
 
 class SignUpView: UIView {
     
-    let signUpTitleLabel: UILabel = {
+    private let signUpTitleLabel: UILabel = {
         let label = UILabel()
         label.font = Typography.title1.font
         label.text = "회원가입"
