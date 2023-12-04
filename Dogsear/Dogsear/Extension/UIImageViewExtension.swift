@@ -26,4 +26,21 @@ extension UIImageView {
             }
         }
     }
+    
+    func load(url: URL) {
+        let indicator = ActivityIndicator()
+        self.addSubview(indicator)
+        indicator.center = self.center
+        indicator.startAnimating()
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                        indicator.stopAnimating()
+                    }
+                }
+            }
+        }
+    }
 }
