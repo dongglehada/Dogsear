@@ -8,7 +8,8 @@
 import UIKit
 
 class BookshelfView: UIView {
-    
+    // MARK: - Property
+
     let segmentedControl = BookStateSegmentControl()
     
     let collectionView: UICollectionView = {
@@ -22,6 +23,14 @@ class BookshelfView: UIView {
         view.showsVerticalScrollIndicator = false
         return view
     }()
+    
+    let addButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "plus"), for: .normal)
+        button.backgroundColor = .myPointColor
+        button.tintColor = .white
+        return button
+    }()
 
     init() {
         super.init(frame: .zero)
@@ -34,9 +43,12 @@ class BookshelfView: UIView {
 }
 
 private extension BookshelfView {
+    // MARK: - SetUp
+
     func setUp() {
         setUpSegmentedControl()
         setUpCollectionView()
+        setUpAddButton()
     }
     
     func setUpSegmentedControl() {
@@ -55,4 +67,14 @@ private extension BookshelfView {
             make.left.right.bottom.equalToSuperview().inset(Constant.defaults.padding)
         }
     }
+    
+    func setUpAddButton() {
+        self.addSubview(addButton)
+        addButton.layer.cornerRadius = (Constant.screenWidth / 6) / 2
+        addButton.snp.makeConstraints { make in
+            make.right.bottom.equalToSuperview().inset(Constant.defaults.padding)
+            make.height.width.equalTo(Constant.screenWidth / 6)
+        }
+    }
+    
 }

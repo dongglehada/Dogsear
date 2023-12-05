@@ -30,6 +30,7 @@ private extension BookshelfViewController {
         sceneView?.collectionView.delegate = self
         sceneView?.collectionView.dataSource = self
         sceneView.segmentedControl.addTarget(self, action: #selector(didchangeValue(segment:)), for: .valueChanged)
+        sceneView.addButton.addTarget(self, action: #selector(didTapAddButton), for: .touchUpInside)
         navigationItem.titleViewSetUpLogoImage()
     }
     // MARK: - Bind
@@ -47,6 +48,14 @@ private extension BookshelfViewController {
     @objc func didchangeValue(segment: UISegmentedControl) {
         fetchPostBooksAry(segment: segment)
     }
+    
+    @objc func didTapAddButton() {
+        let rootVC = AddBookSearchViewController()
+        rootVC.viewInjection(sceneView: AddBookSearchView())
+        rootVC.viewModelInjection(viewModel: AddBookSearchViewModel())
+        navigationController?.pushViewController(rootVC, animated: true)
+    }
+    
     func fetchPostBooksAry(segment: UISegmentedControl) {
         switch segment.selectedSegmentIndex {
         case 0:
@@ -76,12 +85,7 @@ extension BookshelfViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let postBookAry = viewModel?.postBooks.value else { return  }
-        if indexPath.row == postBookAry.count {
-                    let rootVC = AddBookSearchViewController()
-                    rootVC.viewInjection(sceneView: AddBookSearchView())
-                    rootVC.viewModelInjection(viewModel: AddBookSearchViewModel())
-            navigationController?.pushViewController(rootVC, animated: true)
-        }
+
     }
     
     
