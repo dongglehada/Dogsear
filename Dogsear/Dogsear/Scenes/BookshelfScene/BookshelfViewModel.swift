@@ -9,5 +9,6 @@ import Foundation
 
 class BookshelfViewModel {
     let firebaseManager = FirebaseManager()
+    var originPostBooks: [PostBook] = []
     let postBooks: Observable<[PostBook]> = Observable([])
 }
