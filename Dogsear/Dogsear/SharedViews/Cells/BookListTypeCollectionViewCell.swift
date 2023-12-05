@@ -115,6 +115,7 @@ extension BookListTypeCollectionViewCell {
         authorLabel.text = "저자: \(item.author)"
         publisherLabel.text = "출판사: \(item.publisher)"
         descriptionLabel.text = "설명: \(item.description)"
-        imageView.load(stringUrl: item.image)
+        imageView.kf.indicatorType = .activity
+        imageView.kf.setImage(with: URL(string: item.image))
     }
 }

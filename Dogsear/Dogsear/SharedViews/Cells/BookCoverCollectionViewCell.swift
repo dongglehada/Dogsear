@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class BookCoverCollectionViewCell: UICollectionViewCell {
     
@@ -53,10 +54,12 @@ extension BookCoverCollectionViewCell {
         }
     }
     
-    func bind() {
+    func bind(postBook: PostBook) {
         setUp(isAddCell: false)
-        coverImageView.image = UIImage(named: "Test")
-        bookTitleLabel.text = "TEST"
+        guard let url = postBook.imageUrl else { return }
+        coverImageView.kf.indicatorType = .activity
+        coverImageView.kf.setImage(with: url)
+        bookTitleLabel.text = postBook.title
     }
     
     func addPostCell() {
