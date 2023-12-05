@@ -8,5 +8,6 @@
 import Foundation
 
 class BookshelfViewModel {
-
+    let firebaseManager = FirebaseManager()
+    let postBooks: Observable<[PostBook]> = Observable([])
 }

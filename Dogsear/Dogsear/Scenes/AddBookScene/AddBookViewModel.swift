@@ -9,4 +9,16 @@ import Foundation
 
 class AddBookViewModel {
     
+    let firebaseManager = FirebaseManager()
+    let newPost: Observable<PostBook> = Observable(
+        PostBook(
+            id: String.getNewID(type: .bookPost),
+            imageUrl: URL(string: ""),
+            title: "",
+            author: "",
+            publisher: "",
+            state: .reading,
+            comments: []
+        )
+    )
 }
