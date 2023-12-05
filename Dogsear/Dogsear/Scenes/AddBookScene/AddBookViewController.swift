@@ -63,7 +63,7 @@ private extension AddBookViewController {
 }
 
 private extension AddBookViewController {
-    // MARK: - Method
+    // MARK: - private Method
     
     @objc func didTapImageButton() {
         var configuration = PHPickerConfiguration()
@@ -93,16 +93,31 @@ private extension AddBookViewController {
         guard let newPost = viewModel.newPost.value else { return }
 
         if newPost.title != "" && newPost.author != "" && newPost.publisher != "" && newPost.imageUrl?.absoluteString != "" {
-            viewModel.firebaseManager.creatNewBookPost(newPost: newPost)
-            guard let viewControllerStack = self.navigationController?.viewControllers else { return }
-            for viewController in viewControllerStack {
-                if let targetVC = viewController as? BookshelfViewController {
-                    self.navigationController?.popToViewController(targetVC, animated: true)
+            viewModel.firebaseManager.creatNewBookPost(newPost: newPost) {
+                guard let viewControllerStack = self.navigationController?.viewControllers else { return }
+                for viewController in viewControllerStack {
+                    if let targetVC = viewController as? BookshelfViewController {
+                        self.navigationController?.popToViewController(targetVC, animated: true)
+                    }
                 }
             }
         } else {
             makeAlert(title: "입력하신 정보를 확인해 주세요.", message: nil)
         }
+    }
+
+}
+
+extension AddBookViewController {
+    func setUpSearchData(data: SearchData) {
+        viewModel?.newPost.value?.imageUrl = URL(string: data.image)
+        viewModel?.newPost.value?.title = data.title
+        viewModel?.newPost.value?.author = data.author
+        viewModel?.newPost.value?.publisher = data.publisher
+        sceneView.imageAddButton.kf.setImage(with: URL(string: data.image), for: .normal)
+        sceneView.nameTextField.textField.text = data.title
+        sceneView.authorTextField.textField.text = data.author
+        sceneView.publisherTextField.textField.text = data.publisher
     }
 }
 

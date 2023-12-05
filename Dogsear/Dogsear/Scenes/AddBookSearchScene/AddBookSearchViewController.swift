@@ -70,6 +70,15 @@ extension AddBookSearchViewController: UICollectionViewDelegate, UICollectionVie
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let rootVC = AddBookViewController()
+        guard let datas = viewModel?.searchDatas.value else { return }
+        rootVC.viewInjection(sceneView: AddBookView())
+        rootVC.viewModelInjection(viewModel: AddBookViewModel())
+        rootVC.setUpSearchData(data: datas[indexPath.row])
+        self.navigationController?.pushViewController(rootVC, animated: true)
+    }
+    
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if !sceneView.activityIndicator.isAnimating {

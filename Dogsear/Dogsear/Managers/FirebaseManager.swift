@@ -30,7 +30,7 @@ class FirebaseManager {
         }
     }
     
-    func creatNewBookPost(newPost: PostBook) {
+    func creatNewBookPost(newPost: PostBook, completion: @escaping () -> Void) {
         guard let email = email else { return }
         fetchUserData() { user in
             var user = user
@@ -38,8 +38,10 @@ class FirebaseManager {
             do {
                 let data = try Firestore.Encoder().encode(user)
                 self.db.collection(self.users).document(email).updateData(data)
+                completion()
             } catch {
                 print("[FirebaseManager][\(#function)]:Fail")
+                completion()
             }
         }
     }
