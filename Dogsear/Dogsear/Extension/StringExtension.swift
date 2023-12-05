@@ -19,11 +19,11 @@ extension String {
         
         switch type {
         case .bookPost:
-            return userEmail + "bookPost" + String(Date().timeIntervalSince1970)
+            return userEmail + "_bookPost_" + String(Date().timeIntervalSince1970) + UUID().uuidString
         case .comment:
-            return userEmail + "comment" + String(Date().timeIntervalSince1970)
+            return userEmail + "_comment_" + String(Date().timeIntervalSince1970) + UUID().uuidString
         case .imageUrl:
-            return userEmail + "imageUrl" + String(Date().timeIntervalSince1970)
+            return userEmail + "_imageUrl_" + String(Date().timeIntervalSince1970) + UUID().uuidString
         }
     }
 }
