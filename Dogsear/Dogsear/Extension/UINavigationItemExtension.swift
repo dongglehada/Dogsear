@@ -18,3 +18,16 @@ extension UINavigationItem {
         self.titleView = imageView
     }
 }
+
+extension UINavigationController {
+    func makeLogoImage() {
+        let imageView: UIImageView = {
+            let view = UIImageView()
+            view.image = UIImage(named: "Logo")
+            view.contentMode = .scaleAspectFit
+            return view
+        }()
+        
+        self.navigationItem.titleView = imageView
+    }
+}

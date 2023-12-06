@@ -62,7 +62,7 @@ extension BasicController {
         customButton.button.setTitle(title, for: .normal)
         customButton.button.addAction(UIAction(handler: { state in
             action()
-        }), for: .touchUpInside)
+        }), for: .primaryActionTriggered)// touch up inside 랑 비슷
     }
 }
 extension BasicController {

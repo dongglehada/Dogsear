@@ -14,14 +14,20 @@ class BookshelfViewController: BasicController<BookshelfViewModel,BookshelfView>
         setUp()
         bind()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
-        print(#function)
+        tabBarController?.navigationController?.isNavigationBarHidden = true
         viewModel?.firebaseManager.fetchUserData(completion: { [weak self] user in
             guard let self = self else { return }
             self.viewModel?.originPostBooks = user.PostBooks
             self.fetchPostBooksAry(segment: sceneView.segmentedControl)
         })
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        tabBarController?.navigationController?.isNavigationBarHidden = false
+    }
+
 }
 
 private extension BookshelfViewController {
@@ -30,8 +36,9 @@ private extension BookshelfViewController {
         sceneView?.collectionView.delegate = self
         sceneView?.collectionView.dataSource = self
         sceneView.segmentedControl.addTarget(self, action: #selector(didchangeValue(segment:)), for: .valueChanged)
-        sceneView.addButton.addTarget(self, action: #selector(didTapAddButton), for: .touchUpInside)
         navigationItem.titleViewSetUpLogoImage()
+//        super.navigationController?.isNavigationBarHidden = true
+//        self.navigationController?.makeLogoImage()
     }
     // MARK: - Bind
     
@@ -40,7 +47,6 @@ private extension BookshelfViewController {
             self.sceneView.collectionView.reloadData()
         })
     }
-
 }
 
 private extension BookshelfViewController {

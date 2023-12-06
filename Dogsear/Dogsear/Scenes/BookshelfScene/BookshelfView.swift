@@ -23,14 +23,6 @@ class BookshelfView: UIView {
         view.showsVerticalScrollIndicator = false
         return view
     }()
-    
-    let addButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "plus"), for: .normal)
-        button.backgroundColor = .myPointColor
-        button.tintColor = .white
-        return button
-    }()
 
     init() {
         super.init(frame: .zero)
@@ -48,7 +40,6 @@ private extension BookshelfView {
     func setUp() {
         setUpSegmentedControl()
         setUpCollectionView()
-        setUpAddButton()
     }
     
     func setUpSegmentedControl() {
@@ -65,15 +56,6 @@ private extension BookshelfView {
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(segmentedControl.snp.bottom).offset(Constant.defaults.padding)
             make.left.right.bottom.equalToSuperview().inset(Constant.defaults.padding)
-        }
-    }
-    
-    func setUpAddButton() {
-        self.addSubview(addButton)
-        addButton.layer.cornerRadius = (Constant.screenWidth / 6) / 2
-        addButton.snp.makeConstraints { make in
-            make.right.bottom.equalToSuperview().inset(Constant.defaults.padding)
-            make.height.width.equalTo(Constant.screenWidth / 6)
         }
     }
     

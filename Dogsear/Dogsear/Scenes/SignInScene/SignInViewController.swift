@@ -54,10 +54,8 @@ extension SignInViewController {
                 self.sceneView?.missMatchLabelShow(isShow: true, content: "이메일 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.")
             case .success:
                 self.sceneView?.missMatchLabelShow(isShow: false, content: nil)
-                let rootVC = BookshelfViewController()
-                rootVC.viewInjection(sceneView: BookshelfView())
-                rootVC.viewModelInjection(viewModel: BookshelfViewModel())
-                navigationController?.pushViewController(rootVC, animated: true)
+                let rootView = MyCustomTabBarController()
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootVC(viewController: rootView, animated: false)
             }
             self.stopIndicatorAnimation()
         })

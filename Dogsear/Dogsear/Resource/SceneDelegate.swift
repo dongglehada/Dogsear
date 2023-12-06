@@ -17,15 +17,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         window?.backgroundColor = .systemBackground
+
 //        let rootVC = SignInViewController()
 //        rootVC.viewModelInjection(viewModel: SignInViewModel())
 //        rootVC.viewInjection(sceneView: SignInView())
 //        window?.rootViewController = UINavigationController(rootViewController: rootVC)
+//        
+        let rootVC = UINavigationController(rootViewController: MyCustomTabBarController())
+//        rootVC.tabBar = CustomTabBar()
+        window?.rootViewController = rootVC
         
-        let rootVC = BookshelfViewController()
-        rootVC.viewInjection(sceneView: BookshelfView())
-        rootVC.viewModelInjection(viewModel: BookshelfViewModel())
-        window?.rootViewController = UINavigationController(rootViewController: rootVC)
+
+//        let rootVC = BookshelfViewController()
+//        rootVC.viewInjection(sceneView: BookshelfView())
+//        rootVC.viewModelInjection(viewModel: BookshelfViewModel())
+//        window?.rootViewController = UINavigationController(rootViewController: rootVC)
         
 //        let rootVC = AddBookSearchViewController()
 //        rootVC.viewInjection(sceneView: AddBookSearchView())
@@ -56,5 +62,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 
+}
+
+extension SceneDelegate {
+    // MARK: - RootViewChangeMethod
+    
+    func changeRootVC(viewController: UIViewController, animated: Bool) {
+        guard let window = window else { return }
+        window.rootViewController = viewController
+        UIView.transition(with: window, duration: 0.5, options: [.transitionCrossDissolve], animations: nil, completion: nil)
+    }
 }
 

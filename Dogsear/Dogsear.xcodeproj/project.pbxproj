@@ -37,6 +37,9 @@
 		08CEC0AA2B1E1790001341E4 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CEC0A92B1E1790001341E4 /* StringExtension.swift */; };
 		08CEC0AD2B1F0576001341E4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 08CEC0AC2B1F0576001341E4 /* Kingfisher */; };
 		08CEC0B12B1F15BD001341E4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CEC0B02B1F15BD001341E4 /* TabBarController.swift */; };
+		08CEC0B62B1F1818001341E4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CEC0B52B1F1818001341E4 /* ProfileViewController.swift */; };
+		08CEC0B82B1F1821001341E4 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CEC0B72B1F1821001341E4 /* ProfileView.swift */; };
+		08CEC0BA2B1F182A001341E4 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CEC0B92B1F182A001341E4 /* ProfileViewModel.swift */; };
 		08D62FE32B0F29D100090F3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D62FE22B0F29D100090F3C /* AppDelegate.swift */; };
 		08D62FE52B0F29D100090F3C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D62FE42B0F29D100090F3C /* SceneDelegate.swift */; };
 		08D62FEC2B0F29D200090F3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08D62FEB2B0F29D200090F3C /* Assets.xcassets */; };
@@ -109,6 +112,9 @@
 		08CEC0A32B1DD191001341E4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		08CEC0A92B1E1790001341E4 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		08CEC0B02B1F15BD001341E4 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		08CEC0B52B1F1818001341E4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		08CEC0B72B1F1821001341E4 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		08CEC0B92B1F182A001341E4 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		08D62FDF2B0F29D100090F3C /* Dogsear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dogsear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08D62FE22B0F29D100090F3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08D62FE42B0F29D100090F3C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -225,6 +231,16 @@
 			path = SignUpScene;
 			sourceTree = "<group>";
 		};
+		08CEC0B42B1F1801001341E4 /* ProfileScene */ = {
+			isa = PBXGroup;
+			children = (
+				08CEC0B52B1F1818001341E4 /* ProfileViewController.swift */,
+				08CEC0B72B1F1821001341E4 /* ProfileView.swift */,
+				08CEC0B92B1F182A001341E4 /* ProfileViewModel.swift */,
+			);
+			path = ProfileScene;
+			sourceTree = "<group>";
+		};
 		08D62FD62B0F29D100090F3C = {
 			isa = PBXGroup;
 			children = (
@@ -281,6 +297,7 @@
 		08D6303C2B0F7AA700090F3C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				08CEC0B42B1F1801001341E4 /* ProfileScene */,
 				0880ED492B17B867006F137B /* AddBookScene */,
 				0880ED402B17852F006F137B /* AddBookSearchScene */,
 				089E0F832B125A9F006FDC0E /* BookshelfScene */,
@@ -446,6 +463,7 @@
 				0880ED5C2B180F3A006F137B /* SearchDatas.swift in Sources */,
 				08CEC0972B1B3C36001341E4 /* PostBook.swift in Sources */,
 				0880ED462B17863B006F137B /* AddBookSearchViewModel.swift in Sources */,
+				08CEC0BA2B1F182A001341E4 /* ProfileViewModel.swift in Sources */,
 				08D6304E2B0F872D00090F3C /* SignInView.swift in Sources */,
 				08D630482B0F7CE700090F3C /* SignInViewController.swift in Sources */,
 				08D630462B0F7CC500090F3C /* FirebaseManager.swift in Sources */,
@@ -453,6 +471,7 @@
 				0880ED5E2B181004006F137B /* ActivityIndicator.swift in Sources */,
 				08D6303B2B0F300600090F3C /* Observable.swift in Sources */,
 				08C69E392B10AB070025B59D /* SharedTextField.swift in Sources */,
+				08CEC0B82B1F1821001341E4 /* ProfileView.swift in Sources */,
 				089E0F872B125B35006FDC0E /* BookshelfView.swift in Sources */,
 				089E0F852B125B21006FDC0E /* BookshelfViewController.swift in Sources */,
 				089E0F902B1268E7006FDC0E /* BookCoverCollectionViewCell.swift in Sources */,
@@ -462,6 +481,7 @@
 				08CEC0A02B1D2186001341E4 /* PostBookComment.swift in Sources */,
 				08D630502B0F873500090F3C /* SignInViewModel.swift in Sources */,
 				08CEC0AA2B1E1790001341E4 /* StringExtension.swift in Sources */,
+				08CEC0B62B1F1818001341E4 /* ProfileViewController.swift in Sources */,
 				0880ED4D2B17B896006F137B /* AddBookView.swift in Sources */,
 				0880ED422B1785B7006F137B /* AddBookSearchViewController.swift in Sources */,
 				08CEC09E2B1B4383001341E4 /* SignUpViewModel.swift in Sources */,

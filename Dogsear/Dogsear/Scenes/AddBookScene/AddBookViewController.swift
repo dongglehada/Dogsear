@@ -94,12 +94,13 @@ private extension AddBookViewController {
 
         if newPost.title != "" && newPost.author != "" && newPost.publisher != "" && newPost.imageUrl?.absoluteString != "" {
             viewModel.firebaseManager.creatNewBookPost(newPost: newPost) {
-                guard let viewControllerStack = self.navigationController?.viewControllers else { return }
-                for viewController in viewControllerStack {
-                    if let targetVC = viewController as? BookshelfViewController {
-                        self.navigationController?.popToViewController(targetVC, animated: true)
-                    }
-                }
+//                guard let viewControllerStack = self.tabBarController?.navigationController?.viewControllers else { return }
+//                for viewController in viewControllerStack {
+//                    if let targetVC = viewController as? MyCustomTabBarController {
+//                        self.tabBarController?.navigationController?.popToViewController(targetVC, animated: true)
+//                    }
+//                }
+                self.navigationController?.popViewController(animated: true)
             }
         } else {
             makeAlert(title: "입력하신 정보를 확인해 주세요.", message: nil)
