@@ -23,7 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        rootVC.viewInjection(sceneView: SignInView())
 //        window?.rootViewController = UINavigationController(rootViewController: rootVC)
 //        
-        let rootVC = UINavigationController(rootViewController: MyCustomTabBarController())
+//        let rootVC = UINavigationController(rootViewController: MyCustomTabBarController())
+        let rootVC = MyCustomTabBarController()
 //        rootVC.tabBar = CustomTabBar()
         window?.rootViewController = rootVC
         

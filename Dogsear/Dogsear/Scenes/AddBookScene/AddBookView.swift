@@ -48,7 +48,7 @@ class AddBookView: UIView {
     
     init() {
         super.init(frame: .zero)
-        setUp()
+        setUpConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -57,18 +57,7 @@ class AddBookView: UIView {
 }
 
 private extension AddBookView {
-    func setUp() {
-        setUpScrollView()
-        setUpImageLabel()
-        setUpImageAddButton()
-        setUpNameTextField()
-        setUpAuthorTextField()
-        setUpPublisherTextField()
-        setUpStateLabel()
-        setUpStateCollectionView()
-    }
-    
-    func setUpScrollView() {
+    func setUpConstraints() {
         self.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview()
@@ -79,17 +68,23 @@ private extension AddBookView {
         contentView.snp.makeConstraints { make in
             make.edges.width.equalToSuperview()
         }
-    }
-    
-    func setUpImageLabel() {
+        
+        contentView.addSubview(stateLabel)
+        stateLabel.snp.makeConstraints { make in
+            make.top.left.equalToSuperview().inset(Constant.defaults.padding)
+        }
+        
+        contentView.addSubview(segmentedControl)
+        segmentedControl.snp.makeConstraints { make in
+            make.top.equalTo(stateLabel.snp.bottom).offset(Constant.defaults.padding)
+            make.left.right.equalToSuperview().inset(Constant.defaults.padding)
+        }
+        
         contentView.addSubview(imageLabel)
         imageLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(Constant.defaults.padding)
+            make.top.equalTo(segmentedControl.snp.bottom).offset(Constant.defaults.padding)
             make.left.equalToSuperview().inset(Constant.defaults.padding)
         }
-    }
-    
-    func setUpImageAddButton() {
         contentView.addSubview(imageAddButton)
         imageAddButton.snp.makeConstraints { make in
             make.top.equalTo(imageLabel.snp.bottom).offset(Constant.defaults.padding)
@@ -97,47 +92,21 @@ private extension AddBookView {
             make.width.equalTo(Constant.bookSize.width * 2)
             make.height.equalTo(Constant.bookSize.height * 2)
         }
-    }
-    
-    func setUpNameTextField() {
         contentView.addSubview(nameTextField)
         nameTextField.snp.makeConstraints { make in
             make.top.equalTo(imageAddButton.snp.bottom).offset(Constant.defaults.padding)
             make.left.right.equalToSuperview().inset(Constant.defaults.padding)
         }
-    }
-    
-    func setUpAuthorTextField() {
         contentView.addSubview(authorTextField)
         authorTextField.snp.makeConstraints { make in
             make.top.equalTo(nameTextField.snp.bottom).offset(Constant.defaults.padding)
             make.left.right.equalToSuperview().inset(Constant.defaults.padding)
         }
-    }
-    
-    func setUpPublisherTextField() {
         contentView.addSubview(publisherTextField)
         publisherTextField.snp.makeConstraints { make in
             make.top.equalTo(authorTextField.snp.bottom).offset(Constant.defaults.padding)
             make.left.right.equalToSuperview().inset(Constant.defaults.padding)
+            make.bottom.equalToSuperview()
         }
     }
-    
-    func setUpStateLabel() {
-        contentView.addSubview(stateLabel)
-        stateLabel.snp.makeConstraints { make in
-            make.top.equalTo(publisherTextField.snp.bottom).offset(Constant.defaults.padding)
-            make.left.equalToSuperview().inset(Constant.defaults.padding)
-        }
-    }
-    
-    func setUpStateCollectionView() {
-        contentView.addSubview(segmentedControl)
-        segmentedControl.snp.makeConstraints { make in
-            make.top.equalTo(stateLabel.snp.bottom).offset(Constant.defaults.padding)
-            make.height.equalTo(Constant.defaults.blockHeight)
-            make.left.right.bottom.equalToSuperview().inset(Constant.defaults.padding)
-        }
-    }
-
 }

@@ -100,7 +100,8 @@ private extension AddBookViewController {
 //                        self.tabBarController?.navigationController?.popToViewController(targetVC, animated: true)
 //                    }
 //                }
-                self.navigationController?.popViewController(animated: true)
+//                self.navigationController?.popViewController(animated: true)
+                self.dismiss(animated: true)
             }
         } else {
             makeAlert(title: "입력하신 정보를 확인해 주세요.", message: nil)

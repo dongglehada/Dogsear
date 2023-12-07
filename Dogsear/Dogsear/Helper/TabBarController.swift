@@ -29,7 +29,7 @@ class MyCustomTabBarController : UITabBarController {
             rootVC.viewInjection(sceneView: AddBookSearchView())
             rootVC.viewModelInjection(viewModel: AddBookSearchViewModel())
             rootVC.modalPresentationStyle = .fullScreen
-            self.navigationController?.pushViewController(rootVC, animated: true)
+            self.present(rootVC, animated: true)
         }
         btnMiddle.addAction(aciton, for: .primaryActionTriggered)
     }

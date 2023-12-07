@@ -16,16 +16,18 @@ class BookshelfViewController: BasicController<BookshelfViewModel,BookshelfView>
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tabBarController?.navigationController?.isNavigationBarHidden = true
+        print(#function)
+        startIndicatorAnimation()
         viewModel?.firebaseManager.fetchUserData(completion: { [weak self] user in
             guard let self = self else { return }
             self.viewModel?.originPostBooks = user.PostBooks
             self.fetchPostBooksAry(segment: sceneView.segmentedControl)
+            stopIndicatorAnimation()
         })
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        tabBarController?.navigationController?.isNavigationBarHidden = false
+//        tabBarController?.navigationController?.isNavigationBarHidden = false
     }
 
 }
@@ -90,8 +92,13 @@ extension BookshelfViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let postBookAry = viewModel?.postBooks.value else { return  }
+        guard let postBookAry = viewModel?.postBooks.value else { return }
+        let vc = BookDetailViewController()
+        vc.viewInjection(sceneView: BookDetailView())
+        vc.viewModelInjection(viewModel: BookDetailViewModel())
+        vc.viewModel?.postData.value = postBookAry[indexPath.row]
 
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     

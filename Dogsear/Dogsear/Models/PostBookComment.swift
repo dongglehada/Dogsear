@@ -12,5 +12,5 @@ struct PostBookComment: Codable {
     let comment: String
     let page: Int
     let date: Date
-    let imageURL: String?
+    let imageURL: URL?
 }

@@ -23,12 +23,17 @@ private extension AddBookSearchViewController {
             let rootVC = AddBookViewController()
             rootVC.viewInjection(sceneView: AddBookView())
             rootVC.viewModelInjection(viewModel: AddBookViewModel())
-            self?.navigationController?.pushViewController(rootVC, animated: true)
+//            self?.navigationController?.pushViewController(rootVC, animated: true)
+            self?.present(rootVC, animated: true)
         }
         sceneView?.searchBar.delegate = self
         sceneView?.searchCollectionView.delegate = self
         sceneView?.searchCollectionView.dataSource = self 
         sceneView.activityIndicator.center = view.center
+        let action = UIAction { _ in
+            self.dismiss(animated: true)
+        }
+        sceneView.backButton.addAction(action, for: .primaryActionTriggered)
     }
     
     func bind() {
@@ -76,7 +81,8 @@ extension AddBookSearchViewController: UICollectionViewDelegate, UICollectionVie
         rootVC.viewInjection(sceneView: AddBookView())
         rootVC.viewModelInjection(viewModel: AddBookViewModel())
         rootVC.setUpSearchData(data: datas[indexPath.row])
-        self.navigationController?.pushViewController(rootVC, animated: true)
+//        self.navigationController?.pushViewController(rootVC, animated: true)
+        self.present(rootVC, animated: true)
     }
     
     

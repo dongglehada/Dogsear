@@ -16,33 +16,14 @@ class BookListTypeCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = Typography.body1.font
-        return label
-    }()
-    
-    private let authorLabel: UILabel = {
-        let label = UILabel()
-        label.font = Typography.body1.font
-        return label
-    }()
-    
-    private let publisherLabel: UILabel = {
-        let label = UILabel()
-        label.font = Typography.body1.font
-        return label
-    }()    
-    
-    private let descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.font = Typography.body1.font
-        label.numberOfLines = 2
-        return label
-    }()
+    private let titleLabel = BottomLineTextField(placeHolder: "", text: "", font: Typography.title3.font)
+    private let authorLabel = BottomLineTextField(placeHolder: "", text: "")
+    private let publisherLabel = BottomLineTextField(placeHolder: "", text: "")
+    private let descriptionLabel = BottomLineTextField(placeHolder: "", text: "")
     
     override init(frame: CGRect) {
         super.init(frame: CGRect.zero)
+        setUpConstraints()
         setUp()
     }
     
@@ -53,15 +34,15 @@ class BookListTypeCollectionViewCell: UICollectionViewCell {
 }
 
 private extension BookListTypeCollectionViewCell {
+    
     func setUp() {
-        setUpImageView()
-        setUpTitleLabel()
-        setUpAuthorLabel()
-        setUpPublisherLabel()
-        setUpDescriptionLabel()
+        titleLabel.textField.isEnabled = false
+        authorLabel.textField.isEnabled = false
+        publisherLabel.textField.isEnabled = false
+        descriptionLabel.textField.isEnabled = false
     }
     
-    func setUpImageView() {
+    func setUpConstraints() {
         contentView.addSubview(imageView)
         imageView.snp.makeConstraints { make in
             make.height.equalTo(Constant.bookSize.height)
@@ -69,35 +50,24 @@ private extension BookListTypeCollectionViewCell {
             make.left.equalToSuperview().offset(Constant.defaults.padding)
             make.centerY.equalToSuperview()
         }
-    }
-    
-    func setUpTitleLabel() {
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(imageView.snp.top)
             make.left.equalTo(imageView.snp.right).offset(Constant.defaults.padding)
             make.right.equalToSuperview().inset(Constant.defaults.padding)
         }
-    }
-    
-    func setUpAuthorLabel() {
         contentView.addSubview(authorLabel)
         authorLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(Constant.defaults.padding / 2)
             make.left.equalTo(imageView.snp.right).offset(Constant.defaults.padding)
             make.right.equalToSuperview().inset(Constant.defaults.padding)
         }
-    }
-    
-    func setUpPublisherLabel() {
         contentView.addSubview(publisherLabel)
         publisherLabel.snp.makeConstraints { make in
             make.top.equalTo(authorLabel.snp.bottom).offset(Constant.defaults.padding / 2)
             make.left.equalTo(imageView.snp.right).offset(Constant.defaults.padding)
             make.right.equalToSuperview().inset(Constant.defaults.padding)
         }
-    }
-    func setUpDescriptionLabel() {
         contentView.addSubview(descriptionLabel)
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(publisherLabel.snp.bottom).offset(Constant.defaults.padding / 2)
@@ -106,15 +76,14 @@ private extension BookListTypeCollectionViewCell {
             make.bottom.equalToSuperview().inset(Constant.defaults.padding)
         }
     }
-    
 }
 
 extension BookListTypeCollectionViewCell {
     func bind(item: SearchData) {
-        titleLabel.text = "제목: \(item.title)"
-        authorLabel.text = "저자: \(item.author)"
-        publisherLabel.text = "출판사: \(item.publisher)"
-        descriptionLabel.text = "설명: \(item.description)"
+        titleLabel.textField.text = "\(item.title)"
+        authorLabel.textField.text = "저자: \(item.author)"
+        publisherLabel.textField.text = "출판사: \(item.publisher)"
+        descriptionLabel.textField.text = "설명: \(item.description)"
         imageView.kf.indicatorType = .activity
         imageView.kf.setImage(with: URL(string: item.image))
     }

@@ -34,6 +34,15 @@ class AddBookSearchView: UIView {
     
     let activityIndicator = ActivityIndicator()
     
+    let backButton: UIButton = {
+        let button = UIButton()
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 30, weight: .light)
+        let image = UIImage(systemName: "chevron.backward", withConfiguration: imageConfig)
+        button.setImage(image, for: .normal)
+        button.tintColor = .myPointColor
+        return button
+    }()
+    
     init() {
         super.init(frame: .zero)
         setUp()
@@ -47,10 +56,17 @@ class AddBookSearchView: UIView {
 private extension AddBookSearchView {
     
     func setUp() {
+        
+        self.addSubview(backButton)
+        backButton.snp.makeConstraints { make in
+            make.top.left.equalToSuperview().inset(Constant.defaults.padding)
+            make.height.equalTo(Constant.defaults.blockHeight)
+        }
         self.addSubview(searchBar)
         searchBar.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(Constant.defaults.padding - 8)
-            make.left.right.equalToSuperview().inset(Constant.defaults.padding - 8)
+            make.top.equalTo(backButton.snp.top)
+            make.left.equalTo(backButton.snp.right)
+            make.right.equalToSuperview().inset(Constant.defaults.padding - 8)
             make.height.equalTo(Constant.defaults.blockHeight)
         }
         
