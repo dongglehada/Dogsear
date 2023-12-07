@@ -16,7 +16,7 @@ class BottomLineTextField: UIView {
         return view
     }()
     
-    let bottomLine: UIView = {
+    private let bottomLine: UIView = {
         let view = UIView()
         view.backgroundColor = .myPointColor
         return view
@@ -53,5 +53,11 @@ private extension BottomLineTextField {
             make.height.equalTo(1)
             make.bottom.equalToSuperview()
         }
+    }
+}
+
+extension BottomLineTextField {
+    func changeBottomLineColor(color: UIColor) {
+        bottomLine.backgroundColor = color
     }
 }

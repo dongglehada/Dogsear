@@ -30,7 +30,9 @@ class BookDetailView: UIView {
     init() {
         super.init(frame: .zero)
         setUpConstraints()
-        isEditAble(state: false)
+        titleTextField.textField.isEnabled = false
+        authorTextField.textField.isEnabled = false
+        publisherTextField.textField.isEnabled = false
     }
     
     required init?(coder: NSCoder) {
@@ -92,10 +94,19 @@ private extension BookDetailView {
 extension BookDetailView {
     // MARK: - Method
     func isEditAble(state: Bool) {
-        bookStateSegmentControl.isUserInteractionEnabled = state
         titleTextField.textField.isEnabled = state
         authorTextField.textField.isEnabled = state
         publisherTextField.textField.isEnabled = state
+        if state {
+            titleTextField.changeBottomLineColor(color: .systemGray4)
+            authorTextField.changeBottomLineColor(color: .systemGray4)
+            publisherTextField.changeBottomLineColor(color: .systemGray4)
+        } else {
+            titleTextField.changeBottomLineColor(color: .myPointColor)
+            authorTextField.changeBottomLineColor(color: .myPointColor)
+            publisherTextField.changeBottomLineColor(color: .myPointColor)
+        }
+
     }
 
 }

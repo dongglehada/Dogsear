@@ -9,10 +9,13 @@ import Foundation
 
 class CommentAddViewModel {
     let firebaseManager = FirebaseManager()
-    var postID: String?
+    var postID: String
+    var comment: PostBookComment?
+    var isEditPost = false
     
-    init(postID: String?) {
+    init(postID: String, comment: PostBookComment?) {
         self.postID = postID
+        self.comment = comment
     }
 }
 
@@ -31,7 +34,7 @@ extension CommentAddViewModel {
             bookComment: bookText,
             myComment: myText,
             date: Date())
-        self.firebaseManager.createNewComment(postID: self.postID ?? "", newComment: newComment, completion: {
+        self.firebaseManager.createComment(postID: self.postID, newComment: newComment, completion: {
             completion()
         })
     }

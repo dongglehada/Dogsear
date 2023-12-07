@@ -9,7 +9,7 @@ import Foundation
 
 struct PostBookComment: Codable {
     let id: String
-    let bookComment: String
-    let myComment: String
+    var bookComment: String
+    var myComment: String
     let date: Date
 }

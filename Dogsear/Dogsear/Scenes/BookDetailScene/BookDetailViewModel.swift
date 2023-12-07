@@ -10,6 +10,7 @@ import Foundation
 class BookDetailViewModel {
     let firebaseManager = FirebaseManager()
     let postData: Observable<PostBook>
+    let isEdit: Observable<Bool> = Observable(false)
     
     init(postData: Observable<PostBook>) {
         self.postData = postData

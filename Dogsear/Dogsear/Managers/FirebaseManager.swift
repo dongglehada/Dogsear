@@ -30,11 +30,45 @@ class FirebaseManager {
         }
     }
     
-    func updateNewBookPost(newPost: PostBook, completion: @escaping () -> Void) {
+    func createBookPost(newPost: PostBook, completion: @escaping () -> Void) {
         guard let email = email else { return }
         fetchUserData() { user in
             var user = user
             user.PostBooks.append(newPost)
+            do {
+                let data = try Firestore.Encoder().encode(user)
+                self.db.collection(self.users).document(email).updateData(data)
+                completion()
+            } catch {
+                print("[FirebaseManager][\(#function)]:Fail")
+                completion()
+            }
+        }
+    }
+    
+    func deleteBookPost(target: PostBook, completion: @escaping () -> Void) {
+        guard let email = email else { return }
+        fetchUserData() { user in
+            var user = user
+            guard let index = user.PostBooks.firstIndex(where: {$0.id == target.id}) else { return }
+            user.PostBooks.remove(at: index)
+            do {
+                let data = try Firestore.Encoder().encode(user)
+                self.db.collection(self.users).document(email).updateData(data)
+                completion()
+            } catch {
+                print("[FirebaseManager][\(#function)]:Fail")
+                completion()
+            }
+        }
+    }
+    
+    func updateBookPost(postBook: PostBook, completion: @escaping () -> Void) {
+        guard let email = email else { return }
+        fetchUserData() { user in
+            var user = user
+            guard let index = user.PostBooks.firstIndex(where: {$0.id == postBook.id}) else { return }
+            user.PostBooks[index] = postBook
             do {
                 let data = try Firestore.Encoder().encode(user)
                 self.db.collection(self.users).document(email).updateData(data)
@@ -63,12 +97,48 @@ class FirebaseManager {
         }
     }
     
-    func createNewComment(postID: String, newComment: PostBookComment, completion: @escaping () -> Void) {
+    func createComment(postID: String, newComment: PostBookComment, completion: @escaping () -> Void) {
         guard let email = email else { return }
         fetchUserData() { user in
             var user = user
             guard let index = user.PostBooks.firstIndex(where: {$0.id == postID}) else { return }
             user.PostBooks[index].comments.append(newComment)
+            do {
+                let data = try Firestore.Encoder().encode(user)
+                self.db.collection(self.users).document(email).updateData(data)
+                completion()
+            } catch {
+                print("[FirebaseManager][\(#function)]:Fail")
+                completion()
+            }
+        }
+    }
+    
+    func deleteComment(postID: String, commentID: String, completion: @escaping () -> Void) {
+        guard let email = email else { return }
+        fetchUserData() { user in
+            var user = user
+            guard let postIndex = user.PostBooks.firstIndex(where: {$0.id == postID}) else { return }
+            guard let commentIndex = user.PostBooks[postIndex].comments.firstIndex(where: {$0.id == commentID}) else { return }
+            user.PostBooks[postIndex].comments.remove(at: commentIndex)
+            do {
+                let data = try Firestore.Encoder().encode(user)
+                self.db.collection(self.users).document(email).updateData(data)
+                completion()
+            } catch {
+                print("[FirebaseManager][\(#function)]:Fail")
+                completion()
+            }
+        }
+    }
+    
+    func updateComment(postID: String, updateComment: PostBookComment, completion: @escaping () -> Void) {
+        guard let email = email else { return }
+        fetchUserData() { user in
+            var user = user
+            guard let postIndex = user.PostBooks.firstIndex(where: {$0.id == postID}) else { return }
+            guard let commentIndex = user.PostBooks[postIndex].comments.firstIndex(where: {$0.id == updateComment.id}) else { return }
+            user.PostBooks[postIndex].comments[commentIndex] = updateComment
             do {
                 let data = try Firestore.Encoder().encode(user)
                 self.db.collection(self.users).document(email).updateData(data)

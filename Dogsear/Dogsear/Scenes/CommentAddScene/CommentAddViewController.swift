@@ -11,19 +11,22 @@ import UIKit
 class CommentAddViewController: BasicController<CommentAddViewModel, CommentAddView> {
     override func viewDidLoad() {
         super.viewDidLoad()
-        makeBottomButton(title: "기록하기") { [weak self] in
-            guard let self = self else { return }
-            guard let viewModel = self.viewModel else { return }
-            guard let bookText = self.sceneView.bookTextView.text else { return }
-            guard let myText = self.sceneView.myTextView.text else { return }
-            if viewModel.isVaildCommet(bookText: bookText, myText: myText) {
-                viewModel.makeCommentPost(bookText: bookText, myText: myText) {
-                    self.navigationController?.popViewController(animated: true)
-                }
-            } else {
-                self.makeAlert(title: "실패", message: "입력하신 내용을 확인해 주세요.")
+        guard let state = viewModel?.isEditPost else { return }
+        
+        if state {
+            sceneView.bookTextView.text = viewModel?.comment?.bookComment
+            sceneView.myTextView.text = viewModel?.comment?.myComment
+            makeBottomButton(title: "수정하기") { [weak self] in
+                guard let self = self else { return }
+                didTapBottomButton(state: state)
+            }
+        } else {
+            makeBottomButton(title: "기록하기") { [weak self] in
+                guard let self = self else { return }
+                didTapBottomButton(state: state)
             }
         }
+
     }
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = true
@@ -39,8 +42,27 @@ class CommentAddViewController: BasicController<CommentAddViewModel, CommentAddV
 }
 
 private extension CommentAddViewController {
-    func setUp() {
-//        sceneView.bookTextView.delegate = self
-//        sceneView.myTextView.delegate = self
+    func didTapBottomButton(state: Bool) {
+        guard let viewModel = self.viewModel else { return }
+        guard let bookText = self.sceneView.bookTextView.text else { return }
+        guard let myText = self.sceneView.myTextView.text else { return }
+        if viewModel.isVaildCommet(bookText: bookText, myText: myText) {
+            if state {
+                viewModel.comment?.bookComment = bookText
+                viewModel.comment?.myComment = myText
+                guard let comment = viewModel.comment else { return }
+                
+                viewModel.firebaseManager.updateComment(postID: viewModel.postID, updateComment: comment) {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            } else {
+                viewModel.makeCommentPost(bookText: bookText, myText: myText) {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
+        } else {
+            self.makeAlert(title: "실패", message: "입력하신 내용을 확인해 주세요.")
+        }
     }
+    
 }

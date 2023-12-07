@@ -44,25 +44,15 @@ class CommentTableViewCell: UITableViewCell {
 private extension CommentTableViewCell {
     func setUpConstraints() {
         
-        contentView.addSubview(trailView)
-        trailView.snp.makeConstraints { make in
-            make.top.left.right.equalToSuperview()
-            make.bottom.equalToSuperview().inset(Constant.defaults.padding)
-        }
-        trailView.layer.borderWidth = 1
-        trailView.layer.borderColor = UIColor.systemGray4.cgColor
-        trailView.layer.cornerRadius = Constant.defaults.radius
-        
-        trailView.addSubview(bookTextView)
+        contentView.addSubview(bookTextView)
         bookTextView.snp.makeConstraints { make in
-            make.width.equalTo(Constant.screenWidth - (Constant.defaults.padding * 2))
+            make.left.right.equalToSuperview()
             make.top.equalToSuperview()
-            make.centerX.equalToSuperview()
         }
-        trailView.addSubview(myTextView)
+        contentView.addSubview(myTextView)
         myTextView.snp.makeConstraints { make in
             make.top.equalTo(bookTextView.snp.bottom).offset(Constant.defaults.padding)
-            make.width.equalTo(Constant.screenWidth - (Constant.defaults.padding * 2))
+            make.left.right.equalToSuperview()
             make.bottom.centerX.equalToSuperview()
         }
     }
