@@ -84,6 +84,10 @@
 		08EEC02A2B2105A900E8FF6A /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EEC0292B2105A900E8FF6A /* BookDetailView.swift */; };
 		08EEC02C2B2105B400E8FF6A /* BookDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EEC02B2B2105B400E8FF6A /* BookDetailViewModel.swift */; };
 		08EEC02E2B21150200E8FF6A /* BottomLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EEC02D2B21150200E8FF6A /* BottomLineTextField.swift */; };
+		08EEC0332B21B42700E8FF6A /* CommentAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EEC0322B21B42700E8FF6A /* CommentAddViewController.swift */; };
+		08EEC0352B21B43200E8FF6A /* CommentAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EEC0342B21B43200E8FF6A /* CommentAddView.swift */; };
+		08EEC0372B21B43900E8FF6A /* CommentAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EEC0362B21B43900E8FF6A /* CommentAddViewModel.swift */; };
+		08EEC0392B21D8B500E8FF6A /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EEC0382B21D8B500E8FF6A /* CommentTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -137,6 +141,10 @@
 		08EEC0292B2105A900E8FF6A /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
 		08EEC02B2B2105B400E8FF6A /* BookDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewModel.swift; sourceTree = "<group>"; };
 		08EEC02D2B21150200E8FF6A /* BottomLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomLineTextField.swift; sourceTree = "<group>"; };
+		08EEC0322B21B42700E8FF6A /* CommentAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentAddViewController.swift; sourceTree = "<group>"; };
+		08EEC0342B21B43200E8FF6A /* CommentAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentAddView.swift; sourceTree = "<group>"; };
+		08EEC0362B21B43900E8FF6A /* CommentAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentAddViewModel.swift; sourceTree = "<group>"; };
+		08EEC0382B21D8B500E8FF6A /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +233,7 @@
 			children = (
 				089E0F8F2B1268E7006FDC0E /* BookCoverCollectionViewCell.swift */,
 				0880ED5F2B18C08D006F137B /* BookListTypeCollectionViewCell.swift */,
+				08EEC0382B21D8B500E8FF6A /* CommentTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -305,6 +314,7 @@
 		08D6303C2B0F7AA700090F3C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				08EEC0312B21B40600E8FF6A /* CommentAddScene */,
 				08EEC0262B21058C00E8FF6A /* BookDetailScene */,
 				08CEC0B42B1F1801001341E4 /* ProfileScene */,
 				0880ED492B17B867006F137B /* AddBookScene */,
@@ -369,6 +379,16 @@
 				08EEC02B2B2105B400E8FF6A /* BookDetailViewModel.swift */,
 			);
 			path = BookDetailScene;
+			sourceTree = "<group>";
+		};
+		08EEC0312B21B40600E8FF6A /* CommentAddScene */ = {
+			isa = PBXGroup;
+			children = (
+				08EEC0322B21B42700E8FF6A /* CommentAddViewController.swift */,
+				08EEC0342B21B43200E8FF6A /* CommentAddView.swift */,
+				08EEC0362B21B43900E8FF6A /* CommentAddViewModel.swift */,
+			);
+			path = CommentAddScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -480,6 +500,7 @@
 				08EEC0282B2105A000E8FF6A /* BookDetailViewController.swift in Sources */,
 				089E0F822B125A2A006FDC0E /* UIVIewExtension.swift in Sources */,
 				0880ED602B18C08D006F137B /* BookListTypeCollectionViewCell.swift in Sources */,
+				08EEC0332B21B42700E8FF6A /* CommentAddViewController.swift in Sources */,
 				0880ED4B2B17B888006F137B /* AddBookViewController.swift in Sources */,
 				0880ED5C2B180F3A006F137B /* SearchDatas.swift in Sources */,
 				08CEC0972B1B3C36001341E4 /* PostBook.swift in Sources */,
@@ -488,6 +509,7 @@
 				08EEC02E2B21150200E8FF6A /* BottomLineTextField.swift in Sources */,
 				08EEC02A2B2105A900E8FF6A /* BookDetailView.swift in Sources */,
 				08D6304E2B0F872D00090F3C /* SignInView.swift in Sources */,
+				08EEC0372B21B43900E8FF6A /* CommentAddViewModel.swift in Sources */,
 				08D630482B0F7CE700090F3C /* SignInViewController.swift in Sources */,
 				08D630462B0F7CC500090F3C /* FirebaseManager.swift in Sources */,
 				0880ED572B17F3C2006F137B /* BookSearchManager.swift in Sources */,
@@ -497,6 +519,7 @@
 				08CEC0B82B1F1821001341E4 /* ProfileView.swift in Sources */,
 				089E0F872B125B35006FDC0E /* BookshelfView.swift in Sources */,
 				089E0F852B125B21006FDC0E /* BookshelfViewController.swift in Sources */,
+				08EEC0392B21D8B500E8FF6A /* CommentTableViewCell.swift in Sources */,
 				089E0F902B1268E7006FDC0E /* BookCoverCollectionViewCell.swift in Sources */,
 				0880ED442B178626006F137B /* AddBookSearchView.swift in Sources */,
 				08CEC0A42B1DD191001341E4 /* User.swift in Sources */,
@@ -514,6 +537,7 @@
 				08CEC0B12B1F15BD001341E4 /* TabBarController.swift in Sources */,
 				08D62FE52B0F29D100090F3C /* SceneDelegate.swift in Sources */,
 				089E0F892B125B45006FDC0E /* BookshelfViewModel.swift in Sources */,
+				08EEC0352B21B43200E8FF6A /* CommentAddView.swift in Sources */,
 				0880ED482B17922F006F137B /* UINavigationItemExtension.swift in Sources */,
 				08D6304A2B0F7DF300090F3C /* BasicController.swift in Sources */,
 				089E0F8D2B126829006FDC0E /* UICollectionViewCellExtension.swift in Sources */,

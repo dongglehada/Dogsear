@@ -95,7 +95,7 @@ extension BookshelfViewController: UICollectionViewDelegate, UICollectionViewDat
         guard let postBookAry = viewModel?.postBooks.value else { return }
         let vc = BookDetailViewController()
         vc.viewInjection(sceneView: BookDetailView())
-        vc.viewModelInjection(viewModel: BookDetailViewModel())
+        vc.viewModelInjection(viewModel: BookDetailViewModel(postData: Observable(postBookAry[indexPath.row])))
         vc.viewModel?.postData.value = postBookAry[indexPath.row]
 
         self.navigationController?.pushViewController(vc, animated: true)

@@ -9,8 +9,7 @@ import Foundation
 
 struct PostBookComment: Codable {
     let id: String
-    let comment: String
-    let page: Int
+    let bookComment: String
+    let myComment: String
     let date: Date
-    let imageURL: URL?
 }

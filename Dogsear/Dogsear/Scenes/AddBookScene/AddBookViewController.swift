@@ -93,7 +93,7 @@ private extension AddBookViewController {
         guard let newPost = viewModel.newPost.value else { return }
 
         if newPost.title != "" && newPost.author != "" && newPost.publisher != "" && newPost.imageUrl?.absoluteString != "" {
-            viewModel.firebaseManager.creatNewBookPost(newPost: newPost) {
+            viewModel.firebaseManager.updateNewBookPost(newPost: newPost) {
 //                guard let viewControllerStack = self.tabBarController?.navigationController?.viewControllers else { return }
 //                for viewController in viewControllerStack {
 //                    if let targetVC = viewController as? MyCustomTabBarController {

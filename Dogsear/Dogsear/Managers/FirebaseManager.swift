@@ -30,7 +30,7 @@ class FirebaseManager {
         }
     }
     
-    func creatNewBookPost(newPost: PostBook, completion: @escaping () -> Void) {
+    func updateNewBookPost(newPost: PostBook, completion: @escaping () -> Void) {
         guard let email = email else { return }
         fetchUserData() { user in
             var user = user
@@ -62,6 +62,23 @@ class FirebaseManager {
             }
         }
     }
+    
+    func createNewComment(postID: String, newComment: PostBookComment, completion: @escaping () -> Void) {
+        guard let email = email else { return }
+        fetchUserData() { user in
+            var user = user
+            guard let index = user.PostBooks.firstIndex(where: {$0.id == postID}) else { return }
+            user.PostBooks[index].comments.append(newComment)
+            do {
+                let data = try Firestore.Encoder().encode(user)
+                self.db.collection(self.users).document(email).updateData(data)
+                completion()
+            } catch {
+                print("[FirebaseManager][\(#function)]:Fail")
+                completion()
+            }
+        }
+    }
 }
 
 extension FirebaseManager {
@@ -81,5 +98,4 @@ extension FirebaseManager {
             }
         }
     }
-
 }
