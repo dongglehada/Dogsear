@@ -17,6 +17,9 @@ enum SignInResult {
 
 class SignInViewModel {
     
+    let userDefaultManager = UserDefaultsManager()
+    let isAutoLogin: Observable<Bool> = Observable(false)
+    
     func trySignIn(email: String, password: String, completion: @escaping (SignInResult) -> Void) {
         if email == "" {
             completion(.emptyEmail)

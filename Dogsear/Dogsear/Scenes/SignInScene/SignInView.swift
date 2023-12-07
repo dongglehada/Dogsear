@@ -35,7 +35,6 @@ final class SignInView: UIView {
         button.titleEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: -Constant.defaults.padding / 2)
         button.setTitleColor(.label, for: .normal)
         button.titleLabel?.font = Typography.body3.font
-        button.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
         button.tintColor = .myPointColor
         return button
     }()

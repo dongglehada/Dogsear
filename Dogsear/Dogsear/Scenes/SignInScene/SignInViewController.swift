@@ -14,14 +14,28 @@ class SignInViewController: BasicController<SignInViewModel,SignInView> {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
+        bind()
     }
 }
 
 private extension SignInViewController {
     // MARK: - SetUp
     func setUp() {
-        sceneView?.signInButton.button.addTarget(self, action: #selector(didTapSignInButton), for: .touchUpInside)
-        sceneView.signUpButton.addTarget(self, action: #selector(didTapSignUpButton), for: .touchUpInside)
+        sceneView.signInButton.button.addTarget(self, action: #selector(didTapSignInButton), for: .primaryActionTriggered)
+        sceneView.signUpButton.addTarget(self, action: #selector(didTapSignUpButton), for: .primaryActionTriggered)
+        sceneView.autoLoginButton.addAction(UIAction(handler: { _ in self.didTapAutoLoginButton() }), for: .primaryActionTriggered)
+    }
+    
+    func bind() {
+        viewModel?.isAutoLogin.bind({ [weak self] state in
+            guard let state = state else { return }
+            self?.viewModel?.userDefaultManager.setAutoLogin(toggle: state)
+            if state {
+                self?.sceneView.autoLoginButton.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+            } else {
+                self?.sceneView.autoLoginButton.setImage(UIImage(systemName: "square"), for: .normal)
+            }
+        })
     }
 }
 
@@ -33,6 +47,10 @@ extension SignInViewController {
         vc.viewInjection(sceneView: SignUpView())
         vc.viewModelInjection(viewModel: SignUpViewModel())
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func didTapAutoLoginButton() {
+        self.viewModel?.isAutoLogin.value?.toggle()
     }
     
     
