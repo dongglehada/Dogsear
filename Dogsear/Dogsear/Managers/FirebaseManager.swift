@@ -16,7 +16,25 @@ class FirebaseManager {
     private let db = Firestore.firestore()
     private let users: String = "users"
     private let PostBooks: String = "PostBooks"
-    private let email = Auth.auth().currentUser?.email
+    let email = Auth.auth().currentUser?.email
+    
+    func deleteUser(email: String, completion: @escaping () -> Void) {
+        db.collection(users).document(email).delete { error in
+            Auth.auth().currentUser?.delete(completion: { error in
+                completion()
+            })
+        }
+    }
+    
+    func logOut(completion: @escaping (_ isLogOut: Bool) -> Void) {
+        do {
+            try Auth.auth().signOut()
+            completion(true)
+        } catch {
+            completion(false)
+        }
+        
+    }
     
     func createUser(email: String, nickName: String, completion: @escaping (_ isSuccess: Bool, _ errorMessage: String?) -> Void) {
         
@@ -88,7 +106,7 @@ class FirebaseManager {
             } else {
                 guard let data = data?.data() else { return }
                 do {
-                    var safeData = try Firestore.Decoder().decode(User.self, from: data)
+                    let safeData = try Firestore.Decoder().decode(User.self, from: data)
                     completion(safeData)
                 } catch {
                     print("[FirebaseManager][\(#function)]: DecodingFail")

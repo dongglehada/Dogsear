@@ -24,6 +24,7 @@ private extension SignInViewController {
         sceneView.signInButton.button.addTarget(self, action: #selector(didTapSignInButton), for: .primaryActionTriggered)
         sceneView.signUpButton.addTarget(self, action: #selector(didTapSignUpButton), for: .primaryActionTriggered)
         sceneView.autoLoginButton.addAction(UIAction(handler: { _ in self.didTapAutoLoginButton() }), for: .primaryActionTriggered)
+        sceneView.passwordFindButton.addAction(UIAction(handler: { _ in self.didTapPasswordFindButton() }), for: .primaryActionTriggered)
     }
     
     func bind() {
@@ -51,6 +52,22 @@ extension SignInViewController {
     
     func didTapAutoLoginButton() {
         self.viewModel?.isAutoLogin.value?.toggle()
+    }
+    
+    func didTapPasswordFindButton() {
+        let alert = UIAlertController(title: "비밀번호 재설정", message: "입력하신 이메일로 재설정 메일을 발송합니다.", preferredStyle: .alert)
+
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        let yes = UIAlertAction(title: "확인", style: .default) { [weak self] _ in
+            guard let email = alert.textFields?[0].text else { return }
+            guard let self = self else { return }
+            self.viewModel?.passwordFind(email: email)
+        }
+        alert.addTextField()
+        alert.textFields?[0].placeholder = "example@example.com"
+        alert.addAction(yes)
+        alert.addAction(cancel)
+        present(alert, animated: true)
     }
     
     

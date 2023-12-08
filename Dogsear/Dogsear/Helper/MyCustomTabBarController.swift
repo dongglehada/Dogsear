@@ -68,8 +68,8 @@ class MyCustomTabBarController : UITabBarController {
         profileVC.viewModelInjection(viewModel: ProfileViewModel())
         profileVC.tabBarItem = UITabBarItem(
             title: nil,
-            image: UIImage(systemName: "person"),
-            selectedImage: UIImage(systemName: "person.fill")
+            image: UIImage(systemName: "gearshape"),
+            selectedImage: UIImage(systemName: "gearshape.fill")
         )
         let profile = UINavigationController(rootViewController: profileVC)
         viewControllers = [bookshelf, profile]

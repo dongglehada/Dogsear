@@ -89,6 +89,7 @@
 		08EEC0372B21B43900E8FF6A /* CommentAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EEC0362B21B43900E8FF6A /* CommentAddViewModel.swift */; };
 		08EEC0392B21D8B500E8FF6A /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EEC0382B21D8B500E8FF6A /* CommentTableViewCell.swift */; };
 		08EEC03F2B22446300E8FF6A /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EEC03E2B22446300E8FF6A /* UserDefaultsManager.swift */; };
+		08EEC0432B224AFD00E8FF6A /* SettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EEC0422B224AFD00E8FF6A /* SettingItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -147,6 +148,7 @@
 		08EEC0362B21B43900E8FF6A /* CommentAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentAddViewModel.swift; sourceTree = "<group>"; };
 		08EEC0382B21D8B500E8FF6A /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		08EEC03E2B22446300E8FF6A /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		08EEC0422B224AFD00E8FF6A /* SettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +218,7 @@
 				08CEC0962B1B3C36001341E4 /* PostBook.swift */,
 				08CEC09F2B1D2186001341E4 /* PostBookComment.swift */,
 				08CEC0A32B1DD191001341E4 /* User.swift */,
+				08EEC0422B224AFD00E8FF6A /* SettingItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 				08EEC03F2B22446300E8FF6A /* UserDefaultsManager.swift in Sources */,
 				0880ED602B18C08D006F137B /* BookListTypeCollectionViewCell.swift in Sources */,
 				08EEC0332B21B42700E8FF6A /* CommentAddViewController.swift in Sources */,
+				08EEC0432B224AFD00E8FF6A /* SettingItem.swift in Sources */,
 				0880ED4B2B17B888006F137B /* AddBookViewController.swift in Sources */,
 				0880ED5C2B180F3A006F137B /* SearchDatas.swift in Sources */,
 				08CEC0972B1B3C36001341E4 /* PostBook.swift in Sources */,
@@ -620,6 +624,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "도그지어";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -677,6 +682,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "도그지어";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -697,10 +703,12 @@
 				DEVELOPMENT_TEAM = W5QTRMS954;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Dogsear/Resource/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "도그지어";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -728,10 +736,12 @@
 				DEVELOPMENT_TEAM = W5QTRMS954;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Dogsear/Resource/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "도그지어";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

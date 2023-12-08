@@ -16,7 +16,6 @@ class BookshelfViewController: BasicController<BookshelfViewModel,BookshelfView>
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print(#function)
         startIndicatorAnimation()
         viewModel?.firebaseManager.fetchUserData(completion: { [weak self] user in
             guard let self = self else { return }
@@ -25,11 +24,6 @@ class BookshelfViewController: BasicController<BookshelfViewModel,BookshelfView>
             stopIndicatorAnimation()
         })
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-//        tabBarController?.navigationController?.isNavigationBarHidden = false
-    }
-
 }
 
 private extension BookshelfViewController {

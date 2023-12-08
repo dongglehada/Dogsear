@@ -22,11 +22,19 @@ class SignUpView: UIView {
     let checkPasswordTextField = SharedTextField(type: .titlePassword, placeHolder: "동일한 비밀번호를 입력해주세요.", title: "비밀번호 확인")
     let privacyAgreeButton: UIButton = {
         let button = UIButton()
-        button.setTitle("개인정보 처리 방침 동의", for: .normal)
+        button.setTitle("개인정보 처리방침에 동의합니다.", for: .normal)
         button.titleLabel?.font = Typography.body2.font
         button.setTitleColor(.black, for: .normal)
         button.setImage(UIImage(systemName: "square"), for: .normal)
         button.tintColor = .myPointColor
+        return button
+    }()
+    
+    let privacyShowButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("[보기]", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = Typography.body2.font
         return button
     }()
     
@@ -94,6 +102,11 @@ private extension SignUpView {
         privacyAgreeButton.snp.makeConstraints { make in
             make.top.equalTo(checkPasswordTextField.snp.bottom).offset(Constant.defaults.padding)
             make.left.equalToSuperview().inset(Constant.defaults.padding)
+        }
+        self.addSubview(privacyShowButton)
+        privacyShowButton.snp.makeConstraints { make in
+            make.centerY.equalTo(privacyAgreeButton.snp.centerY)
+            make.left.equalTo(privacyAgreeButton.snp.right).offset(Constant.defaults.padding)
         }
     }
 }

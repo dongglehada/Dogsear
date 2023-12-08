@@ -20,6 +20,16 @@ class SignInViewModel {
     let userDefaultManager = UserDefaultsManager()
     let isAutoLogin: Observable<Bool> = Observable(false)
     
+    func passwordFind(email: String) {
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if error == nil {
+                print("send Email")
+            } else {
+                print("Email sending failed.")
+            }
+        }
+    }
+    
     func trySignIn(email: String, password: String, completion: @escaping (SignInResult) -> Void) {
         if email == "" {
             completion(.emptyEmail)

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SafariServices
 
 class SignUpViewController: BasicController<SignUpViewModel, SignUpView> {
     // MARK: - LifeCycle
@@ -14,6 +15,9 @@ class SignUpViewController: BasicController<SignUpViewModel, SignUpView> {
         super.viewDidLoad()
         setUp()
         bind()
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }
 
@@ -23,6 +27,7 @@ private extension SignUpViewController {
     func setUp() {
         setUpDelegate()
         sceneView.privacyAgreeButton.addTarget(self, action: #selector(didTapPrivacyAgreeButton), for: .touchUpInside)
+        sceneView.privacyShowButton.addAction(UIAction(handler: { _ in self.didTapPrivacyShowButton() }), for: .primaryActionTriggered)
         makeBottomButton(title: "회원가입") { [weak self] in
             self?.didTapBottomButton()
         }
@@ -113,6 +118,12 @@ private extension SignUpViewController {
     
     @objc func didTapPrivacyAgreeButton() {
         viewModel?.isPrivacyAgree.value?.toggle()
+    }
+    
+    func didTapPrivacyShowButton() {
+        let privacyPolicyURL = URL(string: "https://plip.kr/pcc/33ee4b14-f641-4ed0-af8b-252891969dc0/privacy/1.html")!
+        let safariViewController = SFSafariViewController(url: privacyPolicyURL)
+        self.navigationController?.pushViewController(safariViewController, animated: true)
     }
     
     func didTapBottomButton() {
