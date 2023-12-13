@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0876987E2B2995D70095890D /* MyTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0876987D2B2995D70095890D /* MyTimer.swift */; };
+		087698802B29993E0095890D /* TestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0876987F2B29993E0095890D /* TestController.swift */; };
 		0880ED422B1785B7006F137B /* AddBookSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED412B1785B7006F137B /* AddBookSearchViewController.swift */; };
 		0880ED442B178626006F137B /* AddBookSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED432B178626006F137B /* AddBookSearchView.swift */; };
 		0880ED462B17863B006F137B /* AddBookSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED452B17863B006F137B /* AddBookSearchViewModel.swift */; };
@@ -93,6 +95,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0876987D2B2995D70095890D /* MyTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTimer.swift; sourceTree = "<group>"; };
+		0876987F2B29993E0095890D /* TestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestController.swift; sourceTree = "<group>"; };
 		0880ED412B1785B7006F137B /* AddBookSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookSearchViewController.swift; sourceTree = "<group>"; };
 		0880ED432B178626006F137B /* AddBookSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookSearchView.swift; sourceTree = "<group>"; };
 		0880ED452B17863B006F137B /* AddBookSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookSearchViewModel.swift; sourceTree = "<group>"; };
@@ -312,6 +316,7 @@
 				08D630492B0F7DF300090F3C /* BasicController.swift */,
 				08C69E3E2B10AD6A0025B59D /* Typography.swift */,
 				08CEC0B02B1F15BD001341E4 /* MyCustomTabBarController.swift */,
+				0876987F2B29993E0095890D /* TestController.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -373,6 +378,7 @@
 				08D630452B0F7CC500090F3C /* FirebaseManager.swift */,
 				0880ED562B17F3C2006F137B /* BookSearchManager.swift */,
 				08EEC03E2B22446300E8FF6A /* UserDefaultsManager.swift */,
+				0876987D2B2995D70095890D /* MyTimer.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -524,6 +530,7 @@
 				0880ED5E2B181004006F137B /* ActivityIndicator.swift in Sources */,
 				08D6303B2B0F300600090F3C /* Observable.swift in Sources */,
 				08C69E392B10AB070025B59D /* SharedTextField.swift in Sources */,
+				0876987E2B2995D70095890D /* MyTimer.swift in Sources */,
 				08CEC0B82B1F1821001341E4 /* ProfileView.swift in Sources */,
 				089E0F872B125B35006FDC0E /* BookshelfView.swift in Sources */,
 				089E0F852B125B21006FDC0E /* BookshelfViewController.swift in Sources */,
@@ -553,6 +560,7 @@
 				0880ED4F2B17B8A6006F137B /* AddBookViewModel.swift in Sources */,
 				08CEC09C2B1B4379001341E4 /* SignUpView.swift in Sources */,
 				08D630422B0F7B7B00090F3C /* Constant.swift in Sources */,
+				087698802B29993E0095890D /* TestController.swift in Sources */,
 				0880ED552B17F1D3006F137B /* BookStateSegmentControl.swift in Sources */,
 				08C69E452B10E0020025B59D /* SharedButton.swift in Sources */,
 			);
@@ -714,7 +722,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.donggle.Dogsear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -747,7 +755,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.donggle.Dogsear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
