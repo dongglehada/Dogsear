@@ -10,6 +10,8 @@
 		0876987E2B2995D70095890D /* MyTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0876987D2B2995D70095890D /* MyTimer.swift */; };
 		087698802B29993E0095890D /* TestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0876987F2B29993E0095890D /* TestController.swift */; };
 		087698852B2B0AB00095890D /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 087698842B2B0AB00095890D /* LaunchImage.png */; };
+		087698872B2B1D630095890D /* AlertMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087698862B2B1D630095890D /* AlertMaker.swift */; };
+		087698892B2B1D930095890D /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087698882B2B1D930095890D /* UIWindowExtension.swift */; };
 		0880ED422B1785B7006F137B /* AddBookSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED412B1785B7006F137B /* AddBookSearchViewController.swift */; };
 		0880ED442B178626006F137B /* AddBookSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED432B178626006F137B /* AddBookSearchView.swift */; };
 		0880ED462B17863B006F137B /* AddBookSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED452B17863B006F137B /* AddBookSearchViewModel.swift */; };
@@ -99,6 +101,8 @@
 		0876987D2B2995D70095890D /* MyTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTimer.swift; sourceTree = "<group>"; };
 		0876987F2B29993E0095890D /* TestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestController.swift; sourceTree = "<group>"; };
 		087698842B2B0AB00095890D /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LaunchImage.png; path = ../../../../../../../../Downloads/LaunchScreen/LaunchImage.png; sourceTree = "<group>"; };
+		087698862B2B1D630095890D /* AlertMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMaker.swift; sourceTree = "<group>"; };
+		087698882B2B1D930095890D /* UIWindowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
 		0880ED412B1785B7006F137B /* AddBookSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookSearchViewController.swift; sourceTree = "<group>"; };
 		0880ED432B178626006F137B /* AddBookSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookSearchView.swift; sourceTree = "<group>"; };
 		0880ED452B17863B006F137B /* AddBookSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookSearchViewModel.swift; sourceTree = "<group>"; };
@@ -328,6 +332,7 @@
 				08C69E3E2B10AD6A0025B59D /* Typography.swift */,
 				08CEC0B02B1F15BD001341E4 /* MyCustomTabBarController.swift */,
 				0876987F2B29993E0095890D /* TestController.swift */,
+				087698862B2B1D630095890D /* AlertMaker.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -365,6 +370,7 @@
 				089E0F8C2B126829006FDC0E /* UICollectionViewCellExtension.swift */,
 				0880ED472B17922F006F137B /* UINavigationItemExtension.swift */,
 				08CEC0A92B1E1790001341E4 /* StringExtension.swift */,
+				087698882B2B1D930095890D /* UIWindowExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -538,6 +544,7 @@
 				08EEC0372B21B43900E8FF6A /* CommentAddViewModel.swift in Sources */,
 				08D630482B0F7CE700090F3C /* SignInViewController.swift in Sources */,
 				08D630462B0F7CC500090F3C /* FirebaseManager.swift in Sources */,
+				087698872B2B1D630095890D /* AlertMaker.swift in Sources */,
 				0880ED572B17F3C2006F137B /* BookSearchManager.swift in Sources */,
 				0880ED5E2B181004006F137B /* ActivityIndicator.swift in Sources */,
 				08D6303B2B0F300600090F3C /* Observable.swift in Sources */,
@@ -565,6 +572,7 @@
 				08D62FE52B0F29D100090F3C /* SceneDelegate.swift in Sources */,
 				089E0F892B125B45006FDC0E /* BookshelfViewModel.swift in Sources */,
 				08EEC0352B21B43200E8FF6A /* CommentAddView.swift in Sources */,
+				087698892B2B1D930095890D /* UIWindowExtension.swift in Sources */,
 				0880ED482B17922F006F137B /* UINavigationItemExtension.swift in Sources */,
 				08D6304A2B0F7DF300090F3C /* BasicController.swift in Sources */,
 				089E0F8D2B126829006FDC0E /* UICollectionViewCellExtension.swift in Sources */,
