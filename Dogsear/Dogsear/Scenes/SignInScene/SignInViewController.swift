@@ -44,9 +44,7 @@ extension SignInViewController {
     // MARK: - Method
     
     @objc func didTapSignUpButton() {
-        let vc = SignUpViewController()
-        vc.viewInjection(sceneView: SignUpView())
-        vc.viewModelInjection(viewModel: SignUpViewModel())
+        let vc = SignUpViewController(sceneView: SignUpView(), viewModel: SignUpViewModel())
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

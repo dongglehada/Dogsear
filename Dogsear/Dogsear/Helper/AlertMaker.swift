@@ -60,7 +60,7 @@ class AlertMaker {
      - Returns:
      - Note: 버튼이 2개인 알럿을 띄우는 함수
      */
-    static func showAlertAction2(vc: UIViewController? = UIApplication.shared., preferredStyle: UIAlertController.Style = .alert, title: String = "", message: String = "", cancelTitle: String = "취소", completeTitle: String = "확인",  _ cancelHandler: (() -> Void)? = nil, _ completeHandler: (() -> Void)? = nil){
+    static func showAlertAction2(vc: UIViewController? = UIApplication.shared.keyWindow?.visibleViewController, preferredStyle: UIAlertController.Style = .alert, title: String? = "", message: String? = "", cancelTitle: String = "취소", completeTitle: String = "확인",  _ cancelHandler: (() -> Void)? = nil, _ completeHandler: (() -> Void)? = nil){
         
         guard let currentVc = vc else {
             completeHandler?()
@@ -102,7 +102,7 @@ class AlertMaker {
      - Returns:
      - Note: 버튼이 3개인 알럿을 띄우는 함수
      */
-    static func showAlertAction3(vc: UIViewController? = UIApplication.shared.keyWindow?.visibleViewController, preferredStyle: UIAlertController.Style = .alert, title: String = "", message: String = "", cancelTitle: String = "취소", completeTitle: String = "확인", destructiveTitle: String = "삭제", _ cancelHandler:(() -> Void)? = nil, _ completeHandler:(() -> Void)? = nil, _ destructiveHandler:(() -> Void)? = nil){
+    static func showAlertAction3(vc: UIViewController? = UIApplication.shared.keyWindow?.visibleViewController, preferredStyle: UIAlertController.Style = .alert, title: String? = "", message: String? = "", cancelTitle: String = "취소", completeTitle: String = "확인", destructiveTitle: String = "삭제", _ cancelHandler:(() -> Void)? = nil, _ completeHandler:(() -> Void)? = nil, _ destructiveHandler:(() -> Void)? = nil){
         
         guard let currentVc = vc else {
             completeHandler?()

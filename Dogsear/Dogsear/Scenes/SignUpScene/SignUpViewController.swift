@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 import SafariServices
-//BasicController<SignUpViewModel, SignUpView>
+
 class SignUpViewController: UIViewController {
     
     let sceneView: SignUpView
@@ -17,6 +17,7 @@ class SignUpViewController: UIViewController {
     init(sceneView: SignUpView, viewModel: SignUpViewModel) {
         self.sceneView = sceneView
         self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -39,12 +40,13 @@ private extension SignUpViewController {
     // MARK: - SetUp
 
     func setUp() {
-        setUpDelegate()
-        sceneView.privacyAgreeButton.addTarget(self, action: #selector(didTapPrivacyAgreeButton), for: .touchUpInside)
-        sceneView.privacyShowButton.addAction(UIAction(handler: { _ in self.didTapPrivacyShowButton() }), for: .primaryActionTriggered)
-        makeBottomButton(title: "회원가입") { [weak self] in
-            self?.didTapBottomButton()
+        view.addSubview(sceneView)
+        sceneView.snp.makeConstraints { make in
+            make.edges.equalTo(view.safeAreaLayoutGuide)
         }
+        view.backgroundColor = .systemBackground
+        setUpDelegate()
+        setUpAddAction()
     }
     
     func setUpDelegate() {
@@ -52,6 +54,12 @@ private extension SignUpViewController {
         sceneView.emailTextField.textField.delegate = self
         sceneView.nickNameTextField.textField.delegate = self
         sceneView.passwordTextField.textField.delegate = self
+    }
+    
+    func setUpAddAction() {
+        sceneView.privacyAgreeButton.addAction(UIAction(handler: { _ in self.didTapPrivacyAgreeButton() }), for: .primaryActionTriggered)
+        sceneView.privacyShowButton.addAction(UIAction(handler: { _ in self.didTapPrivacyShowButton() }), for: .primaryActionTriggered)
+        sceneView.signUpButton.button.addAction(UIAction(handler: { _ in self.didTapBottomButton() }), for: .primaryActionTriggered)
     }
     // MARK: - Bind
 
@@ -119,7 +127,7 @@ private extension SignUpViewController {
         viewModel.isPrivacyAgree.bind({ [weak self] state in
             guard let state = state else { return }
             if state {
-                self?.sceneView.privacyAgreeButton.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+                self?.sceneView.privacyAgreeButton.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
             } else {
                 self?.sceneView.privacyAgreeButton.setImage(UIImage(systemName: "square"), for: .normal)
             }
@@ -141,7 +149,7 @@ private extension SignUpViewController {
     }
     
     func didTapBottomButton() {
-        self.startIndicatorAnimation()
+        IndicatorMaker.showLoading()
         if viewModel.isValidSignUp() {
             guard let email = self.sceneView.emailTextField.textField.text else { return }
             guard let password = self.sceneView.passwordTextField.textField.text else { return }
@@ -155,11 +163,11 @@ private extension SignUpViewController {
                 } else {
                     AlertMaker.showAlertAction1(vc: self, title: "회원가입 실패", message: errorMessage)
                 }
-                self.stopIndicatorAnimation()
+                IndicatorMaker.hideLoading()
             }
         } else {
             AlertMaker.showAlertAction1(vc: self, title: "회원가입 실패", message: "입력하신 내용을 확인해 주세요.")
-            self.stopIndicatorAnimation()
+            IndicatorMaker.hideLoading()
         }
     }
 
