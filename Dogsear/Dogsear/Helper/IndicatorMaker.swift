@@ -16,6 +16,7 @@ class IndicatorMaker {
             
             vc.view.addSubview(loadingIndicatorView)
             loadingIndicatorView.center = vc.view.center
+            loadingIndicatorView.frame = vc.view.frame
             loadingIndicatorView.startAnimating()
         }
     }
