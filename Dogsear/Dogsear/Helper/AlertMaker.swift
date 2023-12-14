@@ -12,7 +12,6 @@ class AlertMaker {
     
     /**
      # showAlertAction1
-     - Author: suni
      - Date:
      - Parameters:
      - vc: 알럿을 띄울 뷰컨트롤러
@@ -46,7 +45,6 @@ class AlertMaker {
     
     /**
      # showAlertAction2
-     - Author: suni
      - Date:
      - Parameters:
      - vc: 알럿을 띄울 뷰컨트롤러
@@ -86,7 +84,6 @@ class AlertMaker {
     
     /**
      # showAlertAction3
-     - Author: suni
      - Date:
      - Parameters:
      - vc: 알럿을 띄울 뷰컨트롤러
