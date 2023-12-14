@@ -11,8 +11,8 @@ import SafariServices
 
 class SignUpViewController: UIViewController {
     
-    let sceneView: SignUpView
-    let viewModel: SignUpViewModel
+    private let sceneView: SignUpView
+    private let viewModel: SignUpViewModel
     
     init(sceneView: SignUpView, viewModel: SignUpViewModel) {
         self.sceneView = sceneView
@@ -138,7 +138,7 @@ private extension SignUpViewController {
 private extension SignUpViewController {
     // MARK: - Method
     
-    @objc func didTapPrivacyAgreeButton() {
+    func didTapPrivacyAgreeButton() {
         viewModel.isPrivacyAgree.value?.toggle()
     }
     
