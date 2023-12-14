@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0876987E2B2995D70095890D /* MyTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0876987D2B2995D70095890D /* MyTimer.swift */; };
 		087698802B29993E0095890D /* TestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0876987F2B29993E0095890D /* TestController.swift */; };
+		087698852B2B0AB00095890D /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 087698842B2B0AB00095890D /* LaunchImage.png */; };
 		0880ED422B1785B7006F137B /* AddBookSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED412B1785B7006F137B /* AddBookSearchViewController.swift */; };
 		0880ED442B178626006F137B /* AddBookSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED432B178626006F137B /* AddBookSearchView.swift */; };
 		0880ED462B17863B006F137B /* AddBookSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED452B17863B006F137B /* AddBookSearchViewModel.swift */; };
@@ -97,6 +98,7 @@
 /* Begin PBXFileReference section */
 		0876987D2B2995D70095890D /* MyTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTimer.swift; sourceTree = "<group>"; };
 		0876987F2B29993E0095890D /* TestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestController.swift; sourceTree = "<group>"; };
+		087698842B2B0AB00095890D /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LaunchImage.png; path = ../../../../../../../../Downloads/LaunchScreen/LaunchImage.png; sourceTree = "<group>"; };
 		0880ED412B1785B7006F137B /* AddBookSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookSearchViewController.swift; sourceTree = "<group>"; };
 		0880ED432B178626006F137B /* AddBookSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookSearchView.swift; sourceTree = "<group>"; };
 		0880ED452B17863B006F137B /* AddBookSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookSearchViewModel.swift; sourceTree = "<group>"; };
@@ -195,6 +197,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		087698832B2B0A970095890D /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				08D62FED2B0F29D200090F3C /* LaunchScreen.storyboard */,
+				087698842B2B0AB00095890D /* LaunchImage.png */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
 		0880ED402B17852F006F137B /* AddBookSearchScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -361,7 +372,7 @@
 		08D630432B0F7C2200090F3C /* SharedViews */ = {
 			isa = PBXGroup;
 			children = (
-				08D62FED2B0F29D200090F3C /* LaunchScreen.storyboard */,
+				087698832B2B0A970095890D /* Launch */,
 				08C69E382B10AB070025B59D /* SharedTextField.swift */,
 				08C69E442B10E0020025B59D /* SharedButton.swift */,
 				0880ED542B17F1D3006F137B /* BookStateSegmentControl.swift */,
@@ -498,6 +509,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08D62FEF2B0F29D200090F3C /* LaunchScreen.storyboard in Resources */,
+				087698852B2B0AB00095890D /* LaunchImage.png in Resources */,
 				08D62FEC2B0F29D200090F3C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
