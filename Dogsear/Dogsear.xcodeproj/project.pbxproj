@@ -27,7 +27,6 @@
 		0880ED602B18C08D006F137B /* BookListTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED5F2B18C08D006F137B /* BookListTypeCollectionViewCell.swift */; };
 		089E0F822B125A2A006FDC0E /* UIVIewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E0F812B125A2A006FDC0E /* UIVIewExtension.swift */; };
 		089E0F852B125B21006FDC0E /* BookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E0F842B125B21006FDC0E /* BookshelfViewController.swift */; };
-		089E0F872B125B35006FDC0E /* BookshelfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E0F862B125B35006FDC0E /* BookshelfView.swift */; };
 		089E0F892B125B45006FDC0E /* BookshelfViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E0F882B125B45006FDC0E /* BookshelfViewModel.swift */; };
 		089E0F8D2B126829006FDC0E /* UICollectionViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E0F8C2B126829006FDC0E /* UICollectionViewCellExtension.swift */; };
 		089E0F902B1268E7006FDC0E /* BookCoverCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E0F8F2B1268E7006FDC0E /* BookCoverCollectionViewCell.swift */; };
@@ -117,7 +116,6 @@
 		0880ED5F2B18C08D006F137B /* BookListTypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListTypeCollectionViewCell.swift; sourceTree = "<group>"; };
 		089E0F812B125A2A006FDC0E /* UIVIewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIewExtension.swift; sourceTree = "<group>"; };
 		089E0F842B125B21006FDC0E /* BookshelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookshelfViewController.swift; sourceTree = "<group>"; };
-		089E0F862B125B35006FDC0E /* BookshelfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookshelfView.swift; sourceTree = "<group>"; };
 		089E0F882B125B45006FDC0E /* BookshelfViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookshelfViewModel.swift; sourceTree = "<group>"; };
 		089E0F8C2B126829006FDC0E /* UICollectionViewCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCellExtension.swift; sourceTree = "<group>"; };
 		089E0F8F2B1268E7006FDC0E /* BookCoverCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCoverCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -244,7 +242,6 @@
 			isa = PBXGroup;
 			children = (
 				089E0F842B125B21006FDC0E /* BookshelfViewController.swift */,
-				089E0F862B125B35006FDC0E /* BookshelfView.swift */,
 				089E0F882B125B45006FDC0E /* BookshelfViewModel.swift */,
 			);
 			path = BookshelfScene;
@@ -547,7 +544,6 @@
 				08C69E392B10AB070025B59D /* SharedTextField.swift in Sources */,
 				0876987E2B2995D70095890D /* MyTimer.swift in Sources */,
 				08CEC0B82B1F1821001341E4 /* ProfileView.swift in Sources */,
-				089E0F872B125B35006FDC0E /* BookshelfView.swift in Sources */,
 				089E0F852B125B21006FDC0E /* BookshelfViewController.swift in Sources */,
 				08EEC0392B21D8B500E8FF6A /* CommentTableViewCell.swift in Sources */,
 				089E0F902B1268E7006FDC0E /* BookCoverCollectionViewCell.swift in Sources */,

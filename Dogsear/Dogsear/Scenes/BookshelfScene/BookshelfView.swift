@@ -26,7 +26,7 @@ class BookshelfView: UIView {
 
     init() {
         super.init(frame: .zero)
-        setUp()
+//        setUp()
     }
     
     required init?(coder: NSCoder) {
@@ -37,26 +37,26 @@ class BookshelfView: UIView {
 private extension BookshelfView {
     // MARK: - SetUp
 
-    func setUp() {
-        setUpSegmentedControl()
-        setUpCollectionView()
-    }
-    
-    func setUpSegmentedControl() {
+    func setUpConstraints() {
         self.addSubview(segmentedControl)
         segmentedControl.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(Constant.defaults.padding)
             make.left.right.equalToSuperview().inset(Constant.defaults.padding)
         }
-    }
-    
-    func setUpCollectionView() {
         self.addSubview(collectionView)
         collectionView.register(BookCoverCollectionViewCell.self, forCellWithReuseIdentifier: BookCoverCollectionViewCell.identifier)
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(segmentedControl.snp.bottom).offset(Constant.defaults.padding)
             make.left.right.bottom.equalToSuperview().inset(Constant.defaults.padding)
         }
+    }
+    
+    func setUpSegmentedControl() {
+
+    }
+    
+    func setUpCollectionView() {
+
     }
     
 }

@@ -53,9 +53,7 @@ class MyCustomTabBarController : UITabBarController {
     }
     
     func addSomeTabItems() {
-        let bookshelfVC = BookshelfViewController()
-        bookshelfVC.viewInjection(sceneView: BookshelfView())
-        bookshelfVC.viewModelInjection(viewModel: BookshelfViewModel())
+        let bookshelfVC = BookshelfViewController(viewModel: BookshelfViewModel())
         bookshelfVC.tabBarItem = UITabBarItem(
             title: nil,
             image: UIImage(systemName: "books.vertical"),
