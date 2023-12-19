@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 return
             }
         }
-        let rootVC = SignInViewController(sceneView: SignInView(), viewModel: SignInViewModel())
+        let rootVC = SignInViewController(viewModel: SignInViewModel())
         window?.rootViewController = UINavigationController(rootViewController: rootVC)
         
         window?.makeKeyAndVisible()

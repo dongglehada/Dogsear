@@ -21,6 +21,15 @@ enum ValidationResult {
     case unconformity
 }
 
+protocol SignUpViewModelProtocol {
+    func trySignUp(email: String, password: String, nickName: String, completion: @escaping (_ isSuccess: Bool, _ errorMessage: String?) -> Void )
+    func isValidEmail(email: String)
+    func isValidNickName(nickName: String)
+    func isValidPassword(password: String)
+    func isCheckPassword(password: String, checkPassword: String)
+    func isValidSignUp() -> Bool
+}
+
 class SignUpViewModel {
     // MARK: - Property
 
@@ -37,7 +46,7 @@ class SignUpViewModel {
     let firebaseManager = FirebaseManager()
 }
 
-extension SignUpViewModel {
+extension SignUpViewModel: SignUpViewModelProtocol {
     // MARK: - Method
     func trySignUp(email: String, password: String, nickName: String, completion: @escaping (_ isSuccess: Bool, _ errorMessage: String?) -> Void ) {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in

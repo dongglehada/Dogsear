@@ -15,10 +15,17 @@ enum SignInResult {
     case success
 }
 
+protocol SignInViewmodelProtocol {
+    func passwordFind(email: String)
+    func trySignIn(email: String, password: String, completion: @escaping (SignInResult) -> Void)
+}
+
 class SignInViewModel {
-    
     let userDefaultManager = UserDefaultsManager()
     let isAutoLogin: Observable<Bool> = Observable(false)
+}
+
+extension SignInViewModel: SignInViewmodelProtocol {
     
     func passwordFind(email: String) {
         Auth.auth().sendPasswordReset(withEmail: email) { error in
@@ -49,6 +56,4 @@ class SignInViewModel {
             }
         }
     }
-    
-
 }

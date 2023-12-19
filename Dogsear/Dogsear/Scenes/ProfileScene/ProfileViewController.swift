@@ -49,7 +49,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             let yes = UIAlertAction(title: "확인", style: .default) { _ in
                 self.viewModel?.firebaseManager.logOut(completion: { isLogOut in
                     if isLogOut {
-                        let vc = SignInViewController(sceneView: SignInView(), viewModel: SignInViewModel())
+                        let vc = SignInViewController(viewModel: SignInViewModel())
                         let rootVC = UINavigationController(rootViewController: vc)
                         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootVC(viewController: rootVC, animated: false)
                     }
@@ -64,7 +64,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             let yes = UIAlertAction(title: "확인", style: .default) { _ in
                 guard let email = self.viewModel?.firebaseManager.email else { return }
                 self.viewModel?.firebaseManager.deleteUser(email: email, completion: {
-                    let vc = SignInViewController(sceneView: SignInView(), viewModel: SignInViewModel())
+                    let vc = SignInViewController(viewModel: SignInViewModel())
                     let rootVC = UINavigationController(rootViewController: vc)
                     (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootVC(viewController: rootVC, animated: false)
                 })

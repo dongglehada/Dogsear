@@ -36,7 +36,6 @@
 		08C69E452B10E0020025B59D /* SharedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C69E442B10E0020025B59D /* SharedButton.swift */; };
 		08CEC0972B1B3C36001341E4 /* PostBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CEC0962B1B3C36001341E4 /* PostBook.swift */; };
 		08CEC09A2B1B4370001341E4 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CEC0992B1B4370001341E4 /* SignUpViewController.swift */; };
-		08CEC09C2B1B4379001341E4 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CEC09B2B1B4379001341E4 /* SignUpView.swift */; };
 		08CEC09E2B1B4383001341E4 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CEC09D2B1B4383001341E4 /* SignUpViewModel.swift */; };
 		08CEC0A02B1D2186001341E4 /* PostBookComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CEC09F2B1D2186001341E4 /* PostBookComment.swift */; };
 		08CEC0A42B1DD191001341E4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CEC0A32B1DD191001341E4 /* User.swift */; };
@@ -84,7 +83,6 @@
 		08D630462B0F7CC500090F3C /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D630452B0F7CC500090F3C /* FirebaseManager.swift */; };
 		08D630482B0F7CE700090F3C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D630472B0F7CE700090F3C /* SignInViewController.swift */; };
 		08D6304A2B0F7DF300090F3C /* BasicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D630492B0F7DF300090F3C /* BasicController.swift */; };
-		08D6304E2B0F872D00090F3C /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D6304D2B0F872D00090F3C /* SignInView.swift */; };
 		08D630502B0F873500090F3C /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D6304F2B0F873500090F3C /* SignInViewModel.swift */; };
 		08EEC0282B2105A000E8FF6A /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EEC0272B2105A000E8FF6A /* BookDetailViewController.swift */; };
 		08EEC02A2B2105A900E8FF6A /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EEC0292B2105A900E8FF6A /* BookDetailView.swift */; };
@@ -128,7 +126,6 @@
 		08C69E442B10E0020025B59D /* SharedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedButton.swift; sourceTree = "<group>"; };
 		08CEC0962B1B3C36001341E4 /* PostBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostBook.swift; sourceTree = "<group>"; };
 		08CEC0992B1B4370001341E4 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		08CEC09B2B1B4379001341E4 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		08CEC09D2B1B4383001341E4 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		08CEC09F2B1D2186001341E4 /* PostBookComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostBookComment.swift; sourceTree = "<group>"; };
 		08CEC0A32B1DD191001341E4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -149,7 +146,6 @@
 		08D630452B0F7CC500090F3C /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		08D630472B0F7CE700090F3C /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		08D630492B0F7DF300090F3C /* BasicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicController.swift; sourceTree = "<group>"; };
-		08D6304D2B0F872D00090F3C /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		08D6304F2B0F873500090F3C /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		08EEC0272B2105A000E8FF6A /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		08EEC0292B2105A900E8FF6A /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
@@ -268,7 +264,6 @@
 			isa = PBXGroup;
 			children = (
 				08CEC0992B1B4370001341E4 /* SignUpViewController.swift */,
-				08CEC09B2B1B4379001341E4 /* SignUpView.swift */,
 				08CEC09D2B1B4383001341E4 /* SignUpViewModel.swift */,
 			);
 			path = SignUpScene;
@@ -359,7 +354,6 @@
 			isa = PBXGroup;
 			children = (
 				08D630472B0F7CE700090F3C /* SignInViewController.swift */,
-				08D6304D2B0F872D00090F3C /* SignInView.swift */,
 				08D6304F2B0F873500090F3C /* SignInViewModel.swift */,
 			);
 			path = SignInScene;
@@ -543,7 +537,6 @@
 				08CEC0BA2B1F182A001341E4 /* ProfileViewModel.swift in Sources */,
 				08EEC02E2B21150200E8FF6A /* BottomLineTextField.swift in Sources */,
 				08EEC02A2B2105A900E8FF6A /* BookDetailView.swift in Sources */,
-				08D6304E2B0F872D00090F3C /* SignInView.swift in Sources */,
 				08EEC0372B21B43900E8FF6A /* CommentAddViewModel.swift in Sources */,
 				08D630482B0F7CE700090F3C /* SignInViewController.swift in Sources */,
 				08D630462B0F7CC500090F3C /* FirebaseManager.swift in Sources */,
@@ -582,7 +575,6 @@
 				089E0F8D2B126829006FDC0E /* UICollectionViewCellExtension.swift in Sources */,
 				08C69E3F2B10AD6A0025B59D /* Typography.swift in Sources */,
 				0880ED4F2B17B8A6006F137B /* AddBookViewModel.swift in Sources */,
-				08CEC09C2B1B4379001341E4 /* SignUpView.swift in Sources */,
 				08D630422B0F7B7B00090F3C /* Constant.swift in Sources */,
 				087698802B29993E0095890D /* TestController.swift in Sources */,
 				0880ED552B17F1D3006F137B /* BookStateSegmentControl.swift in Sources */,
