@@ -66,6 +66,8 @@ extension AddBookSearchViewController {
 }
 
 private extension AddBookSearchViewController {
+    // MARK: - SetUp
+
     func setUp() {
         view.backgroundColor = .systemBackground
         searchBar.delegate = self
@@ -109,6 +111,7 @@ private extension AddBookSearchViewController {
 }
 
 private extension AddBookSearchViewController {
+    // MARK: - Bind
     func bind() {
         viewModel.searchDatas.bind({ [weak self] data in
             guard let self = self else { return }
@@ -120,6 +123,7 @@ private extension AddBookSearchViewController {
 }
 
 private extension AddBookSearchViewController {
+    // MARK: - Method
     func didTapBottomButton() {
         let rootVC = AddBookViewController()
         rootVC.viewInjection(sceneView: AddBookView())
