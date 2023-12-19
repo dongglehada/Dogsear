@@ -11,7 +11,7 @@ import SafariServices
 
 class SignUpViewController: BasicController {
     // MARK: - Property
-    private let viewModel: SignUpViewModel
+    private let viewModel: SignUpViewModelProtocol
     
     // MARK: - Components
 
@@ -45,7 +45,7 @@ class SignUpViewController: BasicController {
     
     let signUpButton = SharedButton(title: "회원가입")
     
-    init(viewModel: SignUpViewModel) {
+    init(viewModel: SignUpViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }

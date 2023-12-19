@@ -7,8 +7,14 @@
 
 import Foundation
 
-class BookshelfViewModel {
-    let firebaseManager = FirebaseManager()
+protocol BookshelfViewModelProtocol {
+    var firebaseManager: FirebaseManager { get set }
+    var originPostBooks: [PostBook] { get set }
+    var postBooks: Observable<[PostBook]> { get set }
+}
+
+class BookshelfViewModel: BookshelfViewModelProtocol {
+    var firebaseManager = FirebaseManager()
     var originPostBooks: [PostBook] = []
-    let postBooks: Observable<[PostBook]> = Observable([])
+    var postBooks: Observable<[PostBook]> = Observable([])
 }

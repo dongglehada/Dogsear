@@ -7,10 +7,15 @@
 
 import Foundation
 
-class AddBookViewModel {
+protocol AddBookViewModelProtocol {
+    var firebaseManager: FirebaseManager { get set }
+    var newPost: Observable<PostBook> { get set }
+}
+
+class AddBookViewModel: AddBookViewModelProtocol {
     
-    let firebaseManager = FirebaseManager()
-    let newPost: Observable<PostBook> = Observable(
+    var firebaseManager = FirebaseManager()
+    var newPost: Observable<PostBook> = Observable(
         PostBook(
             id: String.getNewID(type: .bookPost),
             imageUrl: URL(string: ""),

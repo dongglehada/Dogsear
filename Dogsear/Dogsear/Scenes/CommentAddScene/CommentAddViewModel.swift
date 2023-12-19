@@ -8,12 +8,17 @@
 import Foundation
 
 protocol CommentAddViewModelProtocol {
+    var firebaseManager: FirebaseManager { get set }
+    var postID: String { get set }
+    var comment: PostBookComment? { get set }
+    var isEditPost: Bool { get set }
     func isVaildCommet(bookText: String, myText: String) -> Bool
     func makeCommentPost(bookText: String, myText: String, completion: @escaping () -> Void)
 }
 
-class CommentAddViewModel {
-    let firebaseManager = FirebaseManager()
+class CommentAddViewModel: CommentAddViewModelProtocol {
+    // MARK: - Property
+    var firebaseManager = FirebaseManager()
     var postID: String
     var comment: PostBookComment?
     var isEditPost = false
@@ -22,10 +27,7 @@ class CommentAddViewModel {
         self.postID = postID
         self.comment = comment
     }
-}
-
-extension CommentAddViewModel: CommentAddViewModelProtocol {
-    
+    // MARK: - Method
     func isVaildCommet(bookText: String, myText: String) -> Bool {
         if !bookText.isEmpty && !myText.isEmpty {
             return true

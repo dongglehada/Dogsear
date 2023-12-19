@@ -11,7 +11,7 @@ import SafariServices
 
 class ProfileViewController: BasicController {
     // MARK: - Property
-    private let viewModel: ProfileViewModel
+    private let viewModel: ProfileViewModelProtocol
     
     // MARK: - Components
     private let nickNameLabel: UILabel = {
@@ -93,7 +93,7 @@ class ProfileViewController: BasicController {
         return view
     }()
     
-    init(viewModel: ProfileViewModel) {
+    init(viewModel: ProfileViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
