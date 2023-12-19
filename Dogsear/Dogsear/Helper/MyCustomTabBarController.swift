@@ -25,9 +25,7 @@ class MyCustomTabBarController : UITabBarController {
         addSomeTabItems()
         btnMiddle.frame = CGRect(x: Int(self.tabBar.bounds.width) / 2 - 30, y: -20, width: 60, height: 60)
         let aciton = UIAction { _ in
-            let rootVC = AddBookSearchViewController()
-            rootVC.viewInjection(sceneView: AddBookSearchView())
-            rootVC.viewModelInjection(viewModel: AddBookSearchViewModel())
+            let rootVC = AddBookSearchViewController(viewModel: AddBookSearchViewModel())
             rootVC.modalPresentationStyle = .fullScreen
             self.present(rootVC, animated: true)
         }

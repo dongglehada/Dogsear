@@ -14,7 +14,6 @@
 		087698892B2B1D930095890D /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087698882B2B1D930095890D /* UIWindowExtension.swift */; };
 		0876988B2B2B1F550095890D /* IndicatorMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0876988A2B2B1F550095890D /* IndicatorMaker.swift */; };
 		0880ED422B1785B7006F137B /* AddBookSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED412B1785B7006F137B /* AddBookSearchViewController.swift */; };
-		0880ED442B178626006F137B /* AddBookSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED432B178626006F137B /* AddBookSearchView.swift */; };
 		0880ED462B17863B006F137B /* AddBookSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED452B17863B006F137B /* AddBookSearchViewModel.swift */; };
 		0880ED482B17922F006F137B /* UINavigationItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED472B17922F006F137B /* UINavigationItemExtension.swift */; };
 		0880ED4B2B17B888006F137B /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED4A2B17B888006F137B /* AddBookViewController.swift */; };
@@ -103,7 +102,6 @@
 		087698882B2B1D930095890D /* UIWindowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
 		0876988A2B2B1F550095890D /* IndicatorMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorMaker.swift; sourceTree = "<group>"; };
 		0880ED412B1785B7006F137B /* AddBookSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookSearchViewController.swift; sourceTree = "<group>"; };
-		0880ED432B178626006F137B /* AddBookSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookSearchView.swift; sourceTree = "<group>"; };
 		0880ED452B17863B006F137B /* AddBookSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookSearchViewModel.swift; sourceTree = "<group>"; };
 		0880ED472B17922F006F137B /* UINavigationItemExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationItemExtension.swift; sourceTree = "<group>"; };
 		0880ED4A2B17B888006F137B /* AddBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
@@ -210,7 +208,6 @@
 			isa = PBXGroup;
 			children = (
 				0880ED412B1785B7006F137B /* AddBookSearchViewController.swift */,
-				0880ED432B178626006F137B /* AddBookSearchView.swift */,
 				0880ED452B17863B006F137B /* AddBookSearchViewModel.swift */,
 			);
 			path = AddBookSearchScene;
@@ -547,7 +544,6 @@
 				089E0F852B125B21006FDC0E /* BookshelfViewController.swift in Sources */,
 				08EEC0392B21D8B500E8FF6A /* CommentTableViewCell.swift in Sources */,
 				089E0F902B1268E7006FDC0E /* BookCoverCollectionViewCell.swift in Sources */,
-				0880ED442B178626006F137B /* AddBookSearchView.swift in Sources */,
 				08CEC0A42B1DD191001341E4 /* User.swift in Sources */,
 				08D630402B0F7B1700090F3C /* UIColorExtension.swift in Sources */,
 				08CEC0A02B1D2186001341E4 /* PostBookComment.swift in Sources */,

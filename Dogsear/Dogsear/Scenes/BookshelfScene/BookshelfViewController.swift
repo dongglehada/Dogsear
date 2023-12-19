@@ -8,9 +8,11 @@
 import UIKit
 
 class BookshelfViewController: UIViewController {
-    // MARK: - Components
     
+    // MARK: - Property
     private let viewModel: BookshelfViewModel
+    
+    // MARK: - Components
     private let segmentedControl = BookStateSegmentControl()
     
     private let collectionView: UICollectionView = {
@@ -95,9 +97,7 @@ private extension BookshelfViewController {
     }
     
     @objc func didTapAddButton() {
-        let rootVC = AddBookSearchViewController()
-        rootVC.viewInjection(sceneView: AddBookSearchView())
-        rootVC.viewModelInjection(viewModel: AddBookSearchViewModel())
+        let rootVC = AddBookSearchViewController(viewModel: AddBookSearchViewModel())
         navigationController?.pushViewController(rootVC, animated: true)
     }
     

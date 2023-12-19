@@ -32,8 +32,6 @@ class AddBookSearchView: UIView {
         return view
     }()
     
-    let activityIndicator = ActivityIndicator()
-    
     let backButton: UIButton = {
         let button = UIButton()
         let imageConfig = UIImage.SymbolConfiguration(pointSize: 30, weight: .light)
@@ -45,7 +43,7 @@ class AddBookSearchView: UIView {
     
     init() {
         super.init(frame: .zero)
-        setUp()
+//        setUp()
     }
     
     required init?(coder: NSCoder) {
@@ -55,7 +53,7 @@ class AddBookSearchView: UIView {
 
 private extension AddBookSearchView {
     
-    func setUp() {
+    func setUpConstraints() {
         
         self.addSubview(backButton)
         backButton.snp.makeConstraints { make in
@@ -77,7 +75,5 @@ private extension AddBookSearchView {
             make.left.right.equalToSuperview()
             make.bottom.equalToSuperview().inset(Constant.defaults.blockHeight + (Constant.defaults.padding * 2))
         }
-        
-        self.addSubview(activityIndicator)
     }
 }
