@@ -130,11 +130,7 @@ extension BookshelfViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let postBookAry = viewModel.postBooks.value else { return }
-        let vc = BookDetailViewController()
-        vc.viewInjection(sceneView: BookDetailView())
-        vc.viewModelInjection(viewModel: BookDetailViewModel(postData: Observable(postBookAry[indexPath.row])))
-        vc.viewModel?.postData.value = postBookAry[indexPath.row]
-
+        let vc = BookDetailViewController(viewModel: BookDetailViewModel(postData: Observable(postBookAry[indexPath.row])))
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -125,9 +125,7 @@ private extension AddBookSearchViewController {
 private extension AddBookSearchViewController {
     // MARK: - Method
     func didTapBottomButton() {
-        let rootVC = AddBookViewController()
-        rootVC.viewInjection(sceneView: AddBookView())
-        rootVC.viewModelInjection(viewModel: AddBookViewModel())
+        let rootVC = AddBookViewController(viewModel: AddBookViewModel())
         self.present(rootVC, animated: true)
     }
 }
@@ -161,10 +159,8 @@ extension AddBookSearchViewController: UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let rootVC = AddBookViewController()
+        let rootVC = AddBookViewController(viewModel: AddBookViewModel())
         guard let datas = viewModel.searchDatas.value else { return }
-        rootVC.viewInjection(sceneView: AddBookView())
-        rootVC.viewModelInjection(viewModel: AddBookViewModel())
         rootVC.setUpSearchData(data: datas[indexPath.row])
         self.present(rootVC, animated: true)
     }

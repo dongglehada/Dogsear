@@ -59,9 +59,7 @@ class MyCustomTabBarController : UITabBarController {
         )
         let bookshelf = UINavigationController(rootViewController: bookshelfVC)
         
-        let profileVC = ProfileViewController()
-        profileVC.viewInjection(sceneView: ProfileView())
-        profileVC.viewModelInjection(viewModel: ProfileViewModel())
+        let profileVC = ProfileViewController(viewModel: ProfileViewModel())
         profileVC.tabBarItem = UITabBarItem(
             title: nil,
             image: UIImage(systemName: "gearshape"),

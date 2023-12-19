@@ -16,7 +16,6 @@ extension UIWindow {
     
     /**
      # visibleViewControllerFrom
-     - Author: suni
      - Date:
      - Parameters:
         - vc: rootViewController 혹은 UITapViewController
