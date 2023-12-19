@@ -38,9 +38,11 @@ class SignUpView: UIView {
         return button
     }()
     
+    let signUpButton = SharedButton(title: "회원가입")
+    
     init() {
         super.init(frame: .zero)
-        setUp()
+        setUpConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -49,55 +51,37 @@ class SignUpView: UIView {
 }
 
 private extension SignUpView {
-    func setUp() {
-        setUpSignUpLabel()
-        setUpEmailTextField()
-        setUpNickNameTextField()
-        setUpPasswordTextField()
-        setUpCheckPasswordTextField()
-        setUpPrivacyButton()
-    }
     
-    func setUpSignUpLabel() {
+    func setUpConstraints() {
         self.addSubview(signUpTitleLabel)
         signUpTitleLabel.snp.makeConstraints { make in
             make.top.left.equalToSuperview().inset(Constant.defaults.padding)
         }
-    }
-    
-    func setUpEmailTextField() {
+        
         self.addSubview(emailTextField)
         emailTextField.snp.makeConstraints { make in
             make.top.equalTo(signUpTitleLabel.snp.bottom).offset(Constant.defaults.padding)
             make.left.right.equalToSuperview().inset(Constant.defaults.padding)
         }
-    }
-    
-    func setUpNickNameTextField() {
+        
         self.addSubview(nickNameTextField)
         nickNameTextField.snp.makeConstraints { make in
             make.top.equalTo(emailTextField.snp.bottom).offset(Constant.defaults.padding)
             make.left.right.equalToSuperview().inset(Constant.defaults.padding)
         }
-    }
-    
-    func setUpPasswordTextField() {
+        
         self.addSubview(passwordTextField)
         passwordTextField.snp.makeConstraints { make in
             make.top.equalTo(nickNameTextField.snp.bottom).offset(Constant.defaults.padding)
             make.left.right.equalToSuperview().inset(Constant.defaults.padding)
         }
-    }
-    
-    func setUpCheckPasswordTextField() {
+        
         self.addSubview(checkPasswordTextField)
         checkPasswordTextField.snp.makeConstraints { make in
             make.top.equalTo(passwordTextField.snp.bottom).offset(Constant.defaults.padding)
             make.left.right.equalToSuperview().inset(Constant.defaults.padding)
         }
-    }
-    
-    func setUpPrivacyButton() {
+        
         self.addSubview(privacyAgreeButton)
         privacyAgreeButton.snp.makeConstraints { make in
             make.top.equalTo(checkPasswordTextField.snp.bottom).offset(Constant.defaults.padding)
@@ -107,6 +91,10 @@ private extension SignUpView {
         privacyShowButton.snp.makeConstraints { make in
             make.centerY.equalTo(privacyAgreeButton.snp.centerY)
             make.left.equalTo(privacyAgreeButton.snp.right).offset(Constant.defaults.padding)
+        }
+        self.addSubview(signUpButton)
+        signUpButton.snp.makeConstraints { make in
+            make.left.right.bottom.equalToSuperview().inset(Constant.defaults.padding)
         }
     }
 }

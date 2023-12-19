@@ -16,7 +16,8 @@ struct BookSearchManager {
         // MARK: - Query
         let searchQuery = URLQueryItem(name: "query", value: search)
         let startQuery = URLQueryItem(name: "start", value: String(start))
-        let items: [URLQueryItem] = [searchQuery, startQuery]
+        let displayQuery = URLQueryItem(name: "display", value: String(10))
+        let items: [URLQueryItem] = [searchQuery, startQuery, displayQuery]
         urlComponent?.queryItems = items
         
         guard let url = urlComponent?.url else { return }

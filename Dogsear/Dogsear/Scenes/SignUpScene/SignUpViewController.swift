@@ -9,7 +9,52 @@ import Foundation
 import UIKit
 import SafariServices
 
-class SignUpViewController: BasicController<SignUpViewModel, SignUpView> {
+class SignUpViewController: BasicController {
+    // MARK: - Property
+    private let viewModel: SignUpViewModel
+    
+    // MARK: - Components
+
+    private let signUpTitleLabel: UILabel = {
+        let label = UILabel()
+        label.font = Typography.title1.font
+        label.text = "회원가입"
+        return label
+    }()
+    let emailTextField = SharedTextField(type: .title, placeHolder: "이메일을 입력해주세요.", title: "이메일")
+    let nickNameTextField = SharedTextField(type: .title, placeHolder: "닉네임을 입력해주세요.", title: "닉네임")
+    let passwordTextField = SharedTextField(type: .titlePassword, placeHolder: "비밀번호를 입력해주세요.", title: "비밀번호")
+    let checkPasswordTextField = SharedTextField(type: .titlePassword, placeHolder: "동일한 비밀번호를 입력해주세요.", title: "비밀번호 확인")
+    let privacyAgreeButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("개인정보 처리방침에 동의합니다.", for: .normal)
+        button.titleLabel?.font = Typography.body2.font
+        button.setTitleColor(.black, for: .normal)
+        button.setImage(UIImage(systemName: "square"), for: .normal)
+        button.tintColor = .myPointColor
+        return button
+    }()
+    
+    let privacyShowButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("[보기]", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = Typography.body2.font
+        return button
+    }()
+    
+    let signUpButton = SharedButton(title: "회원가입")
+    
+    init(viewModel: SignUpViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+extension SignUpViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,89 +70,142 @@ private extension SignUpViewController {
     // MARK: - SetUp
 
     func setUp() {
+        setUpConstraints()
         setUpDelegate()
-        sceneView.privacyAgreeButton.addTarget(self, action: #selector(didTapPrivacyAgreeButton), for: .touchUpInside)
-        sceneView.privacyShowButton.addAction(UIAction(handler: { _ in self.didTapPrivacyShowButton() }), for: .primaryActionTriggered)
-        makeBottomButton(title: "회원가입") { [weak self] in
-            self?.didTapBottomButton()
+        setUpAddAction()
+    }
+    
+    func setUpConstraints() {
+        view.addSubview(signUpTitleLabel)
+        signUpTitleLabel.snp.makeConstraints { make in
+            make.top.left.equalTo(view.safeAreaLayoutGuide).inset(Constant.defaults.padding)
+        }
+        
+        view.addSubview(emailTextField)
+        emailTextField.snp.makeConstraints { make in
+            make.top.equalTo(signUpTitleLabel.snp.bottom).offset(Constant.defaults.padding)
+            make.left.right.equalToSuperview().inset(Constant.defaults.padding)
+        }
+        
+        view.addSubview(nickNameTextField)
+        nickNameTextField.snp.makeConstraints { make in
+            make.top.equalTo(emailTextField.snp.bottom).offset(Constant.defaults.padding)
+            make.left.right.equalToSuperview().inset(Constant.defaults.padding)
+        }
+        
+        view.addSubview(passwordTextField)
+        passwordTextField.snp.makeConstraints { make in
+            make.top.equalTo(nickNameTextField.snp.bottom).offset(Constant.defaults.padding)
+            make.left.right.equalToSuperview().inset(Constant.defaults.padding)
+        }
+        
+        view.addSubview(checkPasswordTextField)
+        checkPasswordTextField.snp.makeConstraints { make in
+            make.top.equalTo(passwordTextField.snp.bottom).offset(Constant.defaults.padding)
+            make.left.right.equalToSuperview().inset(Constant.defaults.padding)
+        }
+        
+        view.addSubview(privacyAgreeButton)
+        privacyAgreeButton.snp.makeConstraints { make in
+            make.top.equalTo(checkPasswordTextField.snp.bottom).offset(Constant.defaults.padding)
+            make.left.equalToSuperview().inset(Constant.defaults.padding)
+        }
+        
+        view.addSubview(privacyShowButton)
+        privacyShowButton.snp.makeConstraints { make in
+            make.centerY.equalTo(privacyAgreeButton.snp.centerY)
+            make.left.equalTo(privacyAgreeButton.snp.right).offset(Constant.defaults.padding)
+        }
+        
+        view.addSubview(signUpButton)
+        signUpButton.snp.makeConstraints { make in
+            make.left.right.bottom.equalTo(view.safeAreaLayoutGuide).inset(Constant.defaults.padding)
         }
     }
     
     func setUpDelegate() {
-        sceneView.checkPasswordTextField.textField.delegate = self
-        sceneView.emailTextField.textField.delegate = self
-        sceneView.nickNameTextField.textField.delegate = self
-        sceneView.passwordTextField.textField.delegate = self
+        checkPasswordTextField.textField.delegate = self
+        emailTextField.textField.delegate = self
+        nickNameTextField.textField.delegate = self
+        passwordTextField.textField.delegate = self
     }
-    // MARK: - Bind
+    
+    func setUpAddAction() {
+        privacyAgreeButton.addAction(UIAction(handler: { _ in self.didTapPrivacyAgreeButton() }), for: .primaryActionTriggered)
+        privacyShowButton.addAction(UIAction(handler: { _ in self.didTapPrivacyShowButton() }), for: .primaryActionTriggered)
+        signUpButton.button.addAction(UIAction(handler: { _ in self.didTapBottomButton() }), for: .primaryActionTriggered)
+    }
+}
 
+private extension SignUpViewController {
+    // MARK: - bind
     func bind() {
-        viewModel?.emailState.bind({ [weak self] state in
+        viewModel.emailState.bind({ [weak self] state in
             switch state {
             case .empty:
-                self?.sceneView.emailTextField.changeStatelabel(color: .myPointColor, text: "")
+                self?.emailTextField.changeStatelabel(color: .myPointColor, text: "")
             case .alreadyInUse:
-                self?.sceneView.emailTextField.changeStatelabel(color: .systemRed, text: "이미 사용중인 이메일 입니다.")
+                self?.emailTextField.changeStatelabel(color: .systemRed, text: "이미 사용중인 이메일 입니다.")
             case .unavailableFormat:
-                self?.sceneView.emailTextField.changeStatelabel(color: .systemRed, text: "이메일 주소를 정확히 입력해주세요.")
+                self?.emailTextField.changeStatelabel(color: .systemRed, text: "이메일 주소를 정확히 입력해주세요.")
             case .checking:
-                self?.sceneView.emailTextField.changeStatelabel(color: .systemYellow, text: "사용 가능여부 조회중")
+                self?.emailTextField.changeStatelabel(color: .systemYellow, text: "사용 가능여부 조회중")
             case .available:
-                self?.sceneView.emailTextField.changeStatelabel(color: .systemBlue, text: "사용가능한 이메일 입니다.")
+                self?.emailTextField.changeStatelabel(color: .systemBlue, text: "사용가능한 이메일 입니다.")
             default :
                 print("등록되지 않은 상태")
             }
         })
         
-        viewModel?.nickNameState.bind({ [weak self] state in
+        viewModel.nickNameState.bind({ [weak self] state in
             switch state {
             case .empty:
-                self?.sceneView.nickNameTextField.changeStatelabel(color: .myPointColor, text: "")
+                self?.nickNameTextField.changeStatelabel(color: .myPointColor, text: "")
             case .length:
-                self?.sceneView.nickNameTextField.changeStatelabel(color: .systemRed, text: "2글자에서 8글자 사이의 닉네임을 입력해주세요.")
+                self?.nickNameTextField.changeStatelabel(color: .systemRed, text: "2글자에서 8글자 사이의 닉네임을 입력해주세요.")
             case .available:
-                self?.sceneView.nickNameTextField.changeStatelabel(color: .systemBlue, text: "사용가능한 닉네임 입니다.")
+                self?.nickNameTextField.changeStatelabel(color: .systemBlue, text: "사용가능한 닉네임 입니다.")
             default :
                 print("등록되지 않은 상태")
             }
         })
         
-        viewModel?.passwordState.bind({ [weak self] state in
+        viewModel.passwordState.bind({ [weak self] state in
             switch state {
             case .empty:
-                self?.sceneView.passwordTextField.changeStatelabel(color: .myPointColor, text: "")
+                self?.passwordTextField.changeStatelabel(color: .myPointColor, text: "")
             case .length:
-                self?.sceneView.passwordTextField.changeStatelabel(color: .systemRed, text: "8글자에서 20글자 사이의 비밀번호를 입력해주세요.")
+                self?.passwordTextField.changeStatelabel(color: .systemRed, text: "8글자에서 20글자 사이의 비밀번호를 입력해주세요.")
             case .combination:
-                self?.sceneView.passwordTextField.changeStatelabel(color: .systemRed, text: "비밀번호는 숫자, 영문, 특수문자를 조합하여야 합니다.")
+                self?.passwordTextField.changeStatelabel(color: .systemRed, text: "비밀번호는 숫자, 영문, 특수문자를 조합하여야 합니다.")
             case .special:
-                self?.sceneView.passwordTextField.changeStatelabel(color: .systemRed, text: "비밀번호는 특수문자를 포함되어야 합니다.")
+                self?.passwordTextField.changeStatelabel(color: .systemRed, text: "비밀번호는 특수문자를 포함되어야 합니다.")
             case .available:
-                self?.sceneView.passwordTextField.changeStatelabel(color: .systemBlue, text: "사용가능한 비밀번호 입니다.")
+                self?.passwordTextField.changeStatelabel(color: .systemBlue, text: "사용가능한 비밀번호 입니다.")
             default :
                 print("등록되지 않은 상태")
             }
         })
         
-        viewModel?.checkPasswordState.bind({ [weak self] state in
+        viewModel.checkPasswordState.bind({ [weak self] state in
             switch state {
             case .empty:
-                self?.sceneView.checkPasswordTextField.changeStatelabel(color: .myPointColor, text: "")
+                self?.checkPasswordTextField.changeStatelabel(color: .myPointColor, text: "")
             case .unconformity:
-                self?.sceneView.checkPasswordTextField.changeStatelabel(color: .systemRed, text: "비밀번호가 일치하지 않습니다.")
+                self?.checkPasswordTextField.changeStatelabel(color: .systemRed, text: "비밀번호가 일치하지 않습니다.")
             case .available:
-                self?.sceneView.checkPasswordTextField.changeStatelabel(color: .systemBlue, text: "비밀번호가 일치합니다.")
+                self?.checkPasswordTextField.changeStatelabel(color: .systemBlue, text: "비밀번호가 일치합니다.")
             default :
                 print("등록되지 않은 상태")
             }
         })
         
-        viewModel?.isPrivacyAgree.bind({ [weak self] state in
+        viewModel.isPrivacyAgree.bind({ [weak self] state in
             guard let state = state else { return }
             if state {
-                self?.sceneView.privacyAgreeButton.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+                self?.privacyAgreeButton.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
             } else {
-                self?.sceneView.privacyAgreeButton.setImage(UIImage(systemName: "square"), for: .normal)
+                self?.privacyAgreeButton.setImage(UIImage(systemName: "square"), for: .normal)
             }
         })
     }
@@ -116,8 +214,8 @@ private extension SignUpViewController {
 private extension SignUpViewController {
     // MARK: - Method
     
-    @objc func didTapPrivacyAgreeButton() {
-        viewModel?.isPrivacyAgree.value?.toggle()
+    func didTapPrivacyAgreeButton() {
+        viewModel.isPrivacyAgree.value?.toggle()
     }
     
     func didTapPrivacyShowButton() {
@@ -127,26 +225,25 @@ private extension SignUpViewController {
     }
     
     func didTapBottomButton() {
-        guard let viewModel = self.viewModel else { return }
-        self.startIndicatorAnimation()
+        IndicatorMaker.showLoading()
         if viewModel.isValidSignUp() {
-            guard let email = self.sceneView.emailTextField.textField.text else { return }
-            guard let password = self.sceneView.passwordTextField.textField.text else { return }
-            guard let nickName = self.sceneView.nickNameTextField.textField.text else { return }
+            guard let email = self.emailTextField.textField.text else { return }
+            guard let password = self.passwordTextField.textField.text else { return }
+            guard let nickName = self.nickNameTextField.textField.text else { return }
             
             viewModel.trySignUp(email: email, password: password, nickName: nickName) { isSuccess, errorMessage in
                 if isSuccess {
-                    self.makeAlert(title: "회원가입 성공", message: "확인 버튼을 누르면 로그인 화면으로 돌아갑니다.", action: {
+                    AlertMaker.showAlertAction1(vc: self, title: "회원가입 성공", message: "확인 버튼을 누르면 로그인 화면으로 돌아갑니다.") {
                         self.navigationController?.popViewController(animated: true)
-                    })
+                    }
                 } else {
-                    self.makeAlert(title: "회원가입 실패", message: errorMessage)
+                    AlertMaker.showAlertAction1(vc: self, title: "회원가입 실패", message: errorMessage)
                 }
-                self.stopIndicatorAnimation()
+                IndicatorMaker.hideLoading()
             }
         } else {
-            self.makeAlert(title: "회원가입 실패", message: "입력하신 내용을 확인해 주세요.")
-            self.stopIndicatorAnimation()
+            AlertMaker.showAlertAction1(vc: self, title: "회원가입 실패", message: "입력하신 내용을 확인해 주세요.")
+            IndicatorMaker.hideLoading()
         }
     }
 
@@ -156,17 +253,17 @@ extension SignUpViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         guard let text = textField.text else { return }
         switch textField {
-        case sceneView.emailTextField.textField:
-            viewModel?.isValidEmail(email: text)
-        case sceneView.nickNameTextField.textField:
-            viewModel?.isValidNickName(nickName: text)
-        case sceneView.passwordTextField.textField:
-            guard let password = sceneView.checkPasswordTextField.textField.text else { return }
-            viewModel?.isValidPassword(password: text)
-            viewModel?.isCheckPassword(password: text, checkPassword: password)
-        case sceneView.checkPasswordTextField.textField:
-            guard let password = sceneView.passwordTextField.textField.text else { return }
-            viewModel?.isCheckPassword(password: password, checkPassword: text)
+        case emailTextField.textField:
+            viewModel.isValidEmail(email: text)
+        case nickNameTextField.textField:
+            viewModel.isValidNickName(nickName: text)
+        case passwordTextField.textField:
+            guard let password = checkPasswordTextField.textField.text else { return }
+            viewModel.isValidPassword(password: text)
+            viewModel.isCheckPassword(password: text, checkPassword: password)
+        case checkPasswordTextField.textField:
+            guard let password = passwordTextField.textField.text else { return }
+            viewModel.isCheckPassword(password: password, checkPassword: text)
         default:
             print("등록되지 않은 텍스트 필드")
         }

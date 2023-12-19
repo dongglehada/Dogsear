@@ -7,6 +7,11 @@
 
 import Foundation
 
+protocol CommentAddViewModelProtocol {
+    func isVaildCommet(bookText: String, myText: String) -> Bool
+    func makeCommentPost(bookText: String, myText: String, completion: @escaping () -> Void)
+}
+
 class CommentAddViewModel {
     let firebaseManager = FirebaseManager()
     var postID: String
@@ -19,7 +24,7 @@ class CommentAddViewModel {
     }
 }
 
-extension CommentAddViewModel {
+extension CommentAddViewModel: CommentAddViewModelProtocol {
     
     func isVaildCommet(bookText: String, myText: String) -> Bool {
         if !bookText.isEmpty && !myText.isEmpty {
