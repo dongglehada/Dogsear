@@ -10,7 +10,7 @@ import PhotosUI
 
 class AddBookViewController: BasicController {
     // MARK: - Property
-    private let viewModel: AddBookViewModel
+    private let viewModel: AddBookViewModelProtocol
     
     // MARK: - Components
 
@@ -51,7 +51,7 @@ class AddBookViewController: BasicController {
     
     private let segmentedControl = BookStateSegmentControl()
     
-    init(viewModel: AddBookViewModel) {
+    init(viewModel: AddBookViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }

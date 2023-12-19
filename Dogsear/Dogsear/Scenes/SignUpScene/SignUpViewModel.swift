@@ -22,6 +22,15 @@ enum ValidationResult {
 }
 
 protocol SignUpViewModelProtocol {
+    
+    var emailState: Observable<ValidationResult> { get set }
+    var nickNameState: Observable<ValidationResult> { get set }
+    var passwordState: Observable<ValidationResult> { get set }
+    var checkPasswordState: Observable<ValidationResult> { get set }
+    var isPrivacyAgree: Observable<Bool> { get set }
+    var isSignUpAble: Observable<Bool> { get set }
+    var firebaseManager:FirebaseManager { get set }
+    
     func trySignUp(email: String, password: String, nickName: String, completion: @escaping (_ isSuccess: Bool, _ errorMessage: String?) -> Void )
     func isValidEmail(email: String)
     func isValidNickName(nickName: String)
@@ -30,23 +39,16 @@ protocol SignUpViewModelProtocol {
     func isValidSignUp() -> Bool
 }
 
-class SignUpViewModel {
+class SignUpViewModel: SignUpViewModelProtocol {
     // MARK: - Property
-
-    let emailState: Observable<ValidationResult> = Observable(.empty)
+    var emailState: Observable<ValidationResult> = Observable(.empty)
+    var nickNameState: Observable<ValidationResult> = Observable(.empty)
+    var passwordState: Observable<ValidationResult> = Observable(.empty)
+    var checkPasswordState: Observable<ValidationResult> = Observable(.empty)
+    var isPrivacyAgree: Observable<Bool> = Observable(false)
+    var isSignUpAble: Observable<Bool> = Observable(false)
+    var firebaseManager = FirebaseManager()
     
-    let nickNameState: Observable<ValidationResult> = Observable(.empty)
-    
-    let passwordState: Observable<ValidationResult> = Observable(.empty)
-    
-    let checkPasswordState: Observable<ValidationResult> = Observable(.empty)
-    
-    let isPrivacyAgree: Observable<Bool> = Observable(false)
-    let isSignUpAble: Observable<Bool> = Observable(false)
-    let firebaseManager = FirebaseManager()
-}
-
-extension SignUpViewModel: SignUpViewModelProtocol {
     // MARK: - Method
     func trySignUp(email: String, password: String, nickName: String, completion: @escaping (_ isSuccess: Bool, _ errorMessage: String?) -> Void ) {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in

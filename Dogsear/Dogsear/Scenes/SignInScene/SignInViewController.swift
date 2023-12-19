@@ -11,7 +11,7 @@ import FirebaseAuth
 
 class SignInViewController: BasicController {
     // MARK: - Property
-    private let viewModel: SignInViewModel
+    private let viewModel: SignInViewmodelProtocol
     
     // MARK: - Components
     private let logoImageView: UIImageView = {
@@ -69,7 +69,7 @@ class SignInViewController: BasicController {
         return button
     }()
     
-    init(viewModel: SignInViewModel) {
+    init(viewModel: SignInViewmodelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }

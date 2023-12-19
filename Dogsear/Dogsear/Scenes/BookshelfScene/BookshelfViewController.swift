@@ -10,7 +10,7 @@ import UIKit
 class BookshelfViewController: BasicController {
     
     // MARK: - Property
-    private let viewModel: BookshelfViewModel
+    private var viewModel: BookshelfViewModelProtocol
     
     // MARK: - Components
     private let segmentedControl = BookStateSegmentControl()
@@ -27,7 +27,7 @@ class BookshelfViewController: BasicController {
         return view
     }()
     
-    init(viewModel: BookshelfViewModel) {
+    init(viewModel: BookshelfViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }

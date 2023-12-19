@@ -8,19 +8,23 @@
 import Foundation
 
 protocol BookDetailViewModelProtocol {
+    var firebaseManager: FirebaseManager { get set }
+    var postData: Observable<PostBook> { get set }
+    var isEdit: Observable<Bool> { get set }
     func fetchPostData(completion: @escaping () -> Void)
 }
 
-class BookDetailViewModel {
-    let firebaseManager = FirebaseManager()
-    let postData: Observable<PostBook>
-    let isEdit: Observable<Bool> = Observable(false)
+class BookDetailViewModel: BookDetailViewModelProtocol {
+    // MARK: - Property
+    var firebaseManager = FirebaseManager()
+    var postData: Observable<PostBook>
+    var isEdit: Observable<Bool> = Observable(false)
     
     init(postData: Observable<PostBook>) {
         self.postData = postData
     }
-}
-extension BookDetailViewModel: BookDetailViewModelProtocol {
+    
+    // MARK: - Method
     func fetchPostData(completion: @escaping () -> Void) {
         firebaseManager.fetchUserData { user in
             guard let index = user.PostBooks.firstIndex(where: {$0.id == self.postData.value?.id}) else { return }
@@ -29,3 +33,4 @@ extension BookDetailViewModel: BookDetailViewModelProtocol {
         }
     }
 }
+

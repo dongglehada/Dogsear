@@ -16,16 +16,18 @@ enum SignInResult {
 }
 
 protocol SignInViewmodelProtocol {
+    var userDefaultManager: UserDefaultsManager { get set }
+    var isAutoLogin: Observable<Bool> { get set }
     func passwordFind(email: String)
     func trySignIn(email: String, password: String, completion: @escaping (SignInResult) -> Void)
 }
 
-class SignInViewModel {
-    let userDefaultManager = UserDefaultsManager()
-    let isAutoLogin: Observable<Bool> = Observable(false)
-}
-
-extension SignInViewModel: SignInViewmodelProtocol {
+class SignInViewModel: SignInViewmodelProtocol {
+    // MARK: - Property
+    var userDefaultManager = UserDefaultsManager()
+    var isAutoLogin: Observable<Bool> = Observable(false)
+    
+    // MARK: - Method
     
     func passwordFind(email: String) {
         Auth.auth().sendPasswordReset(withEmail: email) { error in
@@ -56,4 +58,5 @@ extension SignInViewModel: SignInViewmodelProtocol {
             }
         }
     }
+
 }
