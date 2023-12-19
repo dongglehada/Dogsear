@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol BookDetailViewModelProtocol {
+    func fetchPostData(completion: @escaping () -> Void)
+}
+
 class BookDetailViewModel {
     let firebaseManager = FirebaseManager()
     let postData: Observable<PostBook>
@@ -16,7 +20,7 @@ class BookDetailViewModel {
         self.postData = postData
     }
 }
-extension BookDetailViewModel {
+extension BookDetailViewModel: BookDetailViewModelProtocol {
     func fetchPostData(completion: @escaping () -> Void) {
         firebaseManager.fetchUserData { user in
             guard let index = user.PostBooks.firstIndex(where: {$0.id == self.postData.value?.id}) else { return }
