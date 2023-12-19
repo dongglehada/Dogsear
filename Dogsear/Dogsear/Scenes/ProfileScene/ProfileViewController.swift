@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SafariServices
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: BasicController {
     // MARK: - Property
     private let viewModel: ProfileViewModel
     

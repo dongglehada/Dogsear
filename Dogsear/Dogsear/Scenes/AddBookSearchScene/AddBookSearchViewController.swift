@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddBookSearchViewController: UIViewController {
+class AddBookSearchViewController: BasicController {
     // MARK: - Property
     private let viewModel: AddBookSearchViewModel
     
@@ -69,7 +69,6 @@ private extension AddBookSearchViewController {
     // MARK: - SetUp
 
     func setUp() {
-        view.backgroundColor = .systemBackground
         searchBar.delegate = self
         searchCollectionView.delegate = self
         searchCollectionView.dataSource = self

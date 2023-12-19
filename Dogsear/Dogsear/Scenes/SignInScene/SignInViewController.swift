@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import FirebaseAuth
 
-class SignInViewController: UIViewController {
+class SignInViewController: BasicController {
     // MARK: - Property
     private let viewModel: SignInViewModel
     
@@ -91,7 +91,6 @@ extension SignInViewController {
 private extension SignInViewController {
     // MARK: - SetUp
     func setUp() {
-        self.view.backgroundColor = .systemBackground
         setUpAddAction()
         setUpConstraints()
     }

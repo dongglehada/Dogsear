@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SafariServices
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: BasicController {
     // MARK: - Property
     private let viewModel: SignUpViewModel
     
@@ -70,7 +70,6 @@ private extension SignUpViewController {
     // MARK: - SetUp
 
     func setUp() {
-        view.backgroundColor = .systemBackground
         setUpConstraints()
         setUpDelegate()
         setUpAddAction()

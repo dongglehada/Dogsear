@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class CommentAddViewController: UIViewController {
+class CommentAddViewController: BasicController {
 
     // MARK: - Property
     private let viewModel: CommentAddViewModel
@@ -80,7 +80,6 @@ private extension CommentAddViewController {
     // MARK: - SetUp
     
     func setUp() {
-        view.backgroundColor = .systemBackground
         setUpConstraints()
         setUpBottomButton()
     }

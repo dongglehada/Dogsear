@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class BookDetailViewController: UIViewController {
+class BookDetailViewController: BasicController {
     // MARK: - Property
     private let viewModel: BookDetailViewModel
     
@@ -67,7 +67,6 @@ extension BookDetailViewController {
 private extension BookDetailViewController {
     // MARK: - Method
     func setUp() {
-        view.backgroundColor = .systemBackground
         commentTableView.delegate = self
         commentTableView.dataSource = self
         commentTableView.register(CommentTableViewCell.self, forCellReuseIdentifier: CommentTableViewCell.identifier)

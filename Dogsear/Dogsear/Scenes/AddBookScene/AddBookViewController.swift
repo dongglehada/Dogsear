@@ -8,7 +8,7 @@
 import UIKit
 import PhotosUI
 
-class AddBookViewController: UIViewController {
+class AddBookViewController: BasicController {
     // MARK: - Property
     private let viewModel: AddBookViewModel
     
@@ -79,7 +79,6 @@ private extension AddBookViewController {
         setUpDelegate()
         setUpAddAction()
         navigationItem.title = "추가 하기"
-        view.backgroundColor = .systemBackground
     }
     
     func setUpAddAction() {

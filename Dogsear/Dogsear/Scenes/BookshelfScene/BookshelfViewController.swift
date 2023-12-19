@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BookshelfViewController: UIViewController {
+class BookshelfViewController: BasicController {
     
     // MARK: - Property
     private let viewModel: BookshelfViewModel
