@@ -24,6 +24,7 @@
 		0880ED5E2B181004006F137B /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED5D2B181004006F137B /* ActivityIndicator.swift */; };
 		0880ED602B18C08D006F137B /* BookListTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED5F2B18C08D006F137B /* BookListTypeCollectionViewCell.swift */; };
 		088302CA2B31E79C008C8C11 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088302C92B31E79C008C8C11 /* Log.swift */; };
+		088302D32B32E51C008C8C11 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 088302D22B32E51C008C8C11 /* IQKeyboardManagerSwift */; };
 		089E0F822B125A2A006FDC0E /* UIVIewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E0F812B125A2A006FDC0E /* UIVIewExtension.swift */; };
 		089E0F852B125B21006FDC0E /* BookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E0F842B125B21006FDC0E /* BookshelfViewController.swift */; };
 		089E0F892B125B45006FDC0E /* BookshelfViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E0F882B125B45006FDC0E /* BookshelfViewModel.swift */; };
@@ -159,6 +160,7 @@
 				08D630212B0F2B5E00090F3C /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
 				08D630272B0F2B5E00090F3C /* FirebaseMessaging in Frameworks */,
 				08D630072B0F2B5E00090F3C /* FirebaseAppDistribution-Beta in Frameworks */,
+				088302D32B32E51C008C8C11 /* IQKeyboardManagerSwift in Frameworks */,
 				08D6300B2B0F2B5E00090F3C /* FirebaseAuthCombine-Community in Frameworks */,
 				08D630172B0F2B5E00090F3C /* FirebaseFirestoreCombine-Community in Frameworks */,
 				08D630012B0F2B5E00090F3C /* FirebaseAnalyticsSwift in Frameworks */,
@@ -464,6 +466,7 @@
 				08D6302E2B0F2B5E00090F3C /* FirebaseStorage */,
 				08D630302B0F2B5E00090F3C /* FirebaseStorageCombine-Community */,
 				08CEC0AC2B1F0576001341E4 /* Kingfisher */,
+				088302D22B32E51C008C8C11 /* IQKeyboardManagerSwift */,
 			);
 			productName = Dogsear;
 			productReference = 08D62FDF2B0F29D100090F3C /* Dogsear.app */;
@@ -497,6 +500,7 @@
 				08D62FF62B0F2A3700090F3C /* XCRemoteSwiftPackageReference "SnapKit" */,
 				08D62FFB2B0F2B5E00090F3C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				08CEC0AB2B1F0576001341E4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				088302D12B32E51C008C8C11 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 08D62FE02B0F29D100090F3C /* Products */;
 			projectDirPath = "";
@@ -803,6 +807,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		088302D12B32E51C008C8C11 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager?tab=readme-ov-file";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.16;
+			};
+		};
 		08CEC0AB2B1F0576001341E4 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -830,6 +842,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		088302D22B32E51C008C8C11 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 088302D12B32E51C008C8C11 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
 		08CEC0AC2B1F0576001341E4 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 08CEC0AB2B1F0576001341E4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
