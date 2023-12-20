@@ -195,6 +195,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         cell.imageView?.image = viewModel.settingItems[indexPath.row].iamge
         cell.imageView?.tintColor = .myPointColor
         cell.accessoryType = .disclosureIndicator
+        cell.selectionStyle = .none
         return cell
     }
     
