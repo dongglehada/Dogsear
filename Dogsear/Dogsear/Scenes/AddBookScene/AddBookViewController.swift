@@ -53,7 +53,7 @@ class AddBookViewController: BasicController {
     
     init(viewModel: AddBookViewModelProtocol) {
         self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
+        super.init()
     }
     
     required init?(coder: NSCoder) {
@@ -82,10 +82,11 @@ private extension AddBookViewController {
     }
     
     func setUpAddAction() {
-        bottomButton.button.addAction(UIAction(handler: { _ in self.didTapBottomButton()}), for: .primaryActionTriggered)
-        imageAddButton.addAction(UIAction(handler: { _ in self.didTapImageButton()}), for: .primaryActionTriggered)
-        segmentedControl.addAction(UIAction(handler: { _ in self.didChangeValue(segment: self.segmentedControl)}), for: .primaryActionTriggered)
+        bottomButton.button.addTarget(self, action: #selector(didTapBottomButton), for: .primaryActionTriggered)
+        imageAddButton.addTarget(self, action: #selector(didTapImageButton), for: .primaryActionTriggered)
+        segmentedControl.addTarget(self, action: #selector(didChangeValue(segment:)), for: .primaryActionTriggered)
     }
+    
     func setUpDelegate() {
         nameTextField.textField.delegate = self
         authorTextField.textField.delegate = self
@@ -177,7 +178,7 @@ private extension AddBookViewController {
 
 private extension AddBookViewController {
     // MARK: - Method
-    
+    @objc
     func didTapImageButton() {
         var configuration = PHPickerConfiguration()
         configuration.selectionLimit = 1
@@ -188,6 +189,7 @@ private extension AddBookViewController {
         self.present(picker, animated: true)
     }
     
+    @objc
     func didChangeValue(segment: UISegmentedControl) {
         switch segment.selectedSegmentIndex {
         case 0:
@@ -201,18 +203,19 @@ private extension AddBookViewController {
         }
     }
     
+    @objc
     func didTapBottomButton() {
         guard let newPost = viewModel.newPost.value else { return }
 
         if newPost.title != "" && newPost.author != "" && newPost.publisher != "" && newPost.imageUrl?.absoluteString != "" {
             viewModel.firebaseManager.createBookPost(newPost: newPost) {
-                self.dismiss(animated: true)
+                let rootView = MyCustomTabBarController()
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootVC(viewController: rootView, animated: false)
             }
         } else {
             AlertMaker.showAlertAction1(title: "입력하신 정보를 확인해 주세요.")
         }
     }
-
 }
 
 extension AddBookViewController {

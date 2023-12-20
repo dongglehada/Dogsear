@@ -52,7 +52,7 @@ class CommentAddViewController: BasicController {
 
     init(viewModel: CommentAddViewModelProtocol) {
         self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
+        super.init()
     }
     
     required init?(coder: NSCoder) {
@@ -93,7 +93,7 @@ private extension CommentAddViewController {
         } else {
             bottomButton.button.setTitle("기록하기", for: .normal)
         }
-        bottomButton.button.addAction(UIAction(handler: { _ in self.didTapBottomButton(state: state) }), for: .primaryActionTriggered)
+        bottomButton.button.addAction(UIAction(handler: { [weak self] _ in self?.didTapBottomButton(state: state) }), for: .primaryActionTriggered)
     }
     func setUpConstraints(){
         view.addSubview(bookTextLabel)

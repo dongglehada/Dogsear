@@ -95,7 +95,7 @@ class ProfileViewController: BasicController {
     
     init(viewModel: ProfileViewModelProtocol) {
         self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
+        super.init()
     }
     
     required init?(coder: NSCoder) {

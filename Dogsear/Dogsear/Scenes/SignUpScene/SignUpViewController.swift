@@ -47,7 +47,7 @@ class SignUpViewController: BasicController {
     
     init(viewModel: SignUpViewModelProtocol) {
         self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
+        super.init()
     }
     
     required init?(coder: NSCoder) {
@@ -128,9 +128,9 @@ private extension SignUpViewController {
     }
     
     func setUpAddAction() {
-        privacyAgreeButton.addAction(UIAction(handler: { _ in self.didTapPrivacyAgreeButton() }), for: .primaryActionTriggered)
-        privacyShowButton.addAction(UIAction(handler: { _ in self.didTapPrivacyShowButton() }), for: .primaryActionTriggered)
-        signUpButton.button.addAction(UIAction(handler: { _ in self.didTapBottomButton() }), for: .primaryActionTriggered)
+        privacyAgreeButton.addTarget(self, action: #selector(didTapPrivacyAgreeButton), for: .primaryActionTriggered)
+        privacyShowButton.addTarget(self, action: #selector(didTapPrivacyShowButton), for: .primaryActionTriggered)
+        signUpButton.button.addTarget(self, action: #selector(didTapBottomButton), for: .primaryActionTriggered)
     }
 }
 
@@ -210,17 +210,17 @@ private extension SignUpViewController {
 
 private extension SignUpViewController {
     // MARK: - Method
-    
+    @objc
     func didTapPrivacyAgreeButton() {
         viewModel.isPrivacyAgree.value?.toggle()
     }
-    
+    @objc
     func didTapPrivacyShowButton() {
         let privacyPolicyURL = URL(string: "https://plip.kr/pcc/33ee4b14-f641-4ed0-af8b-252891969dc0/privacy/1.html")!
         let safariViewController = SFSafariViewController(url: privacyPolicyURL)
         self.navigationController?.pushViewController(safariViewController, animated: true)
     }
-    
+    @objc
     func didTapBottomButton() {
         IndicatorMaker.showLoading()
         if viewModel.isValidSignUp() {

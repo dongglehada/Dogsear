@@ -50,7 +50,7 @@ class AddBookSearchViewController: BasicController {
 
     init(viewModel: AddBookSearchViewModelProtocol) {
         self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
+        super.init()
     }
     
     required init?(coder: NSCoder) {
@@ -82,8 +82,8 @@ private extension AddBookSearchViewController {
         searchBar.delegate = self
         searchCollectionView.delegate = self
         searchCollectionView.dataSource = self
-        backButton.addAction(UIAction { _ in self.dismiss(animated: true) }, for: .primaryActionTriggered)
-        bottomButton.button.addAction(UIAction(handler: { _ in self.didTapBottomButton() }), for: .primaryActionTriggered)
+        backButton.addTarget(self, action: #selector(didTapBackButton), for: .primaryActionTriggered)
+        bottomButton.button.addTarget(self, action: #selector(didTapBottomButton), for: .primaryActionTriggered)
         setUpConstraints()
     }
     
@@ -140,9 +140,14 @@ private extension AddBookSearchViewController {
 
 private extension AddBookSearchViewController {
     // MARK: - Method
+    @objc
+    func didTapBackButton() {
+        self.dismiss(animated: true)
+    }
+    
+    @objc
     func didTapBottomButton() {
         let rootVC = AddBookViewController(viewModel: AddBookViewModel())
-//        self.present(rootVC, animated: true)
         self.navigationController?.pushViewController(rootVC, animated: true)
     }
 }
@@ -153,9 +158,9 @@ extension AddBookSearchViewController: UISearchBarDelegate {
         IndicatorMaker.showLoading()
         viewModel.searchIndexReset()
         guard let startIndex = viewModel.searchIndex.value else { return }
+        self.infoDisplayView.isHidden = true
         viewModel.searchManager.getSearchData(searchKeyWord: searchKeyword, start: startIndex, completion: { [weak self] data in
             guard let self = self else { return }
-            self.infoDisplayView.isHidden = true
             self.viewModel.searchDatas.value = data.items
             IndicatorMaker.hideLoading()
         })
@@ -180,7 +185,7 @@ extension AddBookSearchViewController: UICollectionViewDelegate, UICollectionVie
         let rootVC = AddBookViewController(viewModel: AddBookViewModel())
         guard let datas = viewModel.searchDatas.value else { return }
         rootVC.setUpSearchData(data: datas[indexPath.row])
-        self.present(rootVC, animated: true)
+        self.navigationController?.pushViewController(rootVC, animated: true)
     }
     
     

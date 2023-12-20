@@ -32,7 +32,7 @@ class BookDetailViewController: BasicController {
     
     init(viewModel: BookDetailViewModelProtocol) {
         self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
+        super.init()
     }
     
     required init?(coder: NSCoder) {
@@ -45,6 +45,7 @@ extension BookDetailViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpConstraints()
         setUp()
         setUpData()
         bind()
@@ -70,12 +71,11 @@ private extension BookDetailViewController {
         commentTableView.delegate = self
         commentTableView.dataSource = self
         commentTableView.register(CommentTableViewCell.self, forCellReuseIdentifier: CommentTableViewCell.identifier)
-        recordButton.button.addAction(UIAction { _ in self.didTapRecordButton() }, for: .primaryActionTriggered)
-        bookStateSegmentControl.addAction(UIAction { _ in self.didChangeBookState() }, for: .valueChanged)
+        recordButton.button.addAction(UIAction { [weak self] _ in self?.didTapRecordButton() }, for: .primaryActionTriggered)
+        bookStateSegmentControl.addAction(UIAction { [weak self] _ in self?.didChangeBookState() }, for: .valueChanged)
         titleTextField.textField.isEnabled = false
         authorTextField.textField.isEnabled = false
         publisherTextField.textField.isEnabled = false
-        setUpConstraints()
     }
     
     func setUpData() {
@@ -102,7 +102,7 @@ private extension BookDetailViewController {
             button.setImage(UIImage(systemName: "pencil.circle"), for: .normal)
             return button
         }()
-        editButton.addAction(UIAction(handler: { _ in self.didTapEditButton() }), for: .primaryActionTriggered)
+        editButton.addAction(UIAction(handler: { [weak self] _ in self?.didTapEditButton() }), for: .primaryActionTriggered)
         
         let spacing = UIBarButtonItem(customView: UIView())
         
@@ -111,7 +111,7 @@ private extension BookDetailViewController {
             button.setImage(UIImage(systemName: "trash"), for: .normal)
             return button
         }()
-        removeButton.addAction(UIAction(handler: { _ in self.didTapRemoveButton() }), for: .primaryActionTriggered)
+        removeButton.addAction(UIAction(handler: { [weak self] _ in self?.didTapRemoveButton() }), for: .primaryActionTriggered)
         if state {
             self.navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: editButton),spacing, UIBarButtonItem(customView: removeButton)]
         } else {

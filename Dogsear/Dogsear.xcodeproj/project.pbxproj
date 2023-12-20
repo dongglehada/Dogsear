@@ -23,7 +23,6 @@
 		0880ED5C2B180F3A006F137B /* SearchDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED5B2B180F3A006F137B /* SearchDatas.swift */; };
 		0880ED5E2B181004006F137B /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED5D2B181004006F137B /* ActivityIndicator.swift */; };
 		0880ED602B18C08D006F137B /* BookListTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED5F2B18C08D006F137B /* BookListTypeCollectionViewCell.swift */; };
-		088302CA2B31E79C008C8C11 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088302C92B31E79C008C8C11 /* Log.swift */; };
 		088302D32B32E51C008C8C11 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 088302D22B32E51C008C8C11 /* IQKeyboardManagerSwift */; };
 		088302D92B32F7F2008C8C11 /* InfoDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088302D82B32F7F2008C8C11 /* InfoDisplayView.swift */; };
 		089E0F822B125A2A006FDC0E /* UIVIewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E0F812B125A2A006FDC0E /* UIVIewExtension.swift */; };
@@ -110,7 +109,6 @@
 		0880ED5B2B180F3A006F137B /* SearchDatas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDatas.swift; sourceTree = "<group>"; };
 		0880ED5D2B181004006F137B /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		0880ED5F2B18C08D006F137B /* BookListTypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListTypeCollectionViewCell.swift; sourceTree = "<group>"; };
-		088302C92B31E79C008C8C11 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		088302D82B32F7F2008C8C11 /* InfoDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDisplayView.swift; sourceTree = "<group>"; };
 		089E0F812B125A2A006FDC0E /* UIVIewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIewExtension.swift; sourceTree = "<group>"; };
 		089E0F842B125B21006FDC0E /* BookshelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookshelfViewController.swift; sourceTree = "<group>"; };
@@ -338,7 +336,6 @@
 				08C69E3E2B10AD6A0025B59D /* Typography.swift */,
 				087698862B2B1D630095890D /* AlertMaker.swift */,
 				0876988A2B2B1F550095890D /* IndicatorMaker.swift */,
-				088302C92B31E79C008C8C11 /* Log.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -565,7 +562,6 @@
 				08EEC02C2B2105B400E8FF6A /* BookDetailViewModel.swift in Sources */,
 				08CEC0B62B1F1818001341E4 /* ProfileViewController.swift in Sources */,
 				0880ED422B1785B7006F137B /* AddBookSearchViewController.swift in Sources */,
-				088302CA2B31E79C008C8C11 /* Log.swift in Sources */,
 				08CEC09E2B1B4383001341E4 /* SignUpViewModel.swift in Sources */,
 				08CEC09A2B1B4370001341E4 /* SignUpViewController.swift in Sources */,
 				08D62FE32B0F29D100090F3C /* AppDelegate.swift in Sources */,

@@ -10,13 +10,21 @@ import SnapKit
 
 class BasicController: UIViewController {
     
-    deinit {
-        Log(.deinit).logger(self)
-    }
-    
     // MARK: - LifeCycle
     override func viewDidLoad() {
         setUpColor()
+    }
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        print(self, "init")
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    deinit {
+        print(self, "deinit")
     }
 }
 
