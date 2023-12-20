@@ -27,6 +27,8 @@ class BookshelfViewController: BasicController {
         return view
     }()
     
+    private let infoDisplayView = InfoDisplayView(image: UIImage(systemName: "books.vertical"), description: "책장에 등록되어 있는 책이 없습니다.")
+    
     init(viewModel: BookshelfViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -78,6 +80,12 @@ private extension BookshelfViewController {
             make.top.equalTo(segmentedControl.snp.bottom).offset(Constant.defaults.padding)
             make.left.right.bottom.equalTo(view.safeAreaLayoutGuide).inset(Constant.defaults.padding)
         }
+        
+        view.addSubview(infoDisplayView)
+        infoDisplayView.snp.makeConstraints { make in
+            make.top.equalTo(segmentedControl.snp.bottom).offset(Constant.defaults.padding)
+            make.left.right.bottom.equalTo(view.safeAreaLayoutGuide).inset(Constant.defaults.padding)
+        }
     }
 }
 
@@ -102,15 +110,22 @@ private extension BookshelfViewController {
     }
     
     func fetchPostBooksAry(segment: UISegmentedControl) {
+        var data: [PostBook] = []
         switch segment.selectedSegmentIndex {
         case 0:
-            self.viewModel.postBooks.value = self.viewModel.originPostBooks.filter({$0.state == .reading})
+            data = self.viewModel.originPostBooks.filter({$0.state == .reading})
         case 1:
-            self.viewModel.postBooks.value = self.viewModel.originPostBooks.filter({$0.state == .complete})
+            data = self.viewModel.originPostBooks.filter({$0.state == .complete})
         case 2:
-            self.viewModel.postBooks.value = self.viewModel.originPostBooks.filter({$0.state == .expected})
+            data = self.viewModel.originPostBooks.filter({$0.state == .expected})
         default:
             print("등록되지 않은 state")
+        }
+        self.viewModel.postBooks.value = data
+        if data.isEmpty {
+            infoDisplayView.isHidden = false
+        } else {
+            infoDisplayView.isHidden = true
         }
     }
 }

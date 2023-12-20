@@ -43,6 +43,8 @@ class AddBookSearchViewController: BasicController {
         return button
     }()
     
+    private let infoDisplayView = InfoDisplayView(image: UIImage(systemName: "plus"), description: "책을 검색하거나 직접 입력하여 등록해 주세요.")
+    
     private let bottomButton = SharedButton(title: "직접 입력하기")
     
 
@@ -62,6 +64,14 @@ extension AddBookSearchViewController {
         super.viewDidLoad()
         setUp()
         bind()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
     }
 }
 
@@ -100,6 +110,13 @@ private extension AddBookSearchViewController {
             make.bottom.equalToSuperview().inset(Constant.defaults.blockHeight + (Constant.defaults.padding * 2))
         }
         
+        view.addSubview(infoDisplayView)
+        infoDisplayView.snp.makeConstraints { make in
+            make.top.equalTo(searchBar.snp.bottom).offset(Constant.defaults.padding - 8)
+            make.left.right.equalToSuperview()
+            make.bottom.equalToSuperview().inset(Constant.defaults.blockHeight + (Constant.defaults.padding * 2))
+        }
+        
         view.addSubview(bottomButton)
         bottomButton.snp.makeConstraints { make in
             make.bottom.left.right.equalTo(view.safeAreaLayoutGuide).inset(Constant.defaults.padding)
@@ -125,7 +142,8 @@ private extension AddBookSearchViewController {
     // MARK: - Method
     func didTapBottomButton() {
         let rootVC = AddBookViewController(viewModel: AddBookViewModel())
-        self.present(rootVC, animated: true)
+//        self.present(rootVC, animated: true)
+        self.navigationController?.pushViewController(rootVC, animated: true)
     }
 }
 
@@ -137,6 +155,7 @@ extension AddBookSearchViewController: UISearchBarDelegate {
         guard let startIndex = viewModel.searchIndex.value else { return }
         viewModel.searchManager.getSearchData(searchKeyWord: searchKeyword, start: startIndex, completion: { [weak self] data in
             guard let self = self else { return }
+            self.infoDisplayView.isHidden = true
             self.viewModel.searchDatas.value = data.items
             IndicatorMaker.hideLoading()
         })
