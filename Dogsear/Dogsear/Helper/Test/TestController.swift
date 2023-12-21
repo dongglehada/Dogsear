@@ -8,20 +8,26 @@
 import Foundation
 import UIKit
 
-class TestController: UIViewController {
-    let imageView: UIImageView = {
-        let view = UIImageView()
-        view.image = UIImage(systemName: "books.vertical")
-        view.contentMode = .scaleAspectFit
-        return view
-        
-    }()
+class TestController: BasicController {
+    // MARK: - Property
+    
+    // MARK: - Components
+
+}
+
+extension TestController {
+    // MARK: - LifeCycle
     override func viewDidLoad() {
-        self.view.backgroundColor = .systemBackground
-        view.addSubview(imageView)
-        imageView.snp.makeConstraints { make in
-            make.edges.equalTo(view.safeAreaLayoutGuide)
-        }
-        
+        super.viewDidLoad()
     }
+}
+
+private extension TestController {
+    // MARK: - SetUp
+
+}
+
+private extension TestController {
+    // MARK: - Method
+
 }

@@ -25,6 +25,8 @@
 		0880ED602B18C08D006F137B /* BookListTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880ED5F2B18C08D006F137B /* BookListTypeCollectionViewCell.swift */; };
 		088302D32B32E51C008C8C11 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 088302D22B32E51C008C8C11 /* IQKeyboardManagerSwift */; };
 		088302D92B32F7F2008C8C11 /* InfoDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088302D82B32F7F2008C8C11 /* InfoDisplayView.swift */; };
+		088302E02B34476F008C8C11 /* FontSizeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088302DF2B34476F008C8C11 /* FontSizeSettingViewController.swift */; };
+		088302E22B344783008C8C11 /* FontSizeSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088302E12B344783008C8C11 /* FontSizeSettingViewModel.swift */; };
 		089E0F822B125A2A006FDC0E /* UIVIewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E0F812B125A2A006FDC0E /* UIVIewExtension.swift */; };
 		089E0F852B125B21006FDC0E /* BookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E0F842B125B21006FDC0E /* BookshelfViewController.swift */; };
 		089E0F892B125B45006FDC0E /* BookshelfViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E0F882B125B45006FDC0E /* BookshelfViewModel.swift */; };
@@ -110,6 +112,8 @@
 		0880ED5D2B181004006F137B /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		0880ED5F2B18C08D006F137B /* BookListTypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListTypeCollectionViewCell.swift; sourceTree = "<group>"; };
 		088302D82B32F7F2008C8C11 /* InfoDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDisplayView.swift; sourceTree = "<group>"; };
+		088302DF2B34476F008C8C11 /* FontSizeSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSizeSettingViewController.swift; sourceTree = "<group>"; };
+		088302E12B344783008C8C11 /* FontSizeSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSizeSettingViewModel.swift; sourceTree = "<group>"; };
 		089E0F812B125A2A006FDC0E /* UIVIewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIewExtension.swift; sourceTree = "<group>"; };
 		089E0F842B125B21006FDC0E /* BookshelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookshelfViewController.swift; sourceTree = "<group>"; };
 		089E0F882B125B45006FDC0E /* BookshelfViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookshelfViewModel.swift; sourceTree = "<group>"; };
@@ -248,6 +252,15 @@
 			path = Test;
 			sourceTree = "<group>";
 		};
+		088302DE2B344751008C8C11 /* FontSizeSettingScene */ = {
+			isa = PBXGroup;
+			children = (
+				088302DF2B34476F008C8C11 /* FontSizeSettingViewController.swift */,
+				088302E12B344783008C8C11 /* FontSizeSettingViewModel.swift */,
+			);
+			path = FontSizeSettingScene;
+			sourceTree = "<group>";
+		};
 		089E0F832B125A9F006FDC0E /* BookshelfScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,6 +356,7 @@
 		08D6303C2B0F7AA700090F3C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				088302DE2B344751008C8C11 /* FontSizeSettingScene */,
 				08EEC0312B21B40600E8FF6A /* CommentAddScene */,
 				08EEC0262B21058C00E8FF6A /* BookDetailScene */,
 				08CEC0B42B1F1801001341E4 /* ProfileScene */,
@@ -562,11 +576,13 @@
 				08EEC02C2B2105B400E8FF6A /* BookDetailViewModel.swift in Sources */,
 				08CEC0B62B1F1818001341E4 /* ProfileViewController.swift in Sources */,
 				0880ED422B1785B7006F137B /* AddBookSearchViewController.swift in Sources */,
+				088302E22B344783008C8C11 /* FontSizeSettingViewModel.swift in Sources */,
 				08CEC09E2B1B4383001341E4 /* SignUpViewModel.swift in Sources */,
 				08CEC09A2B1B4370001341E4 /* SignUpViewController.swift in Sources */,
 				08D62FE32B0F29D100090F3C /* AppDelegate.swift in Sources */,
 				08CEC0B12B1F15BD001341E4 /* MyCustomTabBarController.swift in Sources */,
 				08D62FE52B0F29D100090F3C /* SceneDelegate.swift in Sources */,
+				088302E02B34476F008C8C11 /* FontSizeSettingViewController.swift in Sources */,
 				0876988B2B2B1F550095890D /* IndicatorMaker.swift in Sources */,
 				089E0F892B125B45006FDC0E /* BookshelfViewModel.swift in Sources */,
 				087698892B2B1D930095890D /* UIWindowExtension.swift in Sources */,

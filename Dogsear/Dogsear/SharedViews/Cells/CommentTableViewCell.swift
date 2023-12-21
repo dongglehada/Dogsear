@@ -14,7 +14,7 @@ class CommentTableViewCell: UITableViewCell {
     let bookTextView: UITextView = {
         let view = UITextView()
         view.isScrollEnabled = false
-        view.font = Typography.title2Medium.font
+        view.font = Typography.commentBook.font
         view.textAlignment = .center
         view.sizeToFit()
         return view
@@ -23,7 +23,7 @@ class CommentTableViewCell: UITableViewCell {
     let myTextView: UITextView = {
         let view = UITextView()
         view.isScrollEnabled = false
-        view.font = Typography.body2.font
+        view.font = Typography.commentMy.font
         view.textAlignment = .center
         view.sizeToFit()
         return view
