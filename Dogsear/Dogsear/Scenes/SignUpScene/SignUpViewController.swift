@@ -21,11 +21,11 @@ class SignUpViewController: BasicController {
         label.text = "회원가입"
         return label
     }()
-    let emailTextField = SharedTextField(type: .title, placeHolder: "이메일을 입력해주세요.", title: "이메일")
-    let nickNameTextField = SharedTextField(type: .title, placeHolder: "닉네임을 입력해주세요.", title: "닉네임")
-    let passwordTextField = SharedTextField(type: .titlePassword, placeHolder: "비밀번호를 입력해주세요.", title: "비밀번호")
-    let checkPasswordTextField = SharedTextField(type: .titlePassword, placeHolder: "동일한 비밀번호를 입력해주세요.", title: "비밀번호 확인")
-    let privacyAgreeButton: UIButton = {
+    private let emailTextField = SharedTextField(type: .title, placeHolder: "이메일을 입력해주세요.", title: "이메일")
+    private let nickNameTextField = SharedTextField(type: .title, placeHolder: "닉네임을 입력해주세요.", title: "닉네임")
+    private let passwordTextField = SharedTextField(type: .titlePassword, placeHolder: "비밀번호를 입력해주세요.", title: "비밀번호")
+    private let checkPasswordTextField = SharedTextField(type: .titlePassword, placeHolder: "동일한 비밀번호를 입력해주세요.", title: "비밀번호 확인")
+    private let privacyAgreeButton: UIButton = {
         let button = UIButton()
         button.setTitle("개인정보 처리방침에 동의합니다.", for: .normal)
         button.titleLabel?.font = Typography.body2.font
@@ -35,7 +35,7 @@ class SignUpViewController: BasicController {
         return button
     }()
     
-    let privacyShowButton: UIButton = {
+    private let privacyShowButton: UIButton = {
         let button = UIButton()
         button.setTitle("[보기]", for: .normal)
         button.setTitleColor(.black, for: .normal)
@@ -43,11 +43,11 @@ class SignUpViewController: BasicController {
         return button
     }()
     
-    let signUpButton = SharedButton(title: "회원가입")
+    private let signUpButton = SharedButton(title: "회원가입")
     
     init(viewModel: SignUpViewModelProtocol) {
         self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
+        super.init()
     }
     
     required init?(coder: NSCoder) {
@@ -60,9 +60,6 @@ extension SignUpViewController {
         super.viewDidLoad()
         setUp()
         bind()
-    }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
     }
 }
 
@@ -131,9 +128,9 @@ private extension SignUpViewController {
     }
     
     func setUpAddAction() {
-        privacyAgreeButton.addAction(UIAction(handler: { _ in self.didTapPrivacyAgreeButton() }), for: .primaryActionTriggered)
-        privacyShowButton.addAction(UIAction(handler: { _ in self.didTapPrivacyShowButton() }), for: .primaryActionTriggered)
-        signUpButton.button.addAction(UIAction(handler: { _ in self.didTapBottomButton() }), for: .primaryActionTriggered)
+        privacyAgreeButton.addTarget(self, action: #selector(didTapPrivacyAgreeButton), for: .primaryActionTriggered)
+        privacyShowButton.addTarget(self, action: #selector(didTapPrivacyShowButton), for: .primaryActionTriggered)
+        signUpButton.button.addTarget(self, action: #selector(didTapBottomButton), for: .primaryActionTriggered)
     }
 }
 
@@ -213,17 +210,17 @@ private extension SignUpViewController {
 
 private extension SignUpViewController {
     // MARK: - Method
-    
+    @objc
     func didTapPrivacyAgreeButton() {
         viewModel.isPrivacyAgree.value?.toggle()
     }
-    
+    @objc
     func didTapPrivacyShowButton() {
         let privacyPolicyURL = URL(string: "https://plip.kr/pcc/33ee4b14-f641-4ed0-af8b-252891969dc0/privacy/1.html")!
         let safariViewController = SFSafariViewController(url: privacyPolicyURL)
         self.navigationController?.pushViewController(safariViewController, animated: true)
     }
-    
+    @objc
     func didTapBottomButton() {
         IndicatorMaker.showLoading()
         if viewModel.isValidSignUp() {

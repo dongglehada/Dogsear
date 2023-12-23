@@ -71,7 +71,7 @@ class SignInViewController: BasicController {
     
     init(viewModel: SignInViewmodelProtocol) {
         self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
+        super.init()
     }
     
     required init?(coder: NSCoder) {
@@ -143,12 +143,15 @@ private extension SignInViewController {
         }
     }
     func setUpAddAction() {
-        signInButton.button.addAction(UIAction(handler: { _ in self.didTapSignInButton()}), for: .primaryActionTriggered)
-        signUpButton.addAction(UIAction(handler: { _ in self.didTapSignUpButton()}), for: .primaryActionTriggered)
-        autoLoginButton.addAction(UIAction(handler: { _ in self.didTapAutoLoginButton() }), for: .primaryActionTriggered)
-        passwordFindButton.addAction(UIAction(handler: { _ in self.didTapPasswordFindButton() }), for: .primaryActionTriggered)
+        signInButton.button.addTarget(self, action: #selector(didTapSignInButton), for: .primaryActionTriggered)
+        signUpButton.addTarget(self, action: #selector(didTapSignUpButton), for: .primaryActionTriggered)
+        autoLoginButton.addTarget(self, action: #selector(didTapAutoLoginButton), for: .primaryActionTriggered)
+        passwordFindButton.addTarget(self, action: #selector(didTapPasswordFindButton), for: .primaryActionTriggered)
     }
-    
+}
+
+private extension SignInViewController {
+    // MARK: - Bind
     func bind() {
         viewModel.isAutoLogin.bind({ [weak self] state in
             guard let state = state else { return }
@@ -165,15 +168,18 @@ private extension SignInViewController {
 extension SignInViewController {
     // MARK: - Method
     
+    @objc
     func didTapSignUpButton() {
         let vc = SignUpViewController(viewModel: SignUpViewModel())
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    @objc
     func didTapAutoLoginButton() {
         self.viewModel.isAutoLogin.value?.toggle()
     }
     
+    @objc
     func didTapPasswordFindButton() {
         let alert = UIAlertController(title: "비밀번호 재설정", message: "입력하신 이메일로 재설정 메일을 발송합니다.", preferredStyle: .alert)
 
@@ -190,17 +196,7 @@ extension SignInViewController {
         present(alert, animated: true)
     }
     
-    func missMatchLabelShow(isShow: Bool, content: String?) {
-        if isShow {
-            missMatchLabel.text = content
-            missMatchLabel.alpha = 1
-            missMatchLabel.shake()
-        } else {
-            missMatchLabel.alpha = 0
-        }
-    }
-    
-    
+    @objc
     func didTapSignInButton() {
         
         guard let email = emailTextField.textField.text else { return }
@@ -223,5 +219,15 @@ extension SignInViewController {
             }
             IndicatorMaker.hideLoading()
         })
+    }
+    
+    func missMatchLabelShow(isShow: Bool, content: String?) {
+        if isShow {
+            missMatchLabel.text = content
+            missMatchLabel.alpha = 1
+            missMatchLabel.shake()
+        } else {
+            missMatchLabel.alpha = 0
+        }
     }
 }

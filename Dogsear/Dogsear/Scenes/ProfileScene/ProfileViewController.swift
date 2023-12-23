@@ -95,7 +95,7 @@ class ProfileViewController: BasicController {
     
     init(viewModel: ProfileViewModelProtocol) {
         self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
+        super.init()
     }
     
     required init?(coder: NSCoder) {
@@ -195,16 +195,20 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         cell.imageView?.image = viewModel.settingItems[indexPath.row].iamge
         cell.imageView?.tintColor = .myPointColor
         cell.accessoryType = .disclosureIndicator
+        cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
+            let fontSettingVC = FontSizeSettingViewController(viewModel: FontSizeSettingViewModel())
+            self.navigationController?.pushViewController(fontSettingVC, animated: true)
+        case 1:
             let privacyPolicyURL = URL(string: "https://plip.kr/pcc/33ee4b14-f641-4ed0-af8b-252891969dc0/privacy/1.html")!
             let safariViewController = SFSafariViewController(url: privacyPolicyURL)
             self.navigationController?.pushViewController(safariViewController, animated: true)
-        case 1:
+        case 2:
             AlertMaker.showAlertAction2(vc: self,title: "로그아웃", message: "정말로 로그아웃 하시겠습니까?", cancelTitle: "취소", completeTitle: "확인", nil, {
                 self.viewModel.firebaseManager.logOut(completion: { isLogOut in
                     if isLogOut {
@@ -214,7 +218,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                     }
                 })
             })
-        case 2:
+        case 3:
             AlertMaker.showAlertAction2(vc: self,title: "회원탈퇴", message: "탈퇴시 모든 데이터가 삭제됩니다.", cancelTitle: "취소", completeTitle: "확인", nil, {
                 guard let email = self.viewModel.firebaseManager.email else { return }
                 self.viewModel.firebaseManager.deleteUser(email: email, completion: {

@@ -16,6 +16,8 @@ enum Typography {
     case body1
     case body2
     case body3
+    case commentBook
+    case commentMy
     
     var font: UIFont {
         switch self {
@@ -35,6 +37,10 @@ enum Typography {
             return .systemFont(ofSize: 14, weight: .regular)
         case .body3:
             return .systemFont(ofSize: 12, weight: .light)
+        case .commentBook:
+            return .systemFont(ofSize: 48 * CGFloat(UserDefaultsManager.getBookFontSize()), weight: .medium)
+        case .commentMy:
+            return .systemFont(ofSize: 28 * CGFloat(UserDefaultsManager.getMyFontSize()), weight: .regular)
         }
     }
 }

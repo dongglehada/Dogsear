@@ -61,13 +61,4 @@ extension BookCoverCollectionViewCell {
         coverImageView.kf.setImage(with: url)
         bookTitleLabel.text = postBook.title
     }
-    
-    func addPostCell() {
-        setUp(isAddCell: true)
-//        self.coverImageView.image = UIImage(systemName: "plus.diamond.fill")
-//        self.coverImageView.image = UIImage(systemName: "plus.app.fill")
-        self.coverImageView.image = UIImage(systemName: "plus.rectangle.portrait")
-//        self.coverImageView.image = UIImage(systemName: "plus.diamond.fill")
-//        self.coverImageView.image = UIImage(systemName: "plus.diamond.fill")
-    }
 }
