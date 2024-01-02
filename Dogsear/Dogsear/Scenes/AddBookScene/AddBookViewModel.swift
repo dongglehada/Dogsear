@@ -7,12 +7,7 @@
 
 import Foundation
 
-protocol AddBookViewModelProtocol {
-    var firebaseManager: FirebaseManager { get set }
-    var newPost: Observable<PostBook> { get set }
-}
-
-class AddBookViewModel: AddBookViewModelProtocol {
+class AddBookViewModel {
     
     var firebaseManager = FirebaseManager()
     var newPost: Observable<PostBook> = Observable(

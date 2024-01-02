@@ -7,14 +7,7 @@
 
 import Foundation
 
-protocol BookDetailViewModelProtocol {
-    var firebaseManager: FirebaseManager { get set }
-    var postData: Observable<PostBook> { get set }
-    var isEdit: Observable<Bool> { get set }
-    func fetchPostData(completion: @escaping () -> Void)
-}
-
-class BookDetailViewModel: BookDetailViewModelProtocol {
+class BookDetailViewModel {
     // MARK: - Property
     var firebaseManager = FirebaseManager()
     var postData: Observable<PostBook>

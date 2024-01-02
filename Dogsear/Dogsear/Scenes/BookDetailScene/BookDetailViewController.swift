@@ -10,7 +10,7 @@ import UIKit
 
 class BookDetailViewController: BasicController {
     // MARK: - Property
-    private let viewModel: BookDetailViewModelProtocol
+    private let viewModel: BookDetailViewModel
     
     // MARK: - Components
     private let bookStateSegmentControl = BookStateSegmentControl()
@@ -30,7 +30,7 @@ class BookDetailViewController: BasicController {
         return view
     }()
     
-    init(viewModel: BookDetailViewModelProtocol) {
+    init(viewModel: BookDetailViewModel) {
         self.viewModel = viewModel
         super.init()
     }

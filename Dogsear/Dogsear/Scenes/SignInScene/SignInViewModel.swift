@@ -15,14 +15,7 @@ enum SignInResult {
     case success
 }
 
-protocol SignInViewmodelProtocol {
-    var userDefaultManager: UserDefaultsManager { get set }
-    var isAutoLogin: Observable<Bool> { get set }
-    func passwordFind(email: String)
-    func trySignIn(email: String, password: String, completion: @escaping (SignInResult) -> Void)
-}
-
-class SignInViewModel: SignInViewmodelProtocol {
+class SignInViewModel {
     // MARK: - Property
     var userDefaultManager = UserDefaultsManager()
     var isAutoLogin: Observable<Bool> = Observable(false)

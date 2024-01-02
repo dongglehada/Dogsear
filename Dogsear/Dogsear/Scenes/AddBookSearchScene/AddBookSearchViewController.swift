@@ -9,7 +9,7 @@ import UIKit
 
 class AddBookSearchViewController: BasicController {
     // MARK: - Property
-    private var viewModel: AddBookSearchViewModelProtocol
+    private var viewModel: AddBookSearchViewModel
     
     // MARK: - Components
     private let logoImageView: UIImageView = {
@@ -48,7 +48,7 @@ class AddBookSearchViewController: BasicController {
     private let bottomButton = SharedButton(title: "직접 입력하기")
     
 
-    init(viewModel: AddBookSearchViewModelProtocol) {
+    init(viewModel: AddBookSearchViewModel) {
         self.viewModel = viewModel
         super.init()
     }

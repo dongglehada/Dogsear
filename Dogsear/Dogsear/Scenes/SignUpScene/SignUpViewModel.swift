@@ -21,25 +21,7 @@ enum ValidationResult {
     case unconformity
 }
 
-protocol SignUpViewModelProtocol {
-    
-    var emailState: Observable<ValidationResult> { get set }
-    var nickNameState: Observable<ValidationResult> { get set }
-    var passwordState: Observable<ValidationResult> { get set }
-    var checkPasswordState: Observable<ValidationResult> { get set }
-    var isPrivacyAgree: Observable<Bool> { get set }
-    var isSignUpAble: Observable<Bool> { get set }
-    var firebaseManager:FirebaseManager { get set }
-    
-    func trySignUp(email: String, password: String, nickName: String, completion: @escaping (_ isSuccess: Bool, _ errorMessage: String?) -> Void )
-    func isValidEmail(email: String)
-    func isValidNickName(nickName: String)
-    func isValidPassword(password: String)
-    func isCheckPassword(password: String, checkPassword: String)
-    func isValidSignUp() -> Bool
-}
-
-class SignUpViewModel: SignUpViewModelProtocol {
+class SignUpViewModel {
     // MARK: - Property
     var emailState: Observable<ValidationResult> = Observable(.empty)
     var nickNameState: Observable<ValidationResult> = Observable(.empty)

@@ -10,7 +10,7 @@ import UIKit
 class BookshelfViewController: BasicController {
     
     // MARK: - Property
-    private var viewModel: BookshelfViewModelProtocol
+    private var viewModel: BookshelfViewModel
     
     // MARK: - Components
     private let segmentedControl = BookStateSegmentControl()
@@ -29,7 +29,7 @@ class BookshelfViewController: BasicController {
     
     private let infoDisplayView = InfoDisplayView(image: UIImage(systemName: "books.vertical"), description: "책장에 등록되어 있는 책이 없습니다.")
     
-    init(viewModel: BookshelfViewModelProtocol) {
+    init(viewModel: BookshelfViewModel) {
         self.viewModel = viewModel
         super.init()
     }

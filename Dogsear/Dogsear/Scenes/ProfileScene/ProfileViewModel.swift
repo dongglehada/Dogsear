@@ -9,13 +9,7 @@ import Foundation
 import UIKit
 import FirebaseAuth
 
-
-protocol ProfileViewModelProtocol {
-    var firebaseManager: FirebaseManager { get set }
-    var settingItems: [SettingItem] { get set }
-}
-
-class ProfileViewModel: ProfileViewModelProtocol {
+class ProfileViewModel {
     var firebaseManager = FirebaseManager()
     var settingItems:[SettingItem] = [
         SettingItem(title: "폰트 크기 설정", iamge: UIImage(systemName: "character.cursor.ibeam")),
