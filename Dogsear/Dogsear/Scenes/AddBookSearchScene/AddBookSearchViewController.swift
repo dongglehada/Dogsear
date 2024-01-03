@@ -190,23 +190,25 @@ extension AddBookSearchViewController: UICollectionViewDelegate, UICollectionVie
     
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        if (scrollView.contentOffset.y + 1) >= (scrollView.contentSize.height - scrollView.frame.size.height) {
-            if viewModel.isLoadingAble {
-                viewModel.isLoadingAble = false
-                IndicatorMaker.showLoading()
-                viewModel.searchIndexAdd()
-                guard let keyword = searchBar.text else { return }
-                guard let index = viewModel.searchIndex.value else { return }
-                viewModel.searchManager.getSearchData(searchKeyWord: keyword, start: index, completion: { [weak self] data in
-                    guard let self = self else { return }
-                    guard let oldData = self.viewModel.searchDatas.value else { return }
-                    self.viewModel.searchDatas.value = oldData + data.items
-                    DispatchQueue.main.async {
-                        IndicatorMaker.hideLoading()
-                        self.viewModel.isLoadingAble = true
-                    }
-                })
+        guard let data = viewModel.searchDatas.value else { return }
+        if !data.isEmpty {
+            if (scrollView.contentOffset.y + 1) >= (scrollView.contentSize.height - scrollView.frame.size.height) {
+                if viewModel.isLoadingAble {
+                    viewModel.isLoadingAble = false
+                    IndicatorMaker.showLoading()
+                    viewModel.searchIndexAdd()
+                    guard let keyword = searchBar.text else { return }
+                    guard let index = viewModel.searchIndex.value else { return }
+                    viewModel.searchManager.getSearchData(searchKeyWord: keyword, start: index, completion: { [weak self] data in
+                        guard let self = self else { return }
+                        guard let oldData = self.viewModel.searchDatas.value else { return }
+                        self.viewModel.searchDatas.value = oldData + data.items
+                        DispatchQueue.main.async {
+                            IndicatorMaker.hideLoading()
+                            self.viewModel.isLoadingAble = true
+                        }
+                    })
+                }
             }
         }
     }
