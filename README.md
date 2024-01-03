@@ -12,3 +12,5 @@
 - Kingfisher
 - Firebase
 - IQkeyboardManager
+### 🧑‍💻Developer
+- 서준영 : ghddns34@gmail.com
