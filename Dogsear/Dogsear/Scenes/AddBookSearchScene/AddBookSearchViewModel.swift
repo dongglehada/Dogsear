@@ -7,16 +7,7 @@
 
 import Foundation
 
-protocol AddBookSearchViewModelProtocol {
-    var searchManager: BookSearchManager { get set }
-    var searchDatas: Observable<[SearchData]> { get set }
-    var searchIndex: Observable<Int> { get set }
-    var isLoadingAble: Bool { get set }
-    func searchIndexAdd()
-    func searchIndexReset()
-}
-
-class AddBookSearchViewModel: AddBookSearchViewModelProtocol {
+class AddBookSearchViewModel {
     // MARK: - Property
     var searchManager = BookSearchManager()
     var searchDatas: Observable<[SearchData]> = Observable([])

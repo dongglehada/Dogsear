@@ -7,16 +7,7 @@
 
 import Foundation
 
-protocol CommentAddViewModelProtocol {
-    var firebaseManager: FirebaseManager { get set }
-    var postID: String { get set }
-    var comment: PostBookComment? { get set }
-    var isEditPost: Bool { get set }
-    func isVaildCommet(bookText: String, myText: String) -> Bool
-    func makeCommentPost(bookText: String, myText: String, completion: @escaping () -> Void)
-}
-
-class CommentAddViewModel: CommentAddViewModelProtocol {
+class CommentAddViewModel {
     // MARK: - Property
     var firebaseManager = FirebaseManager()
     var postID: String

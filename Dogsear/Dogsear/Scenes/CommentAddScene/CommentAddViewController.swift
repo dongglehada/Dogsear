@@ -11,7 +11,7 @@ import UIKit
 class CommentAddViewController: BasicController {
 
     // MARK: - Property
-    private var viewModel: CommentAddViewModelProtocol
+    private var viewModel: CommentAddViewModel
     
     
     // MARK: - Components
@@ -50,7 +50,7 @@ class CommentAddViewController: BasicController {
     private let bottomButton = SharedButton(title: "some")
     
 
-    init(viewModel: CommentAddViewModelProtocol) {
+    init(viewModel: CommentAddViewModel) {
         self.viewModel = viewModel
         super.init()
     }
