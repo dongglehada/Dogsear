@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+
 class CommentTableViewCell: UITableViewCell {
     
     let trailView = UIView()
@@ -31,7 +33,6 @@ class CommentTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setUpConstraints()
         editAble(state: false)
     }
     
@@ -42,28 +43,41 @@ class CommentTableViewCell: UITableViewCell {
 
 
 private extension CommentTableViewCell {
-    func setUpConstraints() {
-        
-        contentView.addSubview(bookTextView)
-        bookTextView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
-            make.top.equalToSuperview()
-        }
-        contentView.addSubview(myTextView)
-        myTextView.snp.makeConstraints { make in
-            make.top.equalTo(bookTextView.snp.bottom).offset(Constant.defaults.padding)
-            make.left.right.equalToSuperview()
-            make.bottom.centerX.equalToSuperview()
+    
+    func remakeConstraints(state: CommentState) {
+        switch state {
+            case .bookComment:
+            contentView.addSubview(bookTextView)
+            bookTextView.snp.remakeConstraints { make in
+                make.edges.equalToSuperview()
+            }
+            case .myComment:
+            contentView.addSubview(myTextView)
+            myTextView.snp.remakeConstraints { make in
+                make.edges.equalToSuperview()
+            }
+            case .both:
+            contentView.addSubview(bookTextView)
+            bookTextView.snp.remakeConstraints { make in
+                make.left.right.equalToSuperview()
+                make.top.equalToSuperview()
+            }
+            contentView.addSubview(myTextView)
+            myTextView.snp.remakeConstraints { make in
+                make.top.equalTo(bookTextView.snp.bottom).offset(Constant.defaults.padding)
+                make.left.right.equalToSuperview()
+                make.bottom.centerX.equalToSuperview()
+            }
         }
     }
 }
 
 extension CommentTableViewCell {
     
-    
-    func bind(comment: PostBookComment) {
+    func bind(comment: PostBookComment, state: CommentState) {
         bookTextView.text = "\"\(comment.bookComment)\""
         myTextView.text = comment.myComment
+        remakeConstraints(state: state)
     }
     
     func editAble(state: Bool) {

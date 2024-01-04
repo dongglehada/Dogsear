@@ -20,10 +20,10 @@ class CommentAddViewModel {
     }
     // MARK: - Method
     func isVaildCommet(bookText: String, myText: String) -> Bool {
-        if !bookText.isEmpty && !myText.isEmpty {
-            return true
+        if bookText.isEmpty && myText.isEmpty {
+            return false
         }
-        return false
+        return true
     }
     
     func makeCommentPost(bookText: String, myText: String, completion: @escaping () -> Void) {
