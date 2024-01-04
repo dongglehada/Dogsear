@@ -78,7 +78,7 @@ class FontSizeSettingViewController: BasicController {
         return slider
     }()
     
-    private let bottomButton = SharedButton(title: "초기화")
+    private let bottomButton = SharedButton(title: "저장")
     
     init(viewModel: FontSizeSettingViewModel) {
         self.viewModel = viewModel
@@ -114,6 +114,8 @@ private extension FontSizeSettingViewController {
         bookSlider.addTarget(self, action: #selector(didChangeBookSlider(sender: )), for: .valueChanged)
         mySlider.addTarget(self, action: #selector(didChangeMySlider(sender: )), for: .valueChanged)
         bottomButton.button.addTarget(self, action: #selector(didTapBottomButton), for: .primaryActionTriggered)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "초기화", style: .plain, target: self, action: #selector(didTapNavigationRightButton))
+
     }
 
     func setUpConstraints() {
@@ -183,28 +185,29 @@ private extension FontSizeSettingViewController {
 
     @objc
     func didChangeBookSlider(sender: UISlider) {
-        let manager = UserDefaultsManager()
         let value = Double(sender.value)
-        manager.setBookFontSize(value: value)
-        commentBookDisplayLabel.font = Typography.commentBook.font
+        commentBookDisplayLabel.font = .systemFont(ofSize: 48 * CGFloat(value), weight: .medium)
     }
     
     @objc
     func didChangeMySlider(sender: UISlider) {
-        let manager = UserDefaultsManager()
         let value = Double(sender.value)
-        manager.setMyFontSize(value: value)
-        commentMyDisplayLabel.font = Typography.commentMy.font
+        commentMyDisplayLabel.font = .systemFont(ofSize: 28 * CGFloat(value), weight: .regular)
     }
     
     @objc
     func didTapBottomButton() {
         let manager = UserDefaultsManager()
-        manager.setBookFontSize(value: 0)
-        manager.setMyFontSize(value: 0)
+        manager.setBookFontSize(value: Double(bookSlider.value))
+        manager.setMyFontSize(value: Double(mySlider.value))
+        AlertMaker.showAlertAction1(title: "저장이 완료되었습니다.")
+    }
+    
+    @objc
+    func didTapNavigationRightButton() {
         bookSlider.value = 0
         mySlider.value = 0
-        commentBookDisplayLabel.font = Typography.commentBook.font
-        commentMyDisplayLabel.font = Typography.commentMy.font
+        commentBookDisplayLabel.font = .systemFont(ofSize: 0, weight: .medium)
+        commentMyDisplayLabel.font = .systemFont(ofSize: 0, weight: .regular)
     }
 }
