@@ -79,12 +79,21 @@ private extension BookListTypeCollectionViewCell {
 }
 
 extension BookListTypeCollectionViewCell {
-    func bind(item: SearchData) {
+    func searchDataBind(item: SearchData) {
         titleLabel.textField.text = "\(item.title)"
         authorLabel.textField.text = "저자: \(item.author)"
         publisherLabel.textField.text = "출판사: \(item.publisher)"
         descriptionLabel.textField.text = "설명: \(item.description)"
         imageView.kf.indicatorType = .activity
         imageView.kf.setImage(with: URL(string: item.image))
+    }
+    
+    func postBookDataBind(item: PostBook) {
+        titleLabel.textField.text = "\(item.title)"
+        authorLabel.textField.text = "저자: \(item.author)"
+        publisherLabel.textField.text = "출판사: \(item.publisher)"
+        descriptionLabel.textField.text = "기록한 글: \(item.comments.count)개"
+        imageView.kf.indicatorType = .activity
+        imageView.kf.setImage(with: item.imageUrl)
     }
 }

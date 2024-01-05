@@ -13,6 +13,7 @@ struct UserDefaultsManager {
     private let isAutoLogin = "isAutoLogin"
     private let bookFont = "isBookFont"
     private let myFont = "isMyFont"
+    private let viewType = "viewType"
     
     func setAutoLogin(toggle:Bool) {
         defaults.set(toggle, forKey: isAutoLogin)
@@ -26,6 +27,13 @@ struct UserDefaultsManager {
         defaults.set(value, forKey: bookFont)
     }
     
+    func setIsListView(value: Bool) {
+        defaults.set(value, forKey: viewType)
+    }
+    
+    func getIsListView() -> Bool{
+        return defaults.bool(forKey: viewType)
+    }
     static func getBookFontSize() -> Double {
         return UserDefaults.standard.double(forKey: "isBookFont")
     }
