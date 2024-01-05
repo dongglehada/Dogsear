@@ -56,6 +56,8 @@ extension BookDetailViewController {
         IndicatorMaker.showLoading()
         viewModel.fetchPostData(){ [weak self] in
             self?.commentTableView.reloadData()
+            self?.commentTableView.beginUpdates()
+            self?.commentTableView.endUpdates()
             IndicatorMaker.hideLoading()
         }
     }
@@ -254,9 +256,11 @@ extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: CommentTableViewCell.identifier, for: indexPath) as! CommentTableViewCell
         guard let comments = viewModel.postData.value?.comments else { return UITableViewCell() }
-        cell.bind(comment: comments[indexPath.row])
+        let state = viewModel.getCommentState(comment: comments[indexPath.row])
+        cell.bind(comment: comments[indexPath.row], state: state)
         cell.selectionStyle = .none
         return cell
     }

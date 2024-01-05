@@ -27,6 +27,7 @@ class MyCustomTabBarController : UITabBarController {
         let aciton = UIAction { [weak self] _ in
             let rootVC = UINavigationController(rootViewController: AddBookSearchViewController(viewModel: AddBookSearchViewModel()))
             rootVC.modalPresentationStyle = .fullScreen
+            rootVC.navigationBar.tintColor = .myPointColor
             self?.present(rootVC, animated: true)
         }
         btnMiddle.addAction(aciton, for: .primaryActionTriggered)
@@ -58,6 +59,7 @@ class MyCustomTabBarController : UITabBarController {
             selectedImage: UIImage(systemName: "books.vertical.fill")
         )
         let bookshelf = UINavigationController(rootViewController: bookshelfVC)
+        bookshelf.navigationBar.tintColor = .myPointColor
         
         let profileVC = ProfileViewController(viewModel: ProfileViewModel())
         profileVC.tabBarItem = UITabBarItem(
@@ -66,6 +68,7 @@ class MyCustomTabBarController : UITabBarController {
             selectedImage: UIImage(systemName: "gearshape.fill")
         )
         let profile = UINavigationController(rootViewController: profileVC)
+        profile.navigationBar.tintColor = .myPointColor
         viewControllers = [bookshelf, profile]
     }
     

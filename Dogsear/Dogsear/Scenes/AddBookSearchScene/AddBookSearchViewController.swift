@@ -176,7 +176,7 @@ extension AddBookSearchViewController: UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BookListTypeCollectionViewCell.identifier, for: indexPath) as! BookListTypeCollectionViewCell
         guard let safeData = viewModel.searchDatas.value else { return cell }
-        cell.bind(item: safeData[indexPath.row])
+        cell.searchDataBind(item: safeData[indexPath.row])
 
         return cell
     }
