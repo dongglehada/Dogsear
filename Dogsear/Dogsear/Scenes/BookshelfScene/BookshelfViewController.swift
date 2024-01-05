@@ -83,8 +83,8 @@ extension BookshelfViewController {
         viewModel.firebaseManager.fetchUserData(completion: { [weak self] user in
             guard let self = self else { return }
             self.viewModel.originPostBooks = user.PostBooks
-            self.isOnEmptyDisplay()
             viewModel.fetchSearhData(segment: segmentedControl, searchText: searchBar.text ?? "")
+            self.isOnEmptyDisplay()
             setBookCount()
             IndicatorMaker.hideLoading()
         })
@@ -267,5 +267,9 @@ extension BookshelfViewController: UICollectionViewDelegateFlowLayout {
 extension BookshelfViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.fetchSearhData(segment: segmentedControl, searchText: searchText)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
     }
 }
