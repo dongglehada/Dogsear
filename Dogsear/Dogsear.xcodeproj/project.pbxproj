@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0876987E2B2995D70095890D /* MyTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0876987D2B2995D70095890D /* MyTimer.swift */; };
 		087698802B29993E0095890D /* TestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0876987F2B29993E0095890D /* TestController.swift */; };
 		087698852B2B0AB00095890D /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 087698842B2B0AB00095890D /* LaunchImage.png */; };
 		087698872B2B1D630095890D /* AlertMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087698862B2B1D630095890D /* AlertMaker.swift */; };
@@ -95,7 +94,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0876987D2B2995D70095890D /* MyTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTimer.swift; sourceTree = "<group>"; };
 		0876987F2B29993E0095890D /* TestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestController.swift; sourceTree = "<group>"; };
 		087698842B2B0AB00095890D /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LaunchImage.png; path = ../../../../../../../../Downloads/LaunchScreen/LaunchImage.png; sourceTree = "<group>"; };
 		087698862B2B1D630095890D /* AlertMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMaker.swift; sourceTree = "<group>"; };
@@ -248,7 +246,6 @@
 			isa = PBXGroup;
 			children = (
 				0876987F2B29993E0095890D /* TestController.swift */,
-				0876987D2B2995D70095890D /* MyTimer.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -566,7 +563,6 @@
 				0880ED5E2B181004006F137B /* ActivityIndicator.swift in Sources */,
 				08D6303B2B0F300600090F3C /* Observable.swift in Sources */,
 				08C69E392B10AB070025B59D /* SharedTextField.swift in Sources */,
-				0876987E2B2995D70095890D /* MyTimer.swift in Sources */,
 				089E0F852B125B21006FDC0E /* BookshelfViewController.swift in Sources */,
 				08EEC0392B21D8B500E8FF6A /* CommentTableViewCell.swift in Sources */,
 				089E0F902B1268E7006FDC0E /* BookCoverCollectionViewCell.swift in Sources */,
